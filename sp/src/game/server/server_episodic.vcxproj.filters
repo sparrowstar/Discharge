@@ -31,6 +31,9 @@
     <Filter Include="VPC Scripts">
       <UniqueIdentifier>{A40EE377-781A-C6B9-0C7C-B3BE118D248E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Discharge DLL">
+      <UniqueIdentifier>{d8bc77d4-25a9-4921-9885-3255c9aebaa5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\choreoobjects.lib">
@@ -1784,6 +1787,9 @@
     <ClInclude Include="toolframework_server.h">
       <Filter>Tools Framework</Filter>
     </ClInclude>
+    <ClInclude Include="discharge\weapon_wrench.h">
+      <Filter>Source Files\Discharge DLL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gamedll_replay.cpp">
@@ -3504,6 +3510,12 @@
     </ClCompile>
     <ClCompile Include="toolframework_server.cpp">
       <Filter>Tools Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="discharge\weapon_wrench.cpp">
+      <Filter>Source Files\Discharge DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="discharge\weapon_ak47.cpp">
+      <Filter>Source Files\Discharge DLL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
