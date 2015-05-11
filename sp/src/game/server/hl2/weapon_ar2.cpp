@@ -31,9 +31,7 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-ConVar sk_weapon_ar2_alt_fire_radius( "sk_weapon_ar2_alt_fire_radius", "10" );
-ConVar sk_weapon_ar2_alt_fire_duration( "sk_weapon_ar2_alt_fire_duration", "2" );
-ConVar sk_weapon_ar2_alt_fire_mass( "sk_weapon_ar2_alt_fire_mass", "150" );
+ConVar sk_plr_dmg_ar2_grenade("sk_plr_dmg_ar2_grenade", "100");
 
 //=========================================================
 //=========================================================
@@ -227,15 +225,6 @@ void CWeaponAR2::DelayedAttack( void )
 
 	// Fire the bullets
 	Vector vecVelocity = vecAiming * 1000.0f;
-
-	// Fire the combine ball
-	CreateCombineBall(	vecSrc, 
-						vecVelocity, 
-						sk_weapon_ar2_alt_fire_radius.GetFloat(), 
-						sk_weapon_ar2_alt_fire_mass.GetFloat(),
-						sk_weapon_ar2_alt_fire_duration.GetFloat(),
-						pOwner );
-
 	// View effects
 	color32 white = {255, 255, 255, 64};
 	UTIL_ScreenFade( pOwner, white, 0.1, 0, FFADE_IN  );
@@ -266,32 +255,67 @@ void CWeaponAR2::DelayedAttack( void )
 //-----------------------------------------------------------------------------
 void CWeaponAR2::SecondaryAttack( void )
 {
-	if ( m_bShotDelayed )
+	// Only the player fires this way so we can cast
+	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
+
+	if (pPlayer == NULL)
 		return;
 
-	// Cannot fire underwater
-	if ( GetOwner() && GetOwner()->GetWaterLevel() == 3 )
+	//Must have ammo
+	if ((pPlayer->GetAmmoCount(m_iSecondaryAmmoType) <= 0) || (pPlayer->GetWaterLevel() == 3))
 	{
-		SendWeaponAnim( ACT_VM_DRYFIRE );
-		BaseClass::WeaponSound( EMPTY );
+		SendWeaponAnim(ACT_VM_DRYFIRE);
+		BaseClass::WeaponSound(EMPTY);
 		m_flNextSecondaryAttack = gpGlobals->curtime + 0.5f;
 		return;
 	}
 
-	m_bShotDelayed = true;
-	m_flNextPrimaryAttack = m_flNextSecondaryAttack = m_flDelayedFire = gpGlobals->curtime + 0.5f;
+	if (m_bInReload)
+		m_bInReload = false;
 
-	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
-	if( pPlayer )
-	{
-		pPlayer->RumbleEffect(RUMBLE_AR2_ALT_FIRE, 0, RUMBLE_FLAG_RESTART );
-	}
+	// MUST call sound before removing a round from the clip of a CMachineGun
+	BaseClass::WeaponSound(WPN_DOUBLE);
 
-	SendWeaponAnim( ACT_VM_FIDGET );
-	WeaponSound( SPECIAL1 );
+	pPlayer->RumbleEffect(RUMBLE_357, 0, RUMBLE_FLAGS_NONE);
+
+	Vector vecSrc = pPlayer->Weapon_ShootPosition();
+	Vector	vecThrow;
+	// Don't autoaim on grenade tosses
+	AngleVectors(pPlayer->EyeAngles() + pPlayer->GetPunchAngle(), &vecThrow);
+	VectorScale(vecThrow, 1000.0f, vecThrow);
+
+	//Create the grenade
+	QAngle angles;
+	VectorAngles(vecThrow, angles);
+	CGrenadeAR2 *pGrenade = (CGrenadeAR2*)Create("grenade_ar2", vecSrc, angles, pPlayer);
+	pGrenade->SetAbsVelocity(vecThrow);
+
+	pGrenade->SetLocalAngularVelocity(RandomAngle(-400, 400));
+	pGrenade->SetMoveType(MOVETYPE_FLYGRAVITY, MOVECOLLIDE_FLY_BOUNCE);
+	pGrenade->SetThrower(GetOwner());
+	pGrenade->SetDamage(sk_plr_dmg_ar2_grenade.GetFloat());
+
+	SendWeaponAnim(ACT_VM_SECONDARYATTACK);
+
+	CSoundEnt::InsertSound(SOUND_COMBAT, GetAbsOrigin(), 1000, 0.2, GetOwner(), SOUNDENT_CHANNEL_WEAPON);
+
+	// player "shoot" animation
+	pPlayer->SetAnimation(PLAYER_ATTACK1);
+
+	// Decrease ammo
+	pPlayer->RemoveAmmo(1, m_iSecondaryAmmoType);
+
+	// Can shoot again immediately
+	m_flNextPrimaryAttack = gpGlobals->curtime + 0.5f;
+
+	// Can blow up after a short delay (so have time to release mouse button)
+	m_flNextSecondaryAttack = gpGlobals->curtime + 1.0f;
+
+	// Register a muzzleflash for the AI.
+	pPlayer->SetMuzzleFlashTime(gpGlobals->curtime + 0.5);
 
 	m_iSecondaryAttacks++;
-	gamestats->Event_WeaponFired( pPlayer, false, GetClassname() );
+	gamestats->Event_WeaponFired(pPlayer, false, GetClassname());
 }
 
 //-----------------------------------------------------------------------------
@@ -352,84 +376,13 @@ void CWeaponAR2::FireNPCPrimaryAttack( CBaseCombatCharacter *pOperator, bool bUs
 	m_iClip1 = m_iClip1 - 1;
 }
 
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-void CWeaponAR2::FireNPCSecondaryAttack( CBaseCombatCharacter *pOperator, bool bUseWeaponAngles )
-{
-	WeaponSound( WPN_DOUBLE );
 
-	if ( !GetOwner() )
-		return;
-		
-	CAI_BaseNPC *pNPC = GetOwner()->MyNPCPointer();
-	if ( !pNPC )
-		return;
-	
-	// Fire!
-	Vector vecSrc;
-	Vector vecAiming;
-
-	if ( bUseWeaponAngles )
-	{
-		QAngle	angShootDir;
-		GetAttachment( LookupAttachment( "muzzle" ), vecSrc, angShootDir );
-		AngleVectors( angShootDir, &vecAiming );
-	}
-	else 
-	{
-		vecSrc = pNPC->Weapon_ShootPosition( );
-		
-		Vector vecTarget;
-
-		CNPC_Combine *pSoldier = dynamic_cast<CNPC_Combine *>( pNPC );
-		if ( pSoldier )
-		{
-			// In the distant misty past, elite soldiers tried to use bank shots.
-			// Therefore, we must ask them specifically what direction they are shooting.
-			vecTarget = pSoldier->GetAltFireTarget();
-		}
-		else
-		{
-			// All other users of the AR2 alt-fire shoot directly at their enemy.
-			if ( !pNPC->GetEnemy() )
-				return;
-				
-			vecTarget = pNPC->GetEnemy()->BodyTarget( vecSrc );
-		}
-
-		vecAiming = vecTarget - vecSrc;
-		VectorNormalize( vecAiming );
-	}
-
-	Vector impactPoint = vecSrc + ( vecAiming * MAX_TRACE_LENGTH );
-
-	float flAmmoRatio = 1.0f;
-	float flDuration = RemapValClamped( flAmmoRatio, 0.0f, 1.0f, 0.5f, sk_weapon_ar2_alt_fire_duration.GetFloat() );
-	float flRadius = RemapValClamped( flAmmoRatio, 0.0f, 1.0f, 4.0f, sk_weapon_ar2_alt_fire_radius.GetFloat() );
-
-	// Fire the bullets
-	Vector vecVelocity = vecAiming * 1000.0f;
-
-	// Fire the combine ball
-	CreateCombineBall(	vecSrc, 
-		vecVelocity, 
-		flRadius, 
-		sk_weapon_ar2_alt_fire_mass.GetFloat(),
-		flDuration,
-		pNPC );
-}
 
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
 void CWeaponAR2::Operator_ForceNPCFire( CBaseCombatCharacter *pOperator, bool bSecondary )
 {
-	if ( bSecondary )
-	{
-		FireNPCSecondaryAttack( pOperator, true );
-	}
-	else
 	{
 		// Ensure we have enough rounds in the clip
 		m_iClip1++;
@@ -450,12 +403,6 @@ void CWeaponAR2::Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatChara
 		case EVENT_WEAPON_AR2:
 			{
 				FireNPCPrimaryAttack( pOperator, false );
-			}
-			break;
-
-		case EVENT_WEAPON_AR2_ALTFIRE:
-			{
-				FireNPCSecondaryAttack( pOperator, false );
 			}
 			break;
 
