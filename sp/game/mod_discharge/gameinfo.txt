@@ -1,7 +1,7 @@
 "GameInfo"
 {
-	game 		"My First Episodic Mod"
-	title 		"HALF-LIFE'"
+	game 		"Discharge"
+	title 		"DISCHARGE"
 	title2		""
 	supportsvr	1
 
@@ -37,9 +37,9 @@
 			// folder.
 			//
 			// Note that this folder is scanned only when the game is booted.
-			game+mod			ep2/custom/*
-			game+mod			episodic/custom/*
-			game+mod			hl2/custom/*
+			//game+mod			ep2/custom/*
+			//game+mod			episodic/custom/*
+			//game+mod			hl2/custom/*
 
 			// Now search loose files.  We'll set the directory containing the gameinfo.txt file
 			// as the first "mod" search path (after any user customizations).  This is also the one
@@ -51,9 +51,11 @@
 			// VPK and we can avoid making thousands of file system calls to attempt to open files
 			// in folders where they don't exist.  (Searching a VPK is much faster than making an operating
 			// system call.)
+			game				|gameinfo_path|.
 			game_lv				hl2/hl2_lv.vpk
 			game+mod			ep2/ep2_english.vpk
 			game+mod			ep2/ep2_pak.vpk
+			game				|all_source_engine_paths|ep2/ep2_pak.vpk
 			game				|all_source_engine_paths|episodic/ep1_english.vpk
 			game				|all_source_engine_paths|episodic/ep1_pak.vpk
 			game				|all_source_engine_paths|hl2/hl2_english.vpk

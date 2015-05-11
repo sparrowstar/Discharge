@@ -1,0 +1,8 @@
+
+"UnlitGeneric"
+{
+	"$basetexture" "dev/underconstruction"
+	"$translucent" 1
+      	"$translucency" "1"
+     	"$ignorez" "1"
+}
