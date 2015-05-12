@@ -1,12 +1,12 @@
 //-----------------------------------------------------------------------------
-//	SERVER_EPISODIC.VPC
+//	SERVER_DISCHARGE.VPC
 //
 //	Project Script
 //-----------------------------------------------------------------------------
 
 $Macro SRCDIR		"..\.."
-$Macro GAMENAME 	"episodic" [!$SOURCESDK]
-$Macro GAMENAME 	"mod_episodic" [$SOURCESDK]
+$Macro GAMENAME 	"discharge" [!$SOURCESDK]
+$Macro GAMENAME 	"mod_discharge" [$SOURCESDK]
 
 $Include "$SRCDIR\game\server\server_base.vpc"
 
@@ -14,12 +14,12 @@ $Configuration
 {
 	$Compiler
 	{
-		$AdditionalIncludeDirectories	"$BASE;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;.\hl2;.\episodic"
-		$PreprocessorDefinitions		"$BASE;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE"
+		$AdditionalIncludeDirectories	"$BASE;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;.\hl2;.\episodic;.\discharge;$SRCDIR\game\shared\discharge"
+		$PreprocessorDefinitions		"$BASE;HL2_DLL;HL2_EPISODIC;USES_SAVERESTORE;DISCHARGE_DLL"
 	}
 }
 
-$Project "Server (Episodic)"
+$Project "Server (Discharge)"
 {
 	$Folder	"Source Files"
 	{
@@ -48,6 +48,13 @@ $Project "Server (Episodic)"
 		$File	"$SRCDIR\game\shared\vehicle_choreo_generic_shared.h"
 		$File	"$SRCDIR\game\shared\weapon_parse_default.cpp"
 
+		$Folder	"Discharge DLL"
+		{
+			$File	"discharge\weapon_ak47.cpp"
+			$File	"discharge\weapon_wrench.cpp"
+			$File	"discharge\weapon_wrench.h"
+		}
+		
 		$Folder	"HL2 DLL"
 		{
 			$File	"$SRCDIR\game\shared\episodic\achievements_ep1.cpp"

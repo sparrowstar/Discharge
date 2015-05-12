@@ -4,8 +4,8 @@
 //
 //=============================================================================//
 
-#ifndef WEAPON_CROWBAR_H
-#define WEAPON_CROWBAR_H
+#ifndef WEAPON_Wrench_H
+#define WEAPON_Wrench_H
 
 #include "basebludgeonweapon.h"
 
@@ -51,4 +51,4 @@ private:
 	void HandleAnimEventMeleeHit( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
 };
 
-#endif // WEAPON_CROWBAR_H
+#endif // WEAPON_Wrench_H
