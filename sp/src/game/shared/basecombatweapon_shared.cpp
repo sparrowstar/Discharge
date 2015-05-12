@@ -230,6 +230,12 @@ void CBaseCombatWeapon::EnableIronsights(void)
 	if( !prediction->IsFirstTimePredicted() )
 	return;
 	#endif*/
+
+#ifndef CLIENT_DLL
+	ConVarRef crosshair("crosshair");
+	crosshair.SetValue("0");
+#endif
+
 	if (!HasIronsights() || m_bIsIronsighted)
 		return;
 
@@ -258,6 +264,11 @@ void CBaseCombatWeapon::DisableIronsights(void)
 	#endif*/
 
 	// We are not using prediction in singleplayer
+
+#ifndef CLIENT_DLL
+	ConVarRef crosshair("crosshair");
+	crosshair.SetValue("1");
+#endif
 
 
 	if (!HasIronsights() || !m_bIsIronsighted)

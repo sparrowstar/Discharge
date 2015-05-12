@@ -59,8 +59,6 @@ public:
 
 	int CapabilitiesGet( void ) { return bits_CAP_WEAPON_RANGE_ATTACK1; }
 
-	void SecondaryAttack( void );
-
 	virtual void FireBullets( const FireBulletsInfo_t &info );
 
 	virtual const Vector& GetBulletSpread( void )
@@ -121,7 +119,7 @@ END_DATADESC()
 
 CWeaponAK47::CWeaponAK47( )
 {
-	m_ROF = 0;
+	m_ROF = 1;
 }
 
 void CWeaponAK47::Precache( void )
@@ -144,39 +142,4 @@ void CWeaponAK47::FireBullets( const FireBulletsInfo_t &info )
 	{
 		pPlayer->FireBullets( info );
 	}
-}
-
-
-void CWeaponAK47::SecondaryAttack( void )
-{
-	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
-	if ( pPlayer )
-	{
-		pPlayer->m_nButtons &= ~IN_ATTACK2;
-	}
-
-	m_flNextSecondaryAttack = gpGlobals->curtime + 0.1;
-
-	m_ROF += 1;
-
-	if( m_ROF == MAX_SETTINGS )
-	{
-		m_ROF = 0;
-	}
-
-	int i;
-
-	Msg( "\n" );
-	for( i = 0 ; i < MAX_SETTINGS ; i++ )
-	{
-		if( i == m_ROF )
-		{
-			Msg( "|" );
-		}
-		else
-		{
-			Msg( "-" );
-		}
-	}
-	Msg( "\n" );
 }
