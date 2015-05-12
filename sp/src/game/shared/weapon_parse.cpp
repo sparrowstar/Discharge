@@ -357,7 +357,7 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 {
 	// Okay, we tried at least once to look this up...
 	bParsedScript = true;
-
+	m_flViewModelFOV = pKeyValuesData->GetFloat("ViewModelFOV", 54.0f);
 	// Classname
 	Q_strncpy( szClassName, szWeaponName, MAX_WEAPON_STRING );
 	// Printable name

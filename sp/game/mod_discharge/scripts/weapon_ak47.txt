@@ -10,8 +10,9 @@ WeaponData
 	"bucket"				"2"
 	"bucket_position"		"2"
 	
-	"BuiltRightHanded" 		"0" 
-	"AllowFlipping" 		"1"  
+	"ViewModelFOV"      "74"
+	"BuiltRightHanded" "0" 
+	"AllowFlipping" "1"  
 
 	"clip_size"				"30"
 	"primary_ammo"			"AR2"

@@ -29,7 +29,8 @@ $Project "Client (Discharge)"
 
 		$Folder	"Discharge DLL"
 		{
-			//Nothing in here yet
+			$File	"discharge\c_weapon__stubs_discharge.cpp"
+			$File	"discharge\fx_cs_weaponfx.cpp"
 		}
 		
 		$Folder	"HL2 DLL"

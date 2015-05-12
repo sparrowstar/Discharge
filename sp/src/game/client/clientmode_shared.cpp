@@ -919,9 +919,28 @@ void ClientModeShared::Layout()
 	}
 }
 
-float ClientModeShared::GetViewModelFOV( void )
+ConVar r_viewmodelfov("r_viewmodelfov", "0", FCVAR_CHEAT);
+ 
+float ClientModeShared::GetViewModelFOV(void)
 {
-	return v_viewmodel_fov.GetFloat();
+	float flFov = 90.0f;
+ 
+	if (r_viewmodelfov.GetFloat() > 0)
+		return r_viewmodelfov.GetFloat();
+ 
+	CBasePlayer *pPlayer = CBasePlayer::GetLocalPlayer();
+ 
+	if (!pPlayer)
+		return flFov;
+ 
+	C_BaseCombatWeapon *pWpn = pPlayer->GetActiveWeapon();
+ 
+	if (pWpn)
+	{
+		flFov = pWpn->GetWpnData().m_flViewModelFOV;
+	}
+ 
+	return flFov;
 }
 
 class CHudChat;
