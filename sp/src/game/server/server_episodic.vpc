@@ -53,6 +53,7 @@ $Project "Server (Discharge)"
 			$File	"discharge\weapon_ak47.cpp"
 			$File	"discharge\weapon_wrench.cpp"
 			$File	"discharge\weapon_wrench.h"
+			$File	"discharge\weapon_mp5.cpp"
 		}
 		
 		$Folder	"HL2 DLL"

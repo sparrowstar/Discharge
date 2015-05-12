@@ -30,11 +30,11 @@ WeaponData
 
 	IronSight
 	{
-		"forward"	"-10"
-		"right"		"-6.91"
-		"up"		"0.185"
-		"roll"		"-20"
-		"fov"		"-20"
+		"forward"	"0"
+		"right"		"-5.9"
+		"up"		"2"
+		"roll"		"-4.8"
+		"fov"		"-30"
 	}
 	
 	// Weapon Sprite data is loaded by the Client DLL.
