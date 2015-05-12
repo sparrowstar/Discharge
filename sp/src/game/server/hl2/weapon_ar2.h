@@ -37,6 +37,7 @@ public:
 	void	AddViewKick( void );
 
 	void	FireNPCPrimaryAttack( CBaseCombatCharacter *pOperator, bool bUseWeaponAngles );
+	void	FireNPCSecondaryAttack( CBaseCombatCharacter *pOperator, bool bUseWeaponAngles );
 	void	Operator_ForceNPCFire( CBaseCombatCharacter  *pOperator, bool bSecondary );
 	void	Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
 
@@ -57,7 +58,15 @@ public:
 	{
 		static Vector cone;
 		
-		cone = VECTOR_CONE_3DEGREES;
+		if (m_bIsIronsighted)
+		{
+			cone = VECTOR_CONE_1DEGREES;
+		}
+		else
+		{
+			cone = VECTOR_CONE_3DEGREES;
+		}
+		
 
 		return cone;
 	}

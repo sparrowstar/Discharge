@@ -6162,6 +6162,14 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "weapon_rpg" );
 		GiveNamedItem( "weapon_357" );
 		GiveNamedItem( "weapon_crossbow" );
+		GiveNamedItem( "weapon_ak47" );
+		GiveNamedItem( "weapon_wrench" );
+		GiveNamedItem( "weapon_m4a1" );
+		GiveNamedItem( "weapon_glock" );
+		GiveNamedItem( "weapon_awp" );
+		GiveNamedItem( "weapon_snark" );
+		GiveNamedItem( "weapon_egon" );
+		GiveNamedItem( "weapon_guass" );
 #ifdef HL2_EPISODIC
 		// GiveNamedItem( "weapon_magnade" );
 #endif
@@ -6542,6 +6550,14 @@ bool CBasePlayer::ClientCommand( const CCommand &args )
 		{
 			pl->DumpPerfToRecipient( this, nRecords );
 		}
+		return true;
+	}
+	else if (stricmp(cmd, "toggle_ironsight") == 0)
+	{
+		CBaseCombatWeapon *pWeapon = GetActiveWeapon();
+		if (pWeapon != NULL)
+			pWeapon->ToggleIronsights();
+
 		return true;
 	}
 

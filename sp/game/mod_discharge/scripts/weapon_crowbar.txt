@@ -1,13 +1,14 @@
+// Crowbar
 
 WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
-	"printname"	"#DISCHARGE_Wrench"
-	"viewmodel"				"models/weapons/v_wrench.mdl"
-	"playermodel"			"models/weapons/w_wrench.mdl"
+	"printname"	"#HL2_Crowbar"
+	"viewmodel"				"models/weapons/v_crowbar.mdl"
+	"playermodel"			"models/weapons/w_crowbar.mdl"
 	"anim_prefix"			"crowbar"
 	"bucket"				"0"
-	"bucket_position"		"1"
+	"bucket_position"		"0"
 	"bucket_360"				"2"
 	"bucket_position_360"		"0"
 
@@ -21,7 +22,7 @@ WeaponData
 	// Sounds for the weapon. There is a max of 16 sounds per category (i.e. max 16 "single_shot" sounds)
 	SoundData
 	{
-		"single_shot"		"Weapon_Wrench.Swing"
+		"single_shot"		"Weapon_Crowbar.Single"
 		"melee_hit"			"Weapon_Crowbar.Melee_Hit"
 		"melee_hit_world"	"Weapon_Crowbar.Melee_HitWorld"
 	}

@@ -90,17 +90,6 @@
 	}
 }
 
-// *******
-// WEAPONS
-// weapon_wrench
-"Weapon_Wrench.Swing"
-{
-	"channel"		"CHAN_WEAPON"
-	"volume"		"0.7"
-	"soundlevel"	"SNDLVL_NORM"
-
-	"wave"			"weapons/pwrench_big_miss.wav"
-}
 // weapon_ar2.txt
 "Weapon_AR2.Empty"
 {
@@ -1312,46 +1301,7 @@
 	"wave"		"weapons/crossbow/bolt_skewer1.wav"
 	
 }
-//weapon_ak47
-"Weapon_AK47.Single"
-{
-	"channel"		"CHAN_WEAPON"
-	"volume"		"1.0"
-	"CompatibilityAttenuation"	"0.52"
-	"pitch"		"PITCH_NORM"
 
-	"wave"			")weapons/ak47/ak47-1.wav"
-	
-}
-"Weapon_AK47.BoltPull"
-{
-	"channel"		"CHAN_ITEM"
-	"volume"		"1.0"
-	"CompatibilityAttenuation"	"1.0"
-	"pitch"			"95,105"
-
-	"wave"			"weapons/ak47/ak47_boltpull.wav"
-}
-
-"Weapon_AK47.Clipin"
-{
-	"channel"		"CHAN_ITEM"
-	"volume"		"1.0"
-	"CompatibilityAttenuation"	"1.0"
-	"pitch"			"95,105"
-
-	"wave"			"weapons/ak47/ak47_clipin.wav"
-}
-
-"Weapon_AK47.Clipout"
-{
-	"channel"		"CHAN_ITEM"
-	"volume"		"1.0"
-	"CompatibilityAttenuation"	"1.0"
-	"pitch"			"95,105"
-
-	"wave"			"weapons/ak47/ak47_clipout.wav"
-}
 // *************
 // BASE GRENADES
 

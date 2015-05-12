@@ -314,6 +314,46 @@ Scheme
 				"custom"	"1"
 			}
 		}
+		WeaponIconsCS
+		{
+			"1"
+			{
+				"name"		"cs"
+				"tall"		"64"
+				"tall_hidef"	"58"
+				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		WeaponIconsSelectedCS
+		{
+			"1"
+			{
+				"name"		"cs"
+				"tall"		"64"
+				"tall_hidef"	"58"
+				"weight"	"0"
+				"antialias" "1"
+				"blur"		"5"
+				"scanlines"	"2"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		WeaponIconsSmallCS
+		{
+			"1"
+			{
+				"name"		"cs"
+				"tall"		"32"
+				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
 		Crosshairs
 		{
 			"1"
@@ -408,7 +448,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Verdana" 
 				"tall"		"11"
 				"weight"	"700"
 				"antialias" "1"
@@ -438,7 +478,7 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"Verdana" [!$OSX]
+				"name"		"Verdana" [!$OSX] 
 				"name"		"Helvetica" [$OSX]
 				"tall"		"11"
 				"weight"	"0"
@@ -458,7 +498,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Verdana" 
 				"tall"		"8"
 				"weight"	"700"
 				"antialias" "1"
@@ -793,8 +833,12 @@ Scheme
 	{
 		"1"		"resource/HALFLIFE2.ttf"
 		"2"		"resource/HL2crosshairs.ttf"
-		"3"	"resource/HL2EP2.ttf"	
+		"3"		"resource/HL2EP2.ttf"	
 		"4"		"resource/DischargeFont.ttf"
+		"5"		"resource/cs.ttf"
+		"6"		"resource/csd.ttf"
+		"7"		"resource/cslogo.ttf"
+		"8"		"resource/cstrike.ttf"
 	}
 
 }

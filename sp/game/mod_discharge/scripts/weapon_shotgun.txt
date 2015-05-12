@@ -1,39 +1,39 @@
-// Assault Rifle 1
+// Shotgun
 
 WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
-	"printname"	"#Cstrike_WPNHUD_AK47"
-	"viewmodel"				"models/weapons/v_rif_ak47.mdl"
-	"playermodel"			"models/weapons/w_rif_ak47.mdl"
-	"anim_prefix"			"ar1"
-	"bucket"				"2"
-	"bucket_position"		"2"
-	
-	"ViewModelFOV"      "74"
-	"BuiltRightHanded" "0" 
-	"AllowFlipping" "1"  
+	"printname"	"#HL2_Shotgun"
+	"viewmodel"				"models/weapons/v_shotgun.mdl"
+	"playermodel"			"models/weapons/w_shotgun.mdl"
+	"anim_prefix"			"shotgun"
+	"bucket"				"3"
+	"bucket_position"		"0"
+	"bucket_360"			"1"
+	"bucket_position_360"	"1"
 
-	"clip_size"				"30"
-	"primary_ammo"			"SMG1"
+	"clip_size"				"6"
+	"primary_ammo"			"Buckshot"
 	"secondary_ammo"		"None"
 
-	"weight"				"2"
+	"weight"				"4"
+	"rumble"			"5"
 	"item_flags"			"0"
 
 	// Sounds for the weapon. There is a max of 16 sounds per category (i.e. max 16 "single_shot" sounds)
 	SoundData
 	{
-		"empty"			"Weapon_AR2.Empty"
-		"reload"		"Weapon_AK47.Reload"
-		"single_shot"	"Weapon_AK47.Single"
-		"double_shot"	"Weapon_AK47.Double"
-		// NPC SECTION
-		"single_shot_npc"	"Weapon_AK47.Single"
-		"reload_npc"		"Weapon_AR2.NPC_Reload"
-		"double_shot_npc"	"Weapon_AR2.NPC_Double"
+
+		"empty"				"Weapon_Shotgun.Empty"
+		"reload"			"Weapon_Shotgun.Reload"
+		"special1"			"Weapon_Shotgun.Special1"
+		"single_shot"		"Weapon_Shotgun.Single"
+		"double_shot"		"Weapon_Shotgun.Double"
+		// NPC WEAPON SOUNDS
+		"reload_npc"		"Weapon_Shotgun.NPC_Reload"
+		"single_shot_npc"	"Weapon_Shotgun.NPC_Single"
 	}
-	
+
 	IronSight
 	{
 		"forward"	"-10"
@@ -48,23 +48,23 @@ WeaponData
 	{
 		"weapon"
 		{
-				"font"		"WeaponIconsCS"
+				"font"		"WeaponIcons"
 				"character"	"b"
 		}
 		"weapon_s"
 		{	
-				"font"		"WeaponIconsSelectedCS"
+				"font"		"WeaponIconsSelected"
 				"character"	"b"
 		}
 		"weapon_small"
 		{
-				"font"		"WeaponIconsSmallCS"
+				"font"		"WeaponIconsSmall"
 				"character"	"b"
 		}
 		"ammo"
 		{
 				"font"		"WeaponIconsSmall"
-				"character"	"u"
+				"character"	"s"
 		}
 		"crosshair"
 		{

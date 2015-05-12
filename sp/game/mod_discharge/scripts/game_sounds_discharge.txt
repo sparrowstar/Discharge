@@ -1,0 +1,13 @@
+// *******
+// WEAPONS
+// *******
+
+// weapon_wrench
+"Weapon_Wrench.Swing"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"0.7"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/pwrench_big_miss.wav"
+}

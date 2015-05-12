@@ -46,7 +46,17 @@ public:
 	virtual const Vector& GetBulletSpread( void )
 	{
 		static Vector vitalAllyCone = VECTOR_CONE_3DEGREES;
-		static Vector cone = VECTOR_CONE_10DEGREES;
+		
+		if (m_bIsIronsighted)
+		{
+			static const Vector cone = VECTOR_CONE_7DEGREES;
+			return cone;
+		}
+		else
+		{
+			static const Vector cone = VECTOR_CONE_10DEGREES;
+			return cone;
+		}
 
 		if( GetOwner() && (GetOwner()->Classify() == CLASS_PLAYER_ALLY_VITAL) )
 		{
@@ -54,8 +64,6 @@ public:
 			// to be at least as deadly as she would be with her pistol to stay interesting (sjb)
 			return vitalAllyCone;
 		}
-
-		return cone;
 	}
 
 	virtual int				GetMinBurst() { return 1; }

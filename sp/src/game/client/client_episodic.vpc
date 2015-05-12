@@ -29,6 +29,7 @@ $Project "Client (Discharge)"
 
 		$Folder	"Discharge DLL"
 		{
+			$File	"discharge\c_ironsight_stub.cpp"
 			$File	"discharge\c_weapon__stubs_discharge.cpp"
 			$File	"discharge\fx_cs_weaponfx.cpp"
 		}
