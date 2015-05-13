@@ -74,6 +74,7 @@ $Project "Server (Discharge)"
 			$File	"hl1\hl1_npc_snark.cpp"
 			$File	"hl1\hl1_npc_snark.h"
 			$File	"$SRCDIR\game\shared\hl1\hl1_shareddefs.h"
+			$File	"hl1\hl1_weapon_snark.cpp"
 		}
 		
 		$Folder	"HL2 DLL"
