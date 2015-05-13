@@ -36,6 +36,14 @@ $Project "Client (Discharge)"
 			$File	"tne_RenderTargets.h"
 		}
 		
+		$Folder	"HL1 DLL"
+		{
+			$File	"$SRCDIR\game\shared\hl1\hl1_basecombatweapon_shared.cpp"
+			$File	"$SRCDIR\game\shared\hl1\hl1_basecombatweapon_shared.h"
+			$File	"hl1\hl1_fx_gibs.cpp"
+			$File	"$SRCDIR\game\shared\hl1\hl1_shareddefs.h"
+		}
+		
 		$Folder	"HL2 DLL"
 		{
 			$File	"$SRCDIR\game\shared\hl2\basehlcombatweapon_shared.cpp"

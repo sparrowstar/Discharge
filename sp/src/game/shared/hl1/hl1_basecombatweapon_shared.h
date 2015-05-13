@@ -6,8 +6,8 @@
 
 #include "basecombatweapon_shared.h"
 
-#ifndef BASEHLCOMBATWEAPON_SHARED_H
-#define BASEHLCOMBATWEAPON_SHARED_H
+#ifndef BASEHLCOMBATWEAPONhl1_SHARED_H
+#define BASEHLCOMBATWEAPONhl1_SHARED_H
 #ifdef _WIN32
 #pragma once
 #endif

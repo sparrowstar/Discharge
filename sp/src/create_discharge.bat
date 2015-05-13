@@ -1,1 +1,1 @@
-devtools\bin\vpc.exe /episodic +game /mksln discharge.sln
+devtools\bin\vpc.exe /episodic /2013 +game /mksln discharge.sln

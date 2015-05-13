@@ -3301,28 +3301,60 @@ int C_BaseAnimating::InternalDrawModel( int flags )
 
 extern ConVar muzzleflash_light;
 
+ConVar	discharge_original_muzzleflash("discharge_original_muzzleflash", "0", FCVAR_ARCHIVE, "If 1, use original HL2 Muzzleflash.\n If 0, use Discharge's better flash\n");
+
 void C_BaseAnimating::ProcessMuzzleFlashEvent()
 {
 	// If we have an attachment, then stick a light on it.
 	if ( muzzleflash_light.GetBool() )
 	{
-		//FIXME: We should really use a named attachment for this
-		if ( m_Attachments.Count() > 0 )
+		if (discharge_original_muzzleflash.GetBool())
 		{
-			Vector vAttachment;
-			QAngle dummyAngles;
-			GetAttachment( 1, vAttachment, dummyAngles );
+			//FIXME: We should really use a named attachment for this
+			if (m_Attachments.Count() > 0)
+			{
+				Vector vAttachment;
+				QAngle dummyAngles;
+				GetAttachment(1, vAttachment, dummyAngles);
 
-			// Make an elight
-			dlight_t *el = effects->CL_AllocElight( LIGHT_INDEX_MUZZLEFLASH + index );
-			el->origin = vAttachment;
-			el->radius = random->RandomInt( 32, 64 ); 
-			el->decay = el->radius / 0.05f;
-			el->die = gpGlobals->curtime + 0.05f;
-			el->color.r = 255;
-			el->color.g = 192;
-			el->color.b = 64;
-			el->color.exponent = 5;
+				// Make an elight
+				dlight_t *el = effects->CL_AllocElight(LIGHT_INDEX_MUZZLEFLASH + index);
+				el->origin = vAttachment;
+				el->radius = random->RandomInt(32, 64);
+				el->decay = el->radius / 0.05f;
+				el->die = gpGlobals->curtime + 0.05f;
+				el->color.r = 255;
+				el->color.g = 192;
+				el->color.b = 64;
+				el->color.exponent = 5;
+
+			}
+		}
+		else
+		{
+			//FIXME: We should really use a named attachment for this
+			if (m_Attachments.Count() > 0)
+			{
+
+				Vector vAttachment, vAng;
+				QAngle angles;
+#ifdef HL2_EPISODIC
+				GetAttachment(1, vAttachment, angles); // set 1 instead "attachment"
+#else
+				GetAttachment(attachment, vAttachment, angles);
+#endif
+				AngleVectors(angles, &vAng);
+				vAttachment += vAng * 2;
+
+				dlight_t *dl = effects->CL_AllocDlight(index);
+				dl->origin = vAttachment;
+				dl->color.r = 252;
+				dl->color.g = 238;
+				dl->color.b = 128;
+				dl->die = gpGlobals->curtime + 0.05f;
+				dl->radius = random->RandomFloat(245.0f, 256.0f);
+				dl->decay = 512.0f;
+			}
 		}
 	}
 }

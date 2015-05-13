@@ -19,11 +19,11 @@
 
 ConVar sk_bullsquid_dmg_spit ( "sk_bullsquid_dmg_spit", "0" );
 
-BEGIN_DATADESC( CGrenadeSpit )
+BEGIN_DATADESC( CGrenadeSpitHL1 )
 
 	// Function pointers
 	DEFINE_THINKFUNC( SpitThink ),
-	DEFINE_ENTITYFUNC( GrenadeSpitTouch ),
+	DEFINE_ENTITYFUNC( GrenadeSpitHL1Touch ),
 
 	//DEFINE_FIELD( m_nSquidSpitSprite, FIELD_INTEGER ),
 
@@ -31,9 +31,9 @@ BEGIN_DATADESC( CGrenadeSpit )
 
 END_DATADESC()
 
-LINK_ENTITY_TO_CLASS( grenade_spit, CGrenadeSpit );
+LINK_ENTITY_TO_CLASS( grenade_spit_hl1, CGrenadeSpitHL1 );
 
-void CGrenadeSpit::Spawn( void )
+void CGrenadeSpitHL1::Spawn( void )
 {
 	Precache( );
 	SetSolid( SOLID_BBOX );
@@ -48,9 +48,9 @@ void CGrenadeSpit::Spawn( void )
 	SetRenderColor( 255, 255, 255, 255 );
 	m_nRenderFX		= kRenderFxNone;
 
-	SetThink( &CGrenadeSpit::SpitThink );
+	SetThink( &CGrenadeSpitHL1::SpitThink );
 	SetUse( &CBaseGrenade::DetonateUse ); 
-	SetTouch( &CGrenadeSpit::GrenadeSpitTouch );
+	SetTouch( &CGrenadeSpitHL1::GrenadeSpitHL1Touch );
 	SetNextThink( gpGlobals->curtime + 0.1f );
 
 	m_flDamage		= sk_bullsquid_dmg_spit.GetFloat();
@@ -66,7 +66,7 @@ void CGrenadeSpit::Spawn( void )
 }
 
 
-void CGrenadeSpit::SetSpitSize(int nSize)
+void CGrenadeSpitHL1::SetSpitSize(int nSize)
 {
 	switch (nSize)
 	{
@@ -88,12 +88,12 @@ void CGrenadeSpit::SetSpitSize(int nSize)
 	}
 }
 
-void CGrenadeSpit::Event_Killed( const CTakeDamageInfo &info )
+void CGrenadeSpitHL1::Event_Killed( const CTakeDamageInfo &info )
 {
 	Detonate( );
 }
 
-void CGrenadeSpit::GrenadeSpitTouch( CBaseEntity *pOther )
+void CGrenadeSpitHL1::GrenadeSpitHL1Touch( CBaseEntity *pOther )
 {
 	if (m_fSpitDeathTime != 0)
 	{
@@ -124,7 +124,7 @@ void CGrenadeSpit::GrenadeSpitTouch( CBaseEntity *pOther )
 	Detonate();
 }
 
-void CGrenadeSpit::SpitThink( void )
+void CGrenadeSpitHL1::SpitThink( void )
 {
 	if (m_fSpitDeathTime != 0 &&
 		m_fSpitDeathTime < gpGlobals->curtime)
@@ -134,7 +134,7 @@ void CGrenadeSpit::SpitThink( void )
 	SetNextThink( gpGlobals->curtime + 0.1f );
 }
 
-void CGrenadeSpit::Detonate(void)
+void CGrenadeSpitHL1::Detonate(void)
 {
 	m_takedamage	= DAMAGE_NO;	
 
@@ -143,8 +143,8 @@ void CGrenadeSpit::Detonate(void)
 	// splat sound
 	iPitch = random->RandomFloat( 90, 110 );
 
-	EmitSound( "GrenadeSpit.Acid" );	
-	EmitSound( "GrenadeSpit.Hit" );	
+	EmitSound( "GrenadeSpitHL1.Acid" );	
+	EmitSound( "GrenadeSpitHL1.Hit" );	
 
 	UTIL_Remove( this );
 }
@@ -152,7 +152,7 @@ void CGrenadeSpit::Detonate(void)
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CGrenadeSpit::Precache( void )
+void CGrenadeSpitHL1::Precache( void )
 {
 	m_nSquidSpitSprite = PrecacheModel("sprites/bigspit.vmt");// client side spittle.
 
@@ -160,12 +160,12 @@ void CGrenadeSpit::Precache( void )
 	PrecacheModel("models/spitball_medium.mdl"); 
 	PrecacheModel("models/spitball_small.mdl"); 
 
-	PrecacheScriptSound( "GrenadeSpit.Acid" );	
-	PrecacheScriptSound( "GrenadeSpit.Hit" );	
+	PrecacheScriptSound( "GrenadeSpitHL1.Acid" );	
+	PrecacheScriptSound( "GrenadeSpitHL1.Hit" );	
 
 }
 
 
-CGrenadeSpit::CGrenadeSpit(void)
+CGrenadeSpitHL1::CGrenadeSpitHL1(void)
 {
 }

@@ -62,7 +62,7 @@ void CSnark::Precache( void )
 {
 	BaseClass::Precache();
 
-	PrecacheModel( "models/w_squeak2.mdl" );
+	PrecacheModel( "models/w_squeak.mdl" );
 
 	PrecacheScriptSound( "Snark.Die" );
 	PrecacheScriptSound( "Snark.Gibbed" );
@@ -82,7 +82,7 @@ void CSnark::Spawn( void )
 	SetMoveType( MOVETYPE_FLYGRAVITY, MOVECOLLIDE_FLY_CUSTOM );
 	SetFriction(1.0);	
 
-	SetModel( "models/w_squeak2.mdl" );
+	SetModel( "models/w_squeak.mdl" );
 	UTIL_SetSize( this, Vector( -4, -4, 0 ), Vector( 4, 4, 8 ) );
 
 	SetBloodColor( BLOOD_COLOR_YELLOW );

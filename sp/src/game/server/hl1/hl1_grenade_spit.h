@@ -11,8 +11,8 @@
 // $NoKeywords: $
 //=============================================================================//
 
-#ifndef	GRENADESPIT_H
-#define	GRENADESPIT_H
+#ifndef	GrenadeSpitHL1_H
+#define	GrenadeSpitHL1_H
 
 #include "hl1_basegrenade.h"
 
@@ -25,15 +25,15 @@ enum SpitSize_e
 
 #define SPIT_GRAVITY 0.9
 
-class CGrenadeSpit : public CHL1BaseGrenade
+class CGrenadeSpitHL1 : public CHL1BaseGrenade
 {
 public:
-	DECLARE_CLASS( CGrenadeSpit, CHL1BaseGrenade );
+	DECLARE_CLASS( CGrenadeSpitHL1, CHL1BaseGrenade );
 
 	void		Spawn( void );
 	void		Precache( void );
 	void		SpitThink( void );
-	void 		GrenadeSpitTouch( CBaseEntity *pOther );
+	void 		GrenadeSpitHL1Touch( CBaseEntity *pOther );
 	void		Event_Killed( const CTakeDamageInfo &info );
 	void		SetSpitSize(int nSize);
 
@@ -41,9 +41,9 @@ public:
 	float		m_fSpitDeathTime;		// If non-zero won't detonate
 
 	void EXPORT				Detonate(void);
-	CGrenadeSpit(void);
+	CGrenadeSpitHL1(void);
 
 	DECLARE_DATADESC();
 };
 
-#endif	//GRENADESPIT_H
+#endif	//GrenadeSpitHL1_H

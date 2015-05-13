@@ -99,7 +99,7 @@ void CHL1BaseNPC::TraceAttack( const CTakeDamageInfo &info, const Vector &vecDir
 		UTIL_BloodSpray( ptr->endpos, vecDir, BloodColor(), 4, FX_BLOODSPRAY_ALL );	
 	}
 
-	BaseClass::TraceAttack( info, vecDir, ptr );
+	BaseClass::TraceAttack( info, vecDir, ptr, NULL );
 }
 
 
@@ -148,8 +148,8 @@ bool CHL1BaseNPC::HasAlienGibs( void )
 
 void CHL1BaseNPC::Precache( void )
 {
-	PrecacheModel( "models/gibs/agibs.mdl" );
-	PrecacheModel( "models/gibs/hgibs.mdl" );
+	PrecacheModel( "models/gibs/agibs_hl1.mdl" );
+	PrecacheModel( "models/gibs/hgibs_hl1.mdl" );
 
 	BaseClass::Precache();
 }
