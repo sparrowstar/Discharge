@@ -377,6 +377,8 @@ public:
 	bool			ShouldDrawEntities( void );
 	bool			ShouldDrawBrushModels( void );
 
+	void			DrawScope(const CViewSetup &cameraView);
+
 	const CViewSetup *GetViewSetup( ) const;
 	
 	void			DisableVis( void );

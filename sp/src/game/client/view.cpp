@@ -406,6 +406,7 @@ void CViewRender::StopPitchDrift (void)
 	m_PitchDrift.pitchvel	= 0;
 }
 
+
 //-----------------------------------------------------------------------------
 // Purpose: Moves the client pitch angle towards cl.idealpitch sent by the server.
 // If the user is adjusting pitch manually, either with lookup/lookdown,

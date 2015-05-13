@@ -450,9 +450,7 @@ private:
 	
 	void	StopEffects( void );
 	void	SetSkin( int skinNum );
-	void	CheckZoomToggle( void );
 	void	FireBolt( void );
-	void	ToggleZoom( void );
 	
 	// Various states for the crossbow's charger
 	enum ChargerState_t
@@ -577,26 +575,13 @@ bool CWeaponCrossbow::Reload( void )
 	return false;
 }
 
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-void CWeaponCrossbow::CheckZoomToggle( void )
-{
-	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
-	
-	if ( pPlayer->m_afButtonPressed & IN_ATTACK2 )
-	{
-			ToggleZoom();
-	}
-}
+
 
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
 void CWeaponCrossbow::ItemBusyFrame( void )
 {
-	// Allow zoom toggling even when we're reloading
-	CheckZoomToggle();
 }
 
 //-----------------------------------------------------------------------------
@@ -604,8 +589,6 @@ void CWeaponCrossbow::ItemBusyFrame( void )
 //-----------------------------------------------------------------------------
 void CWeaponCrossbow::ItemPostFrame( void )
 {
-	// Allow zoom toggling
-	CheckZoomToggle();
 
 	if ( m_bMustReload && HasWeaponIdleTimeElapsed() )
 	{
@@ -724,32 +707,6 @@ bool CWeaponCrossbow::Holster( CBaseCombatWeapon *pSwitchingTo )
 {
 	StopEffects();
 	return BaseClass::Holster( pSwitchingTo );
-}
-
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-void CWeaponCrossbow::ToggleZoom( void )
-{
-	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
-	
-	if ( pPlayer == NULL )
-		return;
-
-	if ( m_bInZoom )
-	{
-		if ( pPlayer->SetFOV( this, 0, 0.2f ) )
-		{
-			m_bInZoom = false;
-		}
-	}
-	else
-	{
-		if ( pPlayer->SetFOV( this, 20, 0.1f ) )
-		{
-			m_bInZoom = true;
-		}
-	}
 }
 
 #define	BOLT_TIP_ATTACHMENT	2
@@ -962,12 +919,6 @@ bool CWeaponCrossbow::SendWeaponAnim( int iActivity )
 //-----------------------------------------------------------------------------
 void CWeaponCrossbow::StopEffects( void )
 {
-	// Stop zooming
-	if ( m_bInZoom )
-	{
-		ToggleZoom();
-	}
-
 	// Turn off our sprites
 	SetChargerState( CHARGER_STATE_OFF );
 }

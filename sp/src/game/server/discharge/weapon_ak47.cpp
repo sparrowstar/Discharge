@@ -61,10 +61,18 @@ public:
 
 	virtual void FireBullets( const FireBulletsInfo_t &info );
 
-	virtual const Vector& GetBulletSpread( void )
+	virtual const Vector& GetBulletSpread(void)
 	{
-		static const Vector cone = VECTOR_CONE_10DEGREES;
-		return cone;
+		if (m_bIsIronsighted)
+		{
+			static const Vector cone = VECTOR_CONE_3DEGREES;
+			return cone;
+		}
+		else
+		{
+			static const Vector cone = VECTOR_CONE_10DEGREES;
+			return cone;
+		}
 	}
 
 	void Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCharacter *pOperator )

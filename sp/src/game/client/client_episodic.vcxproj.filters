@@ -1892,6 +1892,9 @@
     <ClInclude Include="toolframework_client.h">
       <Filter>Tool Framework</Filter>
     </ClInclude>
+    <ClInclude Include="tne_RenderTargets.h">
+      <Filter>Source Files\Discharge DLL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mp3player.cpp">
@@ -3423,6 +3426,9 @@
     </ClCompile>
     <ClCompile Include="toolframework_client.cpp">
       <Filter>Tool Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="tne_RenderTargets.cpp">
+      <Filter>Source Files\Discharge DLL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
