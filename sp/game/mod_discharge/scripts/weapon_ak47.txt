@@ -1,4 +1,4 @@
-// Assault Rifle 1
+// Kalashnikov
 
 WeaponData
 {
@@ -10,8 +10,8 @@ WeaponData
 	"bucket"				"2"
 	"bucket_position"		"2"
 	
-	"ViewModelFOV"      "74"
-	"BuiltRightHanded" "0" 
+	"ViewModelFOV"      "52"
+	"BuiltRightHanded" "1" 
 	"AllowFlipping" "1"  
 
 	"clip_size"				"30"

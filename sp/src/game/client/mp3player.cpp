@@ -6,7 +6,7 @@
 
 #include "cbase.h"
 
-#if 0
+#ifdef DISCHARGE_CLIENT 
 #include "mp3player.h"
 #include "KeyValues.h"
 #include "filesystem.h"

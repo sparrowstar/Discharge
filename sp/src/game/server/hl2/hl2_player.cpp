@@ -2629,7 +2629,7 @@ int CHL2_Player::GiveAmmo( int nCount, int nAmmoIndex, bool bSuppressSound)
 //-----------------------------------------------------------------------------
 bool CHL2_Player::Weapon_CanUse( CBaseCombatWeapon *pWeapon )
 {
-#ifndef HL2MP	
+#ifndef DISCHARGE_DLL	
 	if ( pWeapon->ClassMatches( "weapon_stunstick" ) )
 	{
 		if ( ApplyBattery( 0.5 ) )

@@ -15,7 +15,7 @@ $Configuration
 	$Compiler
 	{
 		$AdditionalIncludeDirectories	".\hl2;.\hl2\elements;$SRCDIR\game\shared\hl2;$SRCDIR\game\shared\episodic;..\..\public;$BASE;\hl2;$SRCDIR\game\shared\discharge"
-		$PreprocessorDefinitions		"$BASE;HL2_CLIENT_DLL;HL2_EPISODIC;DISCHARGE_CLIENT"
+		$PreprocessorDefinitions		"$BASE;HL2_CLIENT_DLL;HL2_EPISODIC;DISCHARGE_CLIENT;SOURCE_2013"
 	}
 }
 
@@ -34,6 +34,25 @@ $Project "Client (Discharge)"
 			$File	"discharge\fx_cs_weaponfx.cpp"
 			$File	"tne_RenderTargets.cpp"
 			$File	"tne_RenderTargets.h"
+			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.cpp"
+			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.h"
+		}
+		
+		$Folder "Shader Editor" [$WIN32]
+		{
+			$Folder	"Header Files"
+			{
+				$File	"$SRCDIR\game\client\ShaderEditor\ISEdit_ModelRender.h"
+				$File	"$SRCDIR\game\client\ShaderEditor\IVShaderEditor.h"
+				$File	"$SRCDIR\game\client\ShaderEditor\ShaderEditorSystem.h"
+				$File	"$SRCDIR\game\client\ShaderEditor\SEdit_ModelRender.h"
+			}
+ 
+			$Folder	"Implementation Files"
+			{
+				$File	"$SRCDIR\game\client\ShaderEditor\ShaderEditorSystem.cpp"
+				$File	"$SRCDIR\game\client\ShaderEditor\SEdit_ModelRender.cpp"
+			}
 		}
 		
 		$Folder	"HL1 DLL"
