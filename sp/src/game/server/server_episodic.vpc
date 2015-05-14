@@ -56,6 +56,10 @@ $Project "Server (Discharge)"
 			$File	"discharge\weapon_mp5.cpp"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.cpp"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.h"
+			$File	"hl2mp\grenade_satchel.cpp"
+			$File	"hl2mp\grenade_satchel.h"
+			$File	"hl2mp\grenade_tripmine.cpp"
+			$File	"hl2mp\grenade_tripmine.h"
 		}
 		
 		$Folder	"HL1 DLL"
