@@ -680,6 +680,19 @@ Scheme
 				"custom"	"1" [$OSX]
 			}
 		}
+		ClientTitleFont_hl2
+		{
+			"1"
+			{
+				"name"  "HL2EP2"
+				"tall"			"56"
+				"tall_hidef"	"48"
+				"weight" "0"
+				"additive" "0"
+				"antialias" "1"
+				"custom"	"1" [$OSX]
+			}
+		}
 		CreditsLogo
 		{
 			"1"
