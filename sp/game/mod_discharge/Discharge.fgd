@@ -1,0 +1,46 @@
+ï»¿//====== Copyright © 2015, Discharge Team, Some rights reserved. =======
+//
+// Purpose: Discharge mod definition file (.fgd) 
+//
+//=============================================================================
+
+@include "base.fgd"
+@include "halflife2.fgd"
+
+@SolidClass base(Targetname, RenderFields, Global, Shadow) = my_brush_entity : "Tutorial brush entity."
+[
+	// Inputs
+	input Toggle(void) : "Toggles the entity visible and invisible."
+]
+
+@PointClass base(Targetname) = my_logical_entity : "Tutorial logical entity."
+[
+	threshold(integer) : "Threshold" : 1 : "Number of ticks before the entity will fire its OnThreshold output."
+	// Inputs
+	input Tick(void) : "Adds one tick to the entity's count."
+
+	// Outputs
+	output OnThreshold(void) : "Fired when the number of recorded ticks reaches the specified threshold."
+]
+
+@PointClass base(Targetname, Angles) studio("models/gibs/airboat_broken_engine.mdl") = my_model_entity : "Tutorial model entity."
+[
+	// Inputs
+	input Toggle(void) : "Starts and stops the entity moving."
+]
+
+@NPCClass base(BaseNPC) studio("models/houndeye.mdl") = monster_houndeye : "Houndeye" 
+[
+	netname(string) : "Squad Name"
+	spawnflags(Flags) =
+	[
+		32 : "SquadLeader" : 0
+	]
+]
+
+
+@NPCClass base(BaseNPC) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken" []
+
+@PointClass base(Weapon) studio("models/weapons/w_rif_ak47.mdl") = weapon_ak47 : "KALASHNIKOV" []
+@PointClass base(Weapon) studio("models/weapons/w_wrench.mdl") = weapon_wrench : "PIPE WRENCH" []
+@PointClass base(Weapon) studio("models/w_SQKNEST.mdl") = weapon_snark : "Squeak Grenade" []
