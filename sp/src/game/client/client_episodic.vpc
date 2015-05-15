@@ -31,7 +31,7 @@ $Project "Client (Discharge)"
 		{
 			$File	"discharge\c_ironsight_stub.cpp"
 			$File	"discharge\c_weapon__stubs_discharge.cpp"
-			$File	"discharge\fx_cs_weaponfx.cpp"
+			$File	"cstrike\fx_cs_weaponfx.cpp"
 			$File	"tne_RenderTargets.cpp"
 			$File	"tne_RenderTargets.h"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.cpp"

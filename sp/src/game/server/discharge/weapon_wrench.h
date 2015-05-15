@@ -1,4 +1,4 @@
-//========= Copyright Valve Corporation, All rights reserved. ============//
+//====== Copyright © 2015, Discharge Team, Some rights reserved. =======
 //
 // Purpose:
 //
