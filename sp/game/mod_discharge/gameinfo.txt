@@ -2,7 +2,7 @@
 {
 	game 		"Discharge"
 	title 		"DISCHARGE"
-	title2		""
+	icon		"resource/discharge"
 	supportsvr	1
 	type		singleplayer_only
 	FileSystem
