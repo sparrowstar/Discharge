@@ -836,6 +836,56 @@ Scheme
 			}
 			
 		}
+		                "InstructorTitle"
+		{
+			"1"
+			{
+				"name"			"Arial"
+				"tall"			"20"
+				"weight"		"400"
+				"antialias"		"1"
+				"dropshadow"	"1"
+			}
+		}
+ 
+		"InstructorKeyBindings"
+		{
+			"1"
+			{
+				"name"			"Arial"
+				"name"			"Trade Gothic Bold"
+				"tall"			"18"
+				"weight"		"600"
+				"antialias"		"1"
+				"dropshadow"	"0"
+			}
+		}
+ 
+		"InstructorButtons"
+		{
+			"1"
+			{
+				"name"			"Arial"
+				"name"			"Trade Gothic Bold"
+				"tall"			"15"
+				"weight"		"600"
+				"antialias"		"1"
+				"dropshadow"	"1"
+			}
+		}
+ 
+		"InstructorTitleGlow"
+		{
+			"1"
+			{
+				"name"			"Arial"
+				"name"			"Trade Gothic Bold"
+				"tall"			"20"
+				"weight"		"400"
+				"antialias"		"1"
+				"dropshadow"	"1"
+			}
+		}
 	}
 
 	

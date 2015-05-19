@@ -12,6 +12,7 @@
 #include "physics_saverestore.h"
 #include "datacache/imdlcache.h"
 #include "activitylist.h"
+#include "player.h"
 
 // NVNT start extra includes
 #include "haptics/haptic_utils.h"

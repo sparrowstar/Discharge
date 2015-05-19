@@ -143,6 +143,7 @@ acttable_t	CWeaponSMG1::m_acttable[] =
 
 IMPLEMENT_ACTTABLE(CWeaponSMG1);
 
+
 //=========================================================
 CWeaponSMG1::CWeaponSMG1( )
 {

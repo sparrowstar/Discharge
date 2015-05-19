@@ -16,6 +16,9 @@
 #include "tier0/threadtools.h"
 #include "tier1/utlrbtree.h"
 #include "tier1/utlvector.h"
+#include "tier1/utlbuffer.h"
+#include "tier1/utllinkedlist.h"
+#include "tier1/stringpool.h"
 
 
 //-----------------------------------------------------------------------------
@@ -37,40 +40,40 @@ class CUtlSymbol
 public:
 	// constructor, destructor
 	CUtlSymbol() : m_Id(UTL_INVAL_SYMBOL) {}
-	CUtlSymbol( UtlSymId_t id ) : m_Id(id) {}
-	CUtlSymbol( const char* pStr );
-	CUtlSymbol( CUtlSymbol const& sym ) : m_Id(sym.m_Id) {}
-	
+	CUtlSymbol(UtlSymId_t id) : m_Id(id) {}
+	CUtlSymbol(const char* pStr);
+	CUtlSymbol(CUtlSymbol const& sym) : m_Id(sym.m_Id) {}
+
 	// operator=
-	CUtlSymbol& operator=( CUtlSymbol const& src ) { m_Id = src.m_Id; return *this; }
-	
+	CUtlSymbol& operator=(CUtlSymbol const& src) { m_Id = src.m_Id; return *this; }
+
 	// operator==
-	bool operator==( CUtlSymbol const& src ) const { return m_Id == src.m_Id; }
-	bool operator==( const char* pStr ) const;
-	
+	bool operator==(CUtlSymbol const& src) const { return m_Id == src.m_Id; }
+	bool operator==(const char* pStr) const;
+
 	// Is valid?
 	bool IsValid() const { return m_Id != UTL_INVAL_SYMBOL; }
-	
+
 	// Gets at the symbol
 	operator UtlSymId_t const() const { return m_Id; }
-	
+
 	// Gets the string associated with the symbol
-	const char* String( ) const;
+	const char* String() const;
 
 	// Modules can choose to disable the static symbol table so to prevent accidental use of them.
 	static void DisableStaticSymbolTable();
-		
+
 protected:
 	UtlSymId_t   m_Id;
-		
+
 	// Initializes the symbol table
 	static void Initialize();
-	
+
 	// returns the current symbol table
 	static CUtlSymbolTableMT* CurrTable();
-		
+
 	// The standard global symbol table
-	static CUtlSymbolTableMT* s_pSymbolTable; 
+	static CUtlSymbolTableMT* s_pSymbolTable;
 
 	static bool s_bAllowStaticSymbolTable;
 
@@ -85,31 +88,39 @@ protected:
 //    of strings to symbols and back. The symbol class itself contains
 //    a static version of this class for creating global strings, but this
 //    class can also be instanced to create local symbol tables.
+// 
+//    This class stores the strings in a series of string pools. The first
+//    two bytes of each string are decorated with a hash to speed up
+//	  comparisons.
 //-----------------------------------------------------------------------------
 
 class CUtlSymbolTable
 {
 public:
 	// constructor, destructor
-	CUtlSymbolTable( int growSize = 0, int initSize = 32, bool caseInsensitive = false );
+	CUtlSymbolTable(int growSize = 0, int initSize = 16, bool caseInsensitive = false);
 	~CUtlSymbolTable();
-	
+
 	// Finds and/or creates a symbol based on the string
-	CUtlSymbol AddString( const char* pString );
+	CUtlSymbol AddString(const char* pString);
 
 	// Finds the symbol for pString
-	CUtlSymbol Find( const char* pString ) const;
-	
+	CUtlSymbol Find(const char* pString) const;
+
 	// Look up the string associated with a particular symbol
-	const char* String( CUtlSymbol id ) const;
-	
+	const char* String(CUtlSymbol id) const;
+
 	// Remove all symbols in the table.
 	void  RemoveAll();
 
-	int GetNumStrings( void ) const
+	int GetNumStrings(void) const
 	{
 		return m_Lookup.Count();
 	}
+
+	// We store one of these at the beginning of every string to speed
+	// up comparisons.
+	typedef unsigned short hashDecoration_t;
 
 protected:
 	class CStringPoolIndex
@@ -119,13 +130,11 @@ protected:
 		{
 		}
 
-		inline CStringPoolIndex( unsigned short iPool, unsigned short iOffset )
-		{
-			m_iPool = iPool;
-			m_iOffset = iOffset;
-		}
+		inline CStringPoolIndex(unsigned short iPool, unsigned short iOffset)
+			: m_iPool(iPool), m_iOffset(iOffset)
+		{}
 
-		inline bool operator==( const CStringPoolIndex &other )	const
+		inline bool operator==(const CStringPoolIndex &other)	const
 		{
 			return m_iPool == other.m_iPool && m_iOffset == other.m_iOffset;
 		}
@@ -137,78 +146,79 @@ protected:
 	class CLess
 	{
 	public:
-		CLess( int ignored = 0 ) {} // permits default initialization to NULL in CUtlRBTree
+		CLess(int ignored = 0) {} // permits default initialization to NULL in CUtlRBTree
 		bool operator!() const { return false; }
-		bool operator()( const CStringPoolIndex &left, const CStringPoolIndex &right ) const;
+		bool operator()(const CStringPoolIndex &left, const CStringPoolIndex &right) const;
 	};
 
 	// Stores the symbol lookup
 	class CTree : public CUtlRBTree<CStringPoolIndex, unsigned short, CLess>
 	{
 	public:
-		CTree(  int growSize, int initSize ) : CUtlRBTree<CStringPoolIndex, unsigned short, CLess>( growSize, initSize ) {}
+		CTree(int growSize, int initSize) : CUtlRBTree<CStringPoolIndex, unsigned short, CLess>(growSize, initSize) {}
 		friend class CUtlSymbolTable::CLess; // Needed to allow CLess to calculate pointer to symbol table
 	};
 
 	struct StringPool_t
-	{	
+	{
 		int m_TotalLen;		// How large is 
 		int m_SpaceUsed;
 		char m_Data[1];
 	};
 
 	CTree m_Lookup;
+
 	bool m_bInsensitive;
+	mutable unsigned short m_nUserSearchStringHash;
 	mutable const char* m_pUserSearchString;
 
 	// stores the string data
 	CUtlVector<StringPool_t*> m_StringPools;
 
 private:
-	int FindPoolWithSpace( int len ) const;
-	const char* StringFromIndex( const CStringPoolIndex &index ) const;
+	int FindPoolWithSpace(int len) const;
+	const char* StringFromIndex(const CStringPoolIndex &index) const;
+	const char* DecoratedStringFromIndex(const CStringPoolIndex &index) const;
 
 	friend class CLess;
+	friend class CSymbolHash;
+
 };
 
-class CUtlSymbolTableMT : private CUtlSymbolTable
+class CUtlSymbolTableMT : public CUtlSymbolTable
 {
 public:
-	CUtlSymbolTableMT( int growSize = 0, int initSize = 32, bool caseInsensitive = false )
-		: CUtlSymbolTable( growSize, initSize, caseInsensitive )
+	CUtlSymbolTableMT(int growSize = 0, int initSize = 32, bool caseInsensitive = false)
+		: CUtlSymbolTable(growSize, initSize, caseInsensitive)
 	{
 	}
 
-	CUtlSymbol AddString( const char* pString )
+	CUtlSymbol AddString(const char* pString)
 	{
 		m_lock.LockForWrite();
-		CUtlSymbol result = CUtlSymbolTable::AddString( pString );
+		CUtlSymbol result = CUtlSymbolTable::AddString(pString);
 		m_lock.UnlockWrite();
 		return result;
 	}
 
-	CUtlSymbol Find( const char* pString ) const
+	CUtlSymbol Find(const char* pString) const
 	{
-		m_lock.LockForRead();
-		CUtlSymbol result = CUtlSymbolTable::Find( pString );
-		m_lock.UnlockRead();
+		m_lock.LockForWrite();
+		CUtlSymbol result = CUtlSymbolTable::Find(pString);
+		m_lock.UnlockWrite();
 		return result;
 	}
 
-	const char* String( CUtlSymbol id ) const
+	const char* String(CUtlSymbol id) const
 	{
 		m_lock.LockForRead();
-		const char *pszResult = CUtlSymbolTable::String( id );
+		const char *pszResult = CUtlSymbolTable::String(id);
 		m_lock.UnlockRead();
 		return pszResult;
 	}
-	
+
 private:
-#if defined(WIN32) || defined(_WIN32)
 	mutable CThreadSpinRWLock m_lock;
-#else
-	mutable CThreadRWLock m_lock;
-#endif
 };
 
 
@@ -253,10 +263,10 @@ class CUtlFilenameSymbolTable
 public:
 	CUtlFilenameSymbolTable();
 	~CUtlFilenameSymbolTable();
-	FileNameHandle_t	FindOrAddFileName( const char *pFileName );
-	FileNameHandle_t	FindFileName( const char *pFileName );
-	int					PathIndex(const FileNameHandle_t &handle) { return (( const FileNameHandleInternal_t * )&handle)->path; }
-	bool				String( const FileNameHandle_t& handle, char *buf, int buflen );
+	FileNameHandle_t	FindOrAddFileName(const char *pFileName);
+	FileNameHandle_t	FindFileName(const char *pFileName);
+	int					PathIndex(const FileNameHandle_t &handle) { return ((const FileNameHandleInternal_t *)&handle)->path; }
+	bool				String(const FileNameHandle_t& handle, char *buf, int buflen);
 	void				RemoveAll();
 
 private:
@@ -265,5 +275,51 @@ private:
 	mutable CThreadSpinRWLock m_lock;
 };
 
+
+// This creates a simple class that includes the underlying CUtlSymbol
+//  as a private member and then instances a private symbol table to
+//  manage those symbols.  Avoids the possibility of the code polluting the
+//  'global'/default symbol table, while letting the code look like 
+//  it's just using = and .String() to look at CUtlSymbol type objects
+//
+// NOTE:  You can't pass these objects between .dlls in an interface (also true of CUtlSymbol of course)
+//
+#define DECLARE_PRIVATE_SYMBOLTYPE( typename )			\
+	class typename										\
+	{													\
+	public:												\
+		typename();										\
+		typename( const char* pStr );					\
+		typename& operator=( typename const& src );		\
+		bool operator==( typename const& src ) const;	\
+		const char* String( ) const;					\
+	private:											\
+		CUtlSymbol m_SymbolId;							\
+	};	
+
+// Put this in the .cpp file that uses the above typename
+#define IMPLEMENT_PRIVATE_SYMBOLTYPE( typename )					\
+	static CUtlSymbolTable g_##typename##SymbolTable;				\
+	typename::typename()											\
+	{																\
+		m_SymbolId = UTL_INVAL_SYMBOL;								\
+	}																\
+	typename::typename( const char* pStr )							\
+	{																\
+		m_SymbolId = g_##typename##SymbolTable.AddString( pStr );	\
+	}																\
+	typename& typename::operator=( typename const& src )			\
+	{																\
+		m_SymbolId = src.m_SymbolId;								\
+		return *this;												\
+	}																\
+	bool typename::operator==( typename const& src ) const			\
+	{																\
+		return ( m_SymbolId == src.m_SymbolId );					\
+	}																\
+	const char* typename::String( ) const							\
+	{																\
+		return g_##typename##SymbolTable.String( m_SymbolId );		\
+	}
 
 #endif // UTLSYMBOL_H
