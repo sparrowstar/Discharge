@@ -2662,13 +2662,6 @@ void CHL2_Player::Weapon_Equip( CBaseCombatWeapon *pWeapon )
 	}
 
 	BaseClass::Weapon_Equip( pWeapon );
-	IGameEvent *pEvent = gameeventmanager->CreateEvent("instructor_ironsights");
-
-	if (pEvent)
-	{
-		pEvent->SetInt("userid", GetUserID());
-		gameeventmanager->FireEvent(pEvent);
-	}
 }
 
 //-----------------------------------------------------------------------------

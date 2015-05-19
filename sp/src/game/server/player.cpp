@@ -7362,13 +7362,6 @@ void CBasePlayer::Weapon_Equip( CBaseCombatWeapon *pWeapon )
 	{
 		Weapon_Switch( pWeapon );
 	}
-	IGameEvent *pEvent = gameeventmanager->CreateEvent("instructor_ironsights");
-
-	if (pEvent)
-	{
-		pEvent->SetInt("userid", GetUserID());
-		gameeventmanager->FireEvent(pEvent);
-	}
 }
 
 
