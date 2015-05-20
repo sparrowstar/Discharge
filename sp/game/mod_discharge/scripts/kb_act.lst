@@ -14,7 +14,7 @@
 "+attack"				"#Valve_Primary_Attack"
 "+attack2"				"#Valve_Secondary_Attack"
 "+reload"				"#Valve_Reload_Weapon"
-"toggle_ironsight"		"#Discharge_Toggle_Ironsight" 
+"toggle_ironsight"		"#Discharge_KeyBind_TIronsight" 
 "+use"					"#Valve_Use_Items"
 "phys_swap"				"#Valve_Gravity_Gun"
 "impulse 100"			"#Valve_Flashlight"

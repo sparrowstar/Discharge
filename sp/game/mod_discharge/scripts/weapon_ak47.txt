@@ -3,7 +3,7 @@
 WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
-	"printname"	"#DISCHARGE_AK47"
+	"printname"	"#Discharge_WPNHUD_AK47"
 	"viewmodel"				"models/weapons/v_rif_ak47.mdl"
 	"playermodel"			"models/weapons/w_rif_ak47.mdl"
 	"anim_prefix"			"ar1"

@@ -20,6 +20,7 @@
 			game				|all_source_engine_paths|ep2/ep2_pak.vpk
 			game				|all_source_engine_paths|episodic/ep1_english.vpk
 			game				|all_source_engine_paths|episodic/ep1_pak.vpk
+			game				|all_source_engine_paths|sourcetest/sourcetest_pak.vpk
 			game				|all_source_engine_paths|hl2/hl2_english.vpk
 			game				|all_source_engine_paths|hl2/hl2_pak.vpk
 			game				|all_source_engine_paths|hl2/hl2_textures.vpk
@@ -30,6 +31,7 @@
 			game+game_write		ep2
 			gamebin				episodic/bin
 			game				|all_source_engine_paths|episodic
+			game				|all_source_engine_paths|sourcetest
 			game				|all_source_engine_paths|hl2
 			platform			|all_source_engine_paths|platform
 		}
