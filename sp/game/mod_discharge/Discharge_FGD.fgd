@@ -1,0 +1,394 @@
+//====== Copyright © 2015, Discharge Team, Some rights reserved. =======
+//
+// Purpose: Discharge mod definition file (.fgd) 
+//
+//=============================================================================
+
+@include "base.fgd"
+@include "halflife2.fgd"
+
+//----------------------
+//SDK Entites
+//----------------------
+@SolidClass base(Targetname, RenderFields, Global, Shadow) = my_brush_entity : "Tutorial brush entity."
+[
+	// Inputs
+	input Toggle(void) : "Toggles the entity visible and invisible."
+]
+
+@PointClass base(Targetname) = my_logical_entity : "Tutorial logical entity."
+[
+	threshold(integer) : "Threshold" : 1 : "Number of ticks before the entity will fire its OnThreshold output."
+	// Inputs
+	input Tick(void) : "Adds one tick to the entity's count."
+
+	// Outputs
+	output OnThreshold(void) : "Fired when the number of recorded ticks reaches the specified threshold."
+]
+
+@PointClass base(Targetname, Angles) studio("models/gibs/airboat_broken_engine.mdl") = my_model_entity : "Tutorial model entity."
+[
+	// Inputs
+	input Toggle(void) : "Starts and stops the entity moving."
+]
+
+//----------------------
+//Half-Life 2 Deathmatch crap
+//----------------------
+
+@PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_player_deathmatch :
+	"This entity indicates the position and facing direction at which the player will spawn during a deathmatch map. Any number of "+
+	"info_player_deathmatch entities may be placed in a map."
+[
+]
+
+
+@PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_player_combine :
+	"This entity indicates the position and facing direction at which the player will spawn during a deathmatch map. Any number of "+
+	"info_player_deathmatch entities may be placed in a map."
+[
+]
+
+
+@PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_player_rebel :
+	"This entity indicates the position and facing direction at which the player will spawn during a deathmatch map. Any number of "+
+	"info_player_deathmatch entities may be placed in a map."
+[
+]
+
+@FilterClass base(BaseFilter) size(-8 -8 -8, 8 8 8) = filter_activator_team :
+	"A filter that filters by the team of the activator."
+[
+	filterteam(choices) : "Filter Team Number" : 2 : 
+		"The team number to filter by.  If the filter mode is Allow, only entities whose "+
+		"team number matches the given team will pass the filter. If the filter mode is Disallow, "+
+		"all entities EXCEPT those whose team number matches the given team will pass the filter." =
+	[
+		2 : "Combine"
+		3 : "Rebels"
+	]
+]
+
+@PointClass base(prop_physics) studioprop() sphere(fademindist) sphere(fademaxdist) = prop_physics_respawnable :
+	"This class is the same as prop_physics, except it respawns after it breaks"
+[
+	RespawnTime(float) : "Respawn Time" : 60 : "Ammount in seconds this prop will respawn after it breaks."
+]
+
+
+@PointClass base(Weapon) studio("models/weapons/w_slam.mdl") = weapon_slam : "S.L.A.M. - Selectable Lightweight Attack Munition" []
+
+
+//----------------------
+//Half-Life 1 stuff
+//----------------------
+
+
+@NPCClass base(BaseNPC) studio("models/houndeye.mdl") = monster_houndeye : "Houndeye" 
+[
+	netname(string) : "Squad Name"
+	spawnflags(Flags) =
+	[
+		32 : "SquadLeader" : 0
+	]
+]
+
+@NPCClass base(BaseNPC) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken" []
+
+@PointClass base(Weapon) studio("models/w_SQKNEST.mdl") = weapon_snark : "Squeak Grenade" []
+
+//----------------------
+//Discharge/Modded HL2 things
+//----------------------
+
+@BaseClass base(BaseNPC, RappelNPC) = BaseCombine
+[
+	additionalequipment(choices) : "Weapons" : "weapon_smg1" =
+	[
+		"weapon_ar2" : "AR2"
+		"weapon_shotgun" : "Shotgun"
+		"weapon_smg1" : "SMG1"
+		"weapon_ak47" : "KALASHNIKOV"
+		"0" : "Nothing"
+	]
+
+	spawnflags(Flags) = 
+	[
+		65536 :  "Start LookOff" : 0
+		131072	: "Don't drop grenades" : 0
+		262144  : "Don't drop ar2 alt fire (elite only) " : 0
+	]
+
+	NumGrenades(choices) : "Number of Grenades" : "5" =
+	[
+		"0" : "None"
+		"1" : "1"
+		"2" : "2"
+		"3" : "3"
+		"4" : "4"
+		"5" : "5"
+		"999999" : "Unlimited"
+	]
+
+	// Inputs
+	input LookOn(void) : "Look normally"	
+	input LookOff(void) : "Don't look for myself, use other squad member's eyes"
+	input StartPatrolling(void) : "Patrol whenever I'm idle or alert."
+	input StopPatrolling(void) : "Stop patrolling when I'm idle or alert."
+	input ThrowGrenadeAtTarget(target_destination) : "Throw a grenade at the specified target."
+]
+
+
+@NPCClass base(BaseNPC,Parentname, TalkNPC, PlayerCompanion ) studio() = npc_citizen : "Citizen"
+[
+
+	spawnflags(Flags) =
+	[
+		65536 : "Follow player on spawn" : 0
+		131072 : "Medic" : 0
+		262144 : "Random Head" : 1
+		524288 : "Ammo Resupplier" : 0
+		1048576 : "Not Commandable" : 0
+		2097152 : "Don't use Speech Semaphore - OBSOLETE" : 0
+		4194304 : "Random male head" : 0
+		8388608 : "Random female head" : 0
+		16777216 : "Use RenderBox in ActBusies" : 0
+	]
+
+	additionalequipment(choices) : "Weapons" : "0" =
+	[
+		"weapon_smg1" : "SMG1"
+		"weapon_ar2" : "AR2"
+		"weapon_stunstick" : "Stunstick"
+		"weapon_crowbar" : "Crowbar"
+		"weapon_wrench" : "PIPE WRENCH"
+		"weapon_ak47" : "KALASHNIKOV"
+		"weapon_shotgun" : "Shotgun"
+		"weapon_rpg" : "RPG"
+		"0"  : "Nothing"
+	]
+
+	ammosupply(choices) : "Ammo to Resupply (if spawnflag set)" : "SMG1" =
+	[
+		"Pistol" : "Pistol"
+		"SMG1" : "SMG1"
+		"SMG1_Grenade" : "SMG1 Grenade"
+		"AR2" : "AR2"
+		"Buckshot" : "Shotgun"
+		"RPG_Round" : "RPG"
+		"Grenade" : "Grenade"
+		"Snark" : "Snarks - Not sure why civilians would have them, but whatever"
+		"XBowBolt" : "Crossbow Bolt"
+	]
+	ammoamount(integer) : "Amount of ammo to give" : 1
+
+	citizentype(choices) : "Type" : "Default" =
+	[
+		0 : "Default"	 
+		1 : "Downtrodden"
+		2 : "Refugee"
+		3 : "Rebel"
+		4 : "Unique"
+	]
+
+	expressiontype(choices) : "Expression Type" : "Random" =
+	[
+		0 : "Random"
+		1 : "Scared"
+		2 : "Normal"
+		3 : "Angry"
+	]
+
+	//!!!BUGBUG - don't ship with these names
+	//!!!FIXME - don't ship with these names
+	model(choices) : "Model" : "models/humans/group01/male_01.mdl" =
+	[
+		"models/humans/group01/male_01.mdl" : "Male 1"
+		"models/humans/group01/male_02.mdl" : "Male 2"
+		"models/humans/group01/male_03.mdl" : "Male 3"
+		"models/humans/group01/male_04.mdl" : "Male 4"
+		"models/humans/group01/male_05.mdl" : "Male 5"
+		"models/humans/group01/male_06.mdl" : "Male 6"
+		"models/humans/group01/male_07.mdl" : "Male 7"
+		"models/humans/group01/male_08.mdl" : "Male 8"
+		"models/humans/group01/male_09.mdl" : "Male 9"
+		"models/humans/group01/female_01.mdl" : "Female 1"
+		"models/humans/group01/female_02.mdl" : "Female 2"
+		"models/humans/group01/female_03.mdl" : "Female 3"
+		"models/humans/group01/female_04.mdl" : "Female 4"
+		"models/humans/group01/female_06.mdl" : "Female 5"
+		"models/humans/group01/female_07.mdl" : "Female 6"
+		"models/humans/male_cheaple.mdl" : "Cheaple Male 1"
+		"models/odessa.mdl" : "Odessa. DO NOT USE."
+	]
+
+	ExpressionOverride(string) : "Facial expression override"
+
+	notifynavfailblocked(choices) : "Fire output when Nav is blocked?" : 0 =
+	[
+		0 : "No"
+		1 : "Yes"
+	]
+
+	neverleaveplayersquad(choices) : "Permanent squad member?" : 0 : "A permanent squad member cannot leave the player's squad unless killed or explicity removed by entity I/O. Only use this if you're sure you want to override the default AI." =
+	[
+		0 : "No. This is default behavior."
+		1 : "Yes, stay in squad until death."
+	]
+
+	denycommandconcept(string) : "Deny command speech concept" : "" : "If you want your citizens to squad with the player but not obey commands the player gives to move the squad, put a concept here and this citizen will speak the concept instead of obeying the order."
+
+    //Inputs
+	input RemoveFromPlayerSquad(void) : "Remove from player squad, instantly."
+	input SetExpressionOverride(string) : "Set facial expression override"
+
+	input StartPatrolling(void) : "Patrol whenever I'm idle or alert."
+	input StopPatrolling(void) : "Stop patrolling when I'm idle or alert."
+	input SetCommandable(void) : "Make a previously uncommandable citizen commandable"
+	input SetMedicOn(void) : "Set the medic flag on. Will not change the model or skin of the citizen."
+	input SetMedicOff(void) : "Set the medic flag off. Will not change the model or skin of the citizen."
+	input SetAmmoResupplierOn(void) : "Set the ammo-resupplier flag on. Will not change the model or skin of the citizen."
+	input SetAmmoResupplierOff(void) : "Set the ammo-resupplier flag off. Will not change the model or skin of the citizen."
+
+	// Outputs
+	output OnJoinedPlayerSquad(void) : "Fires when joins player squad"
+	output OnLeftPlayerSquad(void) : "Fires when leaves player squad"
+	output OnFollowOrder(void) : "Fires when ordered to follow player"
+	output OnStationOrder(void) : "Fires when ordered to a location by player"
+	output OnPlayerUse(void) : "Fires when a player +USEs the citizen"
+	output OnNavFailBlocked(void) : "Fires when this Citizen's movement fails because he/she is blocked."
+]
+
+@PointClass base(Weapon) studio("models/weapons/w_rif_ak47.mdl") = weapon_ak47 : "KALASHNIKOV" []
+@PointClass base(Weapon) studio("models/weapons/w_wrench.mdl") = weapon_wrench : "PIPE WRENCH" []
+
+@PointClass base(Targetname) iconsprite("editor/env_instructor_hint.vmt") = env_instructor_hint : "An entity that allows for creation and control of instructor lessons by map logic"
+[
+	hint_target(target_destination) : "Target Entity" : : "The entity to show this hint on top of. The entity used must exist on the client, info_target_instructor_hint can be parented to server only entities for this purpose."
+
+	hint_name(string) : "Lesson Name" : : "Hints with the same lesson name use a common base and are treated as instances the same lesson type."
+
+	hint_static(Choices) : "Positioning" : 0 : "Either show at the position of the Target Entity. Or show the hint directly on the hud at a fixed position." =
+	[
+		0 : "Follow the Target Entity"
+		1 : "Show on the hud"
+	]
+	
+	hint_allow_nodraw_target(Choices) : "Allow invisible target" : 1 : "Do we allow the hint to follow entites with nodraw set?" =
+	[
+		0 : "End immediately on nodraw"
+		1 : "Yes"
+	]
+	
+	hint_caption(string) : "Caption" : : "The text of your hint."
+	hint_color(color255) : "Caption Color" : "255 255 255" : "The color of the caption text"
+	hint_forcecaption(Choices) : "Force caption" : 0 : "Do we show the caption text even if the hint is occluded by a wall?" =
+	[
+		0 : "No"
+		1 : "Show when occluded"
+	]
+	
+	hint_icon_onscreen(Choices) : "Onscreen Icon" : "icon_tip" : "The icon to use when the hint is within the player's view." =
+	[
+		"icon_tip" : "icon_tip"
+		"icon_info" : "icon_info"
+		"icon_shield" : "icon_shield"
+		"icon_alert" : "icon_alert"
+		"icon_alert_red" : "icon_alert_red"
+		"icon_tip" : "icon_tip"
+		"icon_skull" : "icon_skull"
+		"icon_no" : "icon_no"
+		"icon_interact" : "icon_interact"
+		"icon_button" : "icon_button"
+		"icon_door" : "icon_door"
+		"icon_arrow_plain" : "icon_arrow_plain"
+		"icon_arrow_plain_white_dn" : "icon_arrow_plain_white_dn"
+		"icon_arrow_plain_white_up" : "icon_arrow_plain_white_up"
+		"icon_arrow_up" : "icon_arrow_up"
+		"icon_arrow_right" : "icon_arrow_right"
+		"use_binding" : "show key bindings"
+	]
+	
+	hint_icon_offscreen(Choices) : "Offscreen Icon" : "icon_tip" : "The icon to use when the hint is outside the player's view." =
+	[
+		"icon_tip" : "icon_tip"
+		"icon_info" : "icon_info"
+		"icon_shield" : "icon_shield"
+		"icon_alert" : "icon_alert"
+		"icon_alert_red" : "icon_alert_red"
+		"icon_tip" : "icon_tip"
+		"icon_skull" : "icon_skull"
+		"icon_no" : "icon_no"
+		"icon_interact" : "icon_interact"
+		"icon_button" : "icon_button"
+		"icon_door" : "icon_door"
+		"icon_arrow_plain" : "icon_arrow_plain"
+		"icon_arrow_plain_white_dn" : "icon_arrow_plain_white_dn"
+		"icon_arrow_plain_white_up" : "icon_arrow_plain_white_up"
+		"icon_arrow_up" : "icon_arrow_up"
+		"icon_arrow_right" : "icon_arrow_right"
+	]
+	
+	hint_nooffscreen(Choices) : "Show offscreen" : 0 : "When the hint is offscreen, do we show an icon and arrow?" =
+	[
+		0 : "Show"
+		1 : "Don't show"		
+	]
+	
+	hint_binding(string) : "Bound Command" : : "If using 'show key bindings' for the onscreen icon, this field should be the command we want to show bindings for"
+	hint_icon_offset(float) : "Icon Height Offset" : 0 : "A height offset from the target entity's origin to display the hint"
+	hint_pulseoption(Choices) : "Size Pulsing" : 0 : "The icon size can pulsate" =
+	[
+		0 : "No Pulse"
+		1 : "Slow Pulse"
+		2 : "Fast Pulse"
+		3 : "Urgent Pulse"
+	]
+	
+	hint_alphaoption(Choices) : "Alpha Pulsing" : 0 : "The icon alpha can pulsate" =
+	[
+		0 : "No Pulse"
+		1 : "Slow Pulse"
+		2 : "Fast Pulse"
+		3 : "Urgent Pulse"
+	]
+	
+	hint_shakeoption(Choices) : "Shaking" : 0 : "The icon can shake" =
+	[
+		0 : "No Shaking"
+		1 : "Narrow Shake"
+		2 : "Wide Shake"
+	]
+	
+	hint_timeout(integer) : "Timeout" : 0 : "The automatic timeout for the hint. 0 will persist until stopped with EndHint."
+	hint_display_limit(integer) : "Display Limit" : 0 : "The number of times a hint can be seen. 0 means unlimited."
+	hint_range(float) : "Display Range" : 0 : "The visible range of the hint. 0 will show it at any distance."
+
+	// New field - setting default to 2 to match the default for all previously shipped instances of this entity
+	hint_instance_type(Choices) : "Instance Type" : 2 : "How many instances of a single lesson type can be open or active at the same time" =
+	[
+		0 : "Multiple"
+		1 : "Single Open"
+		2 : "Fixed Replace"
+		3 : "Single Active"
+	]
+	 
+	hint_auto_start(Choices) : "Show on First Sight" : 1 : "When the player first sees it, it will automatically show for them." =
+	[
+		0 : "No"
+		1 : "Yes"
+	]
+	
+	hint_suppress_rest(Choices) : "Suppress rest before moving" : 0 : "Suppress the initial icon display in center of screen?" =
+	[
+		0 : "No"
+		1 : "Yes"
+	]
+
+	input ShowHint(void) : "Start showing the hint. If an entity name is passed as a parameter, the hint is shown only to that entity."	
+	input EndHint(void) : "Stop showing the hint if it hasn't already timed out."
+]
+
+@PointClass base(Targetname,Parentname) = info_target_instructor_hint : "A generic target that gets replicated to the client for hud hint targeting"
+[
+]

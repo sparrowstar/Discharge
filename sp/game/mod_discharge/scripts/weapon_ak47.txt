@@ -30,7 +30,7 @@ WeaponData
 		"double_shot"	"Weapon_AK47.Double"
 		// NPC SECTION
 		"single_shot_npc"	"Weapon_AK47.Single"
-		"reload_npc"		"Weapon_AR2.NPC_Reload"
+		"reload_npc"		"Weapon_SMG1.NPC_Reload"
 		"double_shot_npc"	"Weapon_AR2.NPC_Double"
 	}
 	
