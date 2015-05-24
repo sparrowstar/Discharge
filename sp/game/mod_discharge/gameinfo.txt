@@ -12,6 +12,9 @@
 		{
 			game+mod			|gameinfo_path|custom/*
 			game+mod+mod_write+default_write_path		|gameinfo_path|.
+			game				|gameinfo_path|HDprops3-themanclaw.vpk
+			game				|gameinfo_path|HDprops2-themanclaw.vpk
+			game				|gameinfo_path|HDprops1-themanclaw.vpk
 			gamebin				|gameinfo_path|bin
 			game				|gameinfo_path|.
 			game_lv				hl2/hl2_lv.vpk
