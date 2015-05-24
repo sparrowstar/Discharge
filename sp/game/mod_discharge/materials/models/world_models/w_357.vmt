@@ -1,0 +1,18 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\world_models/w_357"
+	"$bumpmap" "models\world_models\w_357_nm"
+       	"$envmap" "env_cubemap"
+       	"$envmaptint" "[.2 .2 .2]"
+    	"$normalmapalphaenvmapmask" "1"
+
+      "$phong" "1"
+      "$phongexponent" "40" 
+      "$phongboost"	"1"
+      "$phongfresnelranges"	"[.1 5 1]"
+
+         // Rim lighting parameters
+	"$rimlight" "1"				// To enable rim lighting (requires phong)
+	"$rimlightexponent" "25"		// Exponent for phong component of rim lighting
+	"$rimlightboost" "1.5"			// Boost for ambient cube component of rim lighting
+}
