@@ -3,7 +3,7 @@
 WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
-	"printname"	"#HL2_Pistol"
+	"printname"	"#Discharge_WPNHUD_Glock"
 	"viewmodel"			"models/weapons/v_pistol.mdl"
 	"playermodel"		"models/weapons/w_pistol.mdl"
 	"anim_prefix"		"pistol"
@@ -48,18 +48,18 @@ WeaponData
 	{
 		"weapon"
 		{
-				"font"		"WeaponIcons"
-				"character"	"d"
+				"font"		"WeaponIconsCS"
+				"character"	"c"
 		}
 		"weapon_s"
 		{	
-				"font"		"WeaponIconsSelected"
-				"character"	"d"
+				"font"		"WeaponIconsSelectedCS"
+				"character"	"c"
 		}
 		"weapon_small"
 		{
-				"font"		"WeaponIconsSmall"
-				"character"	"d"
+				"font"		"WeaponIconsSmallCS"
+				"character"	"c"
 		}
 		"ammo"
 		{
