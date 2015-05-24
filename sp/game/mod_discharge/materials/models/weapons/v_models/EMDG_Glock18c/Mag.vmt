@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\weapons\v_models\EMDG_Glock18c\Mag"
+	"$bumpmap" "models\weapons\v_models\EMDG_Glock18c\Mag_Normal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+}

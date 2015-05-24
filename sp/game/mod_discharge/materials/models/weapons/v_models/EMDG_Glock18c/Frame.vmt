@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$nocull" "1"
+	"$baseTexture" "models\weapons\v_models\EMDG_Glock18c\Frame"
+	"$bumpmap" "models\weapons\v_models\EMDG_Glock18c\Frame_Normal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+}

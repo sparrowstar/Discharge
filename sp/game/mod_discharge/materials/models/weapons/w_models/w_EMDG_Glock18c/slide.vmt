@@ -1,0 +1,5 @@
+VertexLitGeneric
+{
+	"$nocull" "1"
+	"$baseTexture" "models\weapons\v_models\EMDG_Glock18c\Slide"
+}
