@@ -1,0 +1,1385 @@
+// mp3 database, automatically generated
+songs
+{
+  file
+  {
+    filenumber 0
+    fromgame 1
+    subdirindex 0
+    short "01 - Papercut.mp3"
+    filename "01 - papercut.mp3"
+  }
+  file
+  {
+    filenumber 1
+    fromgame 1
+    subdirindex 0
+    short "01 Dream On.mp3"
+    filename "01 dream on.mp3"
+  }
+  file
+  {
+    filenumber 2
+    fromgame 1
+    subdirindex 0
+    short "01-dragonforce-through_the_fire_and_flames.mp3"
+    filename "01-dragonforce-through_the_fire_and_flames.mp3"
+  }
+  file
+  {
+    filenumber 3
+    fromgame 1
+    subdirindex 0
+    short "01_Mayhem_Dressed_in_a_Suit.mp3"
+    filename "01_mayhem_dressed_in_a_suit.mp3"
+  }
+  file
+  {
+    filenumber 4
+    fromgame 1
+    subdirindex 0
+    short "02 - One Step Closer.mp3"
+    filename "02 - one step closer.mp3"
+  }
+  file
+  {
+    filenumber 5
+    fromgame 1
+    subdirindex 0
+    short "02 Mama Kin.mp3"
+    filename "02 mama kin.mp3"
+  }
+  file
+  {
+    filenumber 6
+    fromgame 1
+    subdirindex 0
+    short "02_Master_plan.mp3"
+    filename "02_master_plan.mp3"
+  }
+  file
+  {
+    filenumber 7
+    fromgame 1
+    subdirindex 0
+    short "03 - With You.mp3"
+    filename "03 - with you.mp3"
+  }
+  file
+  {
+    filenumber 8
+    fromgame 1
+    subdirindex 0
+    short "03 Same Old Song and Dance.mp3"
+    filename "03 same old song and dance.mp3"
+  }
+  file
+  {
+    filenumber 9
+    fromgame 1
+    subdirindex 0
+    short "03_Time_Window.mp3"
+    filename "03_time_window.mp3"
+  }
+  file
+  {
+    filenumber 10
+    fromgame 1
+    subdirindex 0
+    short "04 - Points of Authority.mp3"
+    filename "04 - points of authority.mp3"
+  }
+  file
+  {
+    filenumber 11
+    fromgame 1
+    subdirindex 0
+    short "04 Seasons of Wither.mp3"
+    filename "04 seasons of wither.mp3"
+  }
+  file
+  {
+    filenumber 12
+    fromgame 1
+    subdirindex 0
+    short "04_Black_Yellow_Moebius.mp3"
+    filename "04_black_yellow_moebius.mp3"
+  }
+  file
+  {
+    filenumber 13
+    fromgame 1
+    subdirindex 0
+    short "05 - Crawling.mp3"
+    filename "05 - crawling.mp3"
+  }
+  file
+  {
+    filenumber 14
+    fromgame 1
+    subdirindex 0
+    short "05 Sweet Emotion.mp3"
+    filename "05 sweet emotion.mp3"
+  }
+  file
+  {
+    filenumber 15
+    fromgame 1
+    subdirindex 0
+    short "05_The_Mark.mp3"
+    filename "05_the_mark.mp3"
+  }
+  file
+  {
+    filenumber 16
+    fromgame 1
+    subdirindex 0
+    short "06 - Runaway.mp3"
+    filename "06 - runaway.mp3"
+  }
+  file
+  {
+    filenumber 17
+    fromgame 1
+    subdirindex 0
+    short "06 Walk This Way.mp3"
+    filename "06 walk this way.mp3"
+  }
+  file
+  {
+    filenumber 18
+    fromgame 1
+    subdirindex 0
+    short "06-RunToTheHills.mp3"
+    filename "06-runtothehills.mp3"
+  }
+  file
+  {
+    filenumber 19
+    fromgame 1
+    subdirindex 0
+    short "06_Full_Force_Forward.mp3"
+    filename "06_full_force_forward.mp3"
+  }
+  file
+  {
+    filenumber 20
+    fromgame 1
+    subdirindex 0
+    short "07 - By Myself.mp3"
+    filename "07 - by myself.mp3"
+  }
+  file
+  {
+    filenumber 21
+    fromgame 1
+    subdirindex 0
+    short "07 Big Ten Inch Record.mp3"
+    filename "07 big ten inch record.mp3"
+  }
+  file
+  {
+    filenumber 22
+    fromgame 1
+    subdirindex 0
+    short "07_Tick_Tock.mp3"
+    filename "07_tick_tock.mp3"
+  }
+  file
+  {
+    filenumber 23
+    fromgame 1
+    subdirindex 0
+    short "08 - In the End.mp3"
+    filename "08 - in the end.mp3"
+  }
+  file
+  {
+    filenumber 24
+    fromgame 1
+    subdirindex 0
+    short "08 Last Child.mp3"
+    filename "08 last child.mp3"
+  }
+  file
+  {
+    filenumber 25
+    fromgame 1
+    subdirindex 0
+    short "08_Fuse_box.mp3"
+    filename "08_fuse_box.mp3"
+  }
+  file
+  {
+    filenumber 26
+    fromgame 1
+    subdirindex 0
+    short "09 - A Place for My Head.mp3"
+    filename "09 - a place for my head.mp3"
+  }
+  file
+  {
+    filenumber 27
+    fromgame 1
+    subdirindex 0
+    short "09 Back in the Saddle.mp3"
+    filename "09 back in the saddle.mp3"
+  }
+  file
+  {
+    filenumber 28
+    fromgame 1
+    subdirindex 0
+    short "09_Razormind.mp3"
+    filename "09_razormind.mp3"
+  }
+  file
+  {
+    filenumber 29
+    fromgame 1
+    subdirindex 0
+    short "10 - Forgotten.mp3"
+    filename "10 - forgotten.mp3"
+  }
+  file
+  {
+    filenumber 30
+    fromgame 1
+    subdirindex 0
+    short "10 Draw the Line.mp3"
+    filename "10 draw the line.mp3"
+  }
+  file
+  {
+    filenumber 31
+    fromgame 1
+    subdirindex 0
+    short "10_Calling_all_Units.mp3"
+    filename "10_calling_all_units.mp3"
+  }
+  file
+  {
+    filenumber 32
+    fromgame 1
+    subdirindex 0
+    short "11 - Cure for the Itch.mp3"
+    filename "11 - cure for the itch.mp3"
+  }
+  file
+  {
+    filenumber 33
+    fromgame 1
+    subdirindex 0
+    short "11 Kings and Queens.mp3"
+    filename "11 kings and queens.mp3"
+  }
+  file
+  {
+    filenumber 34
+    fromgame 1
+    subdirindex 0
+    short "11_Wheres_the_Van.mp3"
+    filename "11_wheres_the_van.mp3"
+  }
+  file
+  {
+    filenumber 35
+    fromgame 1
+    subdirindex 0
+    short "12 - Pushing Me Away.mp3"
+    filename "12 - pushing me away.mp3"
+  }
+  file
+  {
+    filenumber 36
+    fromgame 1
+    subdirindex 0
+    short "12 Come Together.mp3"
+    filename "12 come together.mp3"
+  }
+  file
+  {
+    filenumber 37
+    fromgame 1
+    subdirindex 0
+    short "12_Hard_Time.mp3"
+    filename "12_hard_time.mp3"
+  }
+  file
+  {
+    filenumber 38
+    fromgame 1
+    subdirindex 0
+    short "13 Remember (Walking in the Sand).mp3"
+    filename "13 remember (walking in the sand).mp3"
+  }
+  file
+  {
+    filenumber 39
+    fromgame 1
+    subdirindex 0
+    short "13_Clean_Getaway.mp3"
+    filename "13_clean_getaway.mp3"
+  }
+  file
+  {
+    filenumber 40
+    fromgame 1
+    subdirindex 0
+    short "14 Lightning Strikes.mp3"
+    filename "14 lightning strikes.mp3"
+  }
+  file
+  {
+    filenumber 41
+    fromgame 1
+    subdirindex 0
+    short "14_Mayhem_Dressed_in_a_Suit_Remix.mp3"
+    filename "14_mayhem_dressed_in_a_suit_remix.mp3"
+  }
+  file
+  {
+    filenumber 42
+    fromgame 1
+    subdirindex 0
+    short "15 Chip Away the Stone.mp3"
+    filename "15 chip away the stone.mp3"
+  }
+  file
+  {
+    filenumber 43
+    fromgame 1
+    subdirindex 0
+    short "15_Lets_Go_Shopping.mp3"
+    filename "15_lets_go_shopping.mp3"
+  }
+  file
+  {
+    filenumber 44
+    fromgame 1
+    subdirindex 0
+    short "16 Sweet Emotion [1991 Thoener Remix].mp3"
+    filename "16 sweet emotion [1991 thoener remix].mp3"
+  }
+  file
+  {
+    filenumber 45
+    fromgame 1
+    subdirindex 0
+    short "16_Armed_to_the_Teeth.mp3"
+    filename "16_armed_to_the_teeth.mp3"
+  }
+  file
+  {
+    filenumber 46
+    fromgame 1
+    subdirindex 0
+    short "17 One Way Street.mp3"
+    filename "17 one way street.mp3"
+  }
+  file
+  {
+    filenumber 47
+    fromgame 1
+    subdirindex 0
+    short "17_Sirens_in_the_Distance.mp3"
+    filename "17_sirens_in_the_distance.mp3"
+  }
+  file
+  {
+    filenumber 48
+    fromgame 1
+    subdirindex 0
+    short "18_Wanted_Dead_or_Alive.mp3"
+    filename "18_wanted_dead_or_alive.mp3"
+  }
+  file
+  {
+    filenumber 49
+    fromgame 1
+    subdirindex 0
+    short "19_Death_Wish.mp3"
+    filename "19_death_wish.mp3"
+  }
+  file
+  {
+    filenumber 50
+    fromgame 1
+    subdirindex 0
+    short "20_shadows_and_trickery.mp3"
+    filename "20_shadows_and_trickery.mp3"
+  }
+  file
+  {
+    filenumber 51
+    fromgame 1
+    subdirindex 0
+    short "21_And_Now_We_Wait.mp3"
+    filename "21_and_now_we_wait.mp3"
+  }
+  file
+  {
+    filenumber 52
+    fromgame 1
+    subdirindex 0
+    short "22_Ode_to_Greed.mp3"
+    filename "22_ode_to_greed.mp3"
+  }
+  file
+  {
+    filenumber 53
+    fromgame 1
+    subdirindex 0
+    short "23_Ode_to_Greed_instrumental.mp3"
+    filename "23_ode_to_greed_instrumental.mp3"
+  }
+  file
+  {
+    filenumber 54
+    fromgame 1
+    subdirindex 0
+    short "24_And_Now_We_Run.mp3"
+    filename "24_and_now_we_run.mp3"
+  }
+  file
+  {
+    filenumber 55
+    fromgame 1
+    subdirindex 0
+    short "25_Blueprints.mp3"
+    filename "25_blueprints.mp3"
+  }
+  file
+  {
+    filenumber 56
+    fromgame 1
+    subdirindex 0
+    short "26_Blueprints_old.mp3"
+    filename "26_blueprints_old.mp3"
+  }
+  file
+  {
+    filenumber 57
+    fromgame 1
+    subdirindex 0
+    short "27_Freeze.mp3"
+    filename "27_freeze.mp3"
+  }
+  file
+  {
+    filenumber 58
+    fromgame 1
+    subdirindex 0
+    short "28_Supersledge.mp3"
+    filename "28_supersledge.mp3"
+  }
+  file
+  {
+    filenumber 59
+    fromgame 1
+    subdirindex 0
+    short "29_Evil Eye.mp3"
+    filename "29_evil eye.mp3"
+  }
+  file
+  {
+    filenumber 60
+    fromgame 1
+    subdirindex 0
+    short "30_Hot_Pursuit.mp3"
+    filename "30_hot_pursuit.mp3"
+  }
+  file
+  {
+    filenumber 61
+    fromgame 1
+    subdirindex 0
+    short "31_The_Gauntlet.mp3"
+    filename "31_the_gauntlet.mp3"
+  }
+  file
+  {
+    filenumber 62
+    fromgame 1
+    subdirindex 0
+    short "32_Something_Wicked_This_Way_Comes.mp3"
+    filename "32_something_wicked_this_way_comes.mp3"
+  }
+  file
+  {
+    filenumber 63
+    fromgame 1
+    subdirindex 0
+    short "33_Clowns_Are_Scary.mp3"
+    filename "33_clowns_are_scary.mp3"
+  }
+  file
+  {
+    filenumber 64
+    fromgame 1
+    subdirindex 0
+    short "34_Ho_Ho_Ho.mp3"
+    filename "34_ho_ho_ho.mp3"
+  }
+  file
+  {
+    filenumber 65
+    fromgame 1
+    subdirindex 0
+    short "35_Breach_2015.mp3"
+    filename "35_breach_2015.mp3"
+  }
+  file
+  {
+    filenumber 66
+    fromgame 1
+    subdirindex 0
+    short "36_Searchlights.mp3"
+    filename "36_searchlights.mp3"
+  }
+  file
+  {
+    filenumber 67
+    fromgame 1
+    subdirindex 0
+    short "37_Kicking_Ass_and_Taking_Names.mp3"
+    filename "37_kicking_ass_and_taking_names.mp3"
+  }
+  file
+  {
+    filenumber 68
+    fromgame 1
+    subdirindex 0
+    short "38_Backstab.mp3"
+    filename "38_backstab.mp3"
+  }
+  file
+  {
+    filenumber 69
+    fromgame 1
+    subdirindex 0
+    short "3dNOW - Double the Trouble[freemp3x.mp3"
+    filename "3dnow - double the trouble[freemp3x.org].mp3"
+  }
+  file
+  {
+    filenumber 70
+    fromgame 1
+    subdirindex 0
+    short "A Day To Remember- Out Of Time.mp3"
+    filename "a day to remember- out of time.mp3"
+  }
+  file
+  {
+    filenumber 71
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_01_TitleScreen.mp3"
+    filename "bp_ftl_01_titlescreen.mp3"
+  }
+  file
+  {
+    filenumber 72
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_02_MilkyWayEXPLORE.mp3"
+    filename "bp_ftl_02_milkywayexplore.mp3"
+  }
+  file
+  {
+    filenumber 73
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_03_CivilEXPLORE.mp3"
+    filename "bp_ftl_03_civilexplore.mp3"
+  }
+  file
+  {
+    filenumber 74
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_04_CosmosEXPLORE.mp3"
+    filename "bp_ftl_04_cosmosexplore.mp3"
+  }
+  file
+  {
+    filenumber 75
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_05_DeepspaceEXPLORE.mp3"
+    filename "bp_ftl_05_deepspaceexplore.mp3"
+  }
+  file
+  {
+    filenumber 76
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_06_DebrisEXPLORE.mp3"
+    filename "bp_ftl_06_debrisexplore.mp3"
+  }
+  file
+  {
+    filenumber 77
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_07_MantisEXPLORE.mp3"
+    filename "bp_ftl_07_mantisexplore.mp3"
+  }
+  file
+  {
+    filenumber 78
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_08_EngiEXPLORE.mp3"
+    filename "bp_ftl_08_engiexplore.mp3"
+  }
+  file
+  {
+    filenumber 79
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_09_ColonialEXPLORE.mp3"
+    filename "bp_ftl_09_colonialexplore.mp3"
+  }
+  file
+  {
+    filenumber 80
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_10_WastelandEXPLORE.mp3"
+    filename "bp_ftl_10_wastelandexplore.mp3"
+  }
+  file
+  {
+    filenumber 81
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_11_RockmenEXPLORE.mp3"
+    filename "bp_ftl_11_rockmenexplore.mp3"
+  }
+  file
+  {
+    filenumber 82
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_12_VoidEXPLORE.mp3"
+    filename "bp_ftl_12_voidexplore.mp3"
+  }
+  file
+  {
+    filenumber 83
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_13_ZoltanEXPLORE.mp3"
+    filename "bp_ftl_13_zoltanexplore.mp3"
+  }
+  file
+  {
+    filenumber 84
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_14_BONUS_Federation.mp3"
+    filename "bp_ftl_14_bonus_federation.mp3"
+  }
+  file
+  {
+    filenumber 85
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_15_MilkyWayBATTLE.mp3"
+    filename "bp_ftl_15_milkywaybattle.mp3"
+  }
+  file
+  {
+    filenumber 86
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_16_CivilBATTLE.mp3"
+    filename "bp_ftl_16_civilbattle.mp3"
+  }
+  file
+  {
+    filenumber 87
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_17_CosmosBATTLE.mp3"
+    filename "bp_ftl_17_cosmosbattle.mp3"
+  }
+  file
+  {
+    filenumber 88
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_18_DeepspaceBATTLE.mp3"
+    filename "bp_ftl_18_deepspacebattle.mp3"
+  }
+  file
+  {
+    filenumber 89
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_19_DebrisBATTLE.mp3"
+    filename "bp_ftl_19_debrisbattle.mp3"
+  }
+  file
+  {
+    filenumber 90
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_20_MantisBATTLE.mp3"
+    filename "bp_ftl_20_mantisbattle.mp3"
+  }
+  file
+  {
+    filenumber 91
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_21_EngiBATTLE.mp3"
+    filename "bp_ftl_21_engibattle.mp3"
+  }
+  file
+  {
+    filenumber 92
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_22_ColonialBATTLE.mp3"
+    filename "bp_ftl_22_colonialbattle.mp3"
+  }
+  file
+  {
+    filenumber 93
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_23_WastelandBATTLE.mp3"
+    filename "bp_ftl_23_wastelandbattle.mp3"
+  }
+  file
+  {
+    filenumber 94
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_24_RockmenBATTLE.mp3"
+    filename "bp_ftl_24_rockmenbattle.mp3"
+  }
+  file
+  {
+    filenumber 95
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_25_VoidBATTLE.mp3"
+    filename "bp_ftl_25_voidbattle.mp3"
+  }
+  file
+  {
+    filenumber 96
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_26_ZoltanBATTLE.mp3"
+    filename "bp_ftl_26_zoltanbattle.mp3"
+  }
+  file
+  {
+    filenumber 97
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_27_LastStand.mp3"
+    filename "bp_ftl_27_laststand.mp3"
+  }
+  file
+  {
+    filenumber 98
+    fromgame 1
+    subdirindex 0
+    short "bp_FTL_29_BONUS_Horror.mp3"
+    filename "bp_ftl_29_bonus_horror.mp3"
+  }
+  file
+  {
+    filenumber 99
+    fromgame 1
+    subdirindex 0
+    short "Colony Ship (2008).mp3"
+    filename "colony ship (2008).mp3"
+  }
+  file
+  {
+    filenumber 100
+    fromgame 1
+    subdirindex 0
+    short "csgo skog.mp3"
+    filename "csgo skog.mp3"
+  }
+  file
+  {
+    filenumber 101
+    fromgame 1
+    subdirindex 0
+    short "csgo valve01.mp3"
+    filename "csgo valve01.mp3"
+  }
+  file
+  {
+    filenumber 102
+    fromgame 1
+    subdirindex 0
+    short "csgo valve02.mp3"
+    filename "csgo valve02.mp3"
+  }
+  file
+  {
+    filenumber 103
+    fromgame 1
+    subdirindex 0
+    short "Cult of Personality.mp3"
+    filename "cult of personality.mp3"
+  }
+  file
+  {
+    filenumber 104
+    fromgame 1
+    subdirindex 0
+    short "Europe-TheFinalCountdown.mp3"
+    filename "europe-thefinalcountdown.mp3"
+  }
+  file
+  {
+    filenumber 105
+    fromgame 1
+    subdirindex 0
+    short "FantomenK-Goodbye Summer, Hello Winter [myfreemp3.mp3"
+    filename "fantomenk-goodbye summer, hello winter [myfreemp3.eu].mp3"
+  }
+  file
+  {
+    filenumber 106
+    fromgame 1
+    subdirindex 0
+    short "FAS 1.mp3"
+    filename "fas 1.mp3"
+  }
+  file
+  {
+    filenumber 107
+    fromgame 1
+    subdirindex 0
+    short "FAS 2.mp3"
+    filename "fas 2.mp3"
+  }
+  file
+  {
+    filenumber 108
+    fromgame 1
+    subdirindex 0
+    short "FAS 3.mp3"
+    filename "fas 3.mp3"
+  }
+  file
+  {
+    filenumber 109
+    fromgame 1
+    subdirindex 0
+    short "Free.mp3"
+    filename "free.mp3"
+  }
+  file
+  {
+    filenumber 110
+    fromgame 1
+    subdirindex 0
+    short "FVGM #3 Vs Crimson dragon Megaman Starforce 3 final boss.mp3"
+    filename "fvgm #3 vs crimson dragon megaman starforce 3 final boss.mp3"
+  }
+  file
+  {
+    filenumber 111
+    fromgame 1
+    subdirindex 0
+    short "Gorillaz Clint Eastwood cover (Trey Anastasio).mp3"
+    filename "gorillaz clint eastwood cover (trey anastasio).mp3"
+  }
+  file
+  {
+    filenumber 112
+    fromgame 1
+    subdirindex 0
+    short "Hacking Malfunction (Battle).mp3"
+    filename "hacking malfunction (battle).mp3"
+  }
+  file
+  {
+    filenumber 113
+    fromgame 1
+    subdirindex 0
+    short "Hacking Malfunction (Explore).mp3"
+    filename "hacking malfunction (explore).mp3"
+  }
+  file
+  {
+    filenumber 114
+    fromgame 1
+    subdirindex 0
+    short "hotlinemiami2_run.mp3"
+    filename "hotlinemiami2_run.mp3"
+  }
+  file
+  {
+    filenumber 115
+    fromgame 1
+    subdirindex 0
+    short "hotlinemiami2_voyager.mp3"
+    filename "hotlinemiami2_voyager.mp3"
+  }
+  file
+  {
+    filenumber 116
+    fromgame 1
+    subdirindex 0
+    short "It's so wornderful.mp3"
+    filename "it's so wornderful.mp3"
+  }
+  file
+  {
+    filenumber 117
+    fromgame 1
+    subdirindex 0
+    short "Kashmir - Led Zeppelin.mp3"
+    filename "kashmir - led zeppelin.mp3"
+  }
+  file
+  {
+    filenumber 118
+    fromgame 1
+    subdirindex 0
+    short "Lanius (Battle).mp3"
+    filename "lanius (battle).mp3"
+  }
+  file
+  {
+    filenumber 119
+    fromgame 1
+    subdirindex 0
+    short "Lanius (Explore).mp3"
+    filename "lanius (explore).mp3"
+  }
+  file
+  {
+    filenumber 120
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park - 05 - High Voltage.mp3"
+    filename "linkin park - 05 - high voltage.mp3"
+  }
+  file
+  {
+    filenumber 121
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park - And One.mp3"
+    filename "linkin park - and one.mp3"
+  }
+  file
+  {
+    filenumber 122
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park - Carousel.mp3"
+    filename "linkin park - carousel.mp3"
+  }
+  file
+  {
+    filenumber 123
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park - Esal.mp3"
+    filename "linkin park - esal.mp3"
+  }
+  file
+  {
+    filenumber 124
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park - Hybrid Theory EP - 03 - Step Up.mp3"
+    filename "linkin park - hybrid theory ep - 03 - step up.mp3"
+  }
+  file
+  {
+    filenumber 125
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park - My December.mp3"
+    filename "linkin park - my december.mp3"
+  }
+  file
+  {
+    filenumber 126
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park - Numb.mp3"
+    filename "linkin park - numb.mp3"
+  }
+  file
+  {
+    filenumber 127
+    fromgame 1
+    subdirindex 0
+    short "linkin park - straight up.mp3"
+    filename "linkin park - straight up.mp3"
+  }
+  file
+  {
+    filenumber 128
+    fromgame 1
+    subdirindex 0
+    short "Linkin Park SuperXero.mp3"
+    filename "linkin park superxero.mp3"
+  }
+  file
+  {
+    filenumber 129
+    fromgame 1
+    subdirindex 0
+    short "Linkin_Park_-_Bleed_It_Out.mp3"
+    filename "linkin_park_-_bleed_it_out.mp3"
+  }
+  file
+  {
+    filenumber 130
+    fromgame 1
+    subdirindex 0
+    short "Lost Ship (Battle).mp3"
+    filename "lost ship (battle).mp3"
+  }
+  file
+  {
+    filenumber 131
+    fromgame 1
+    subdirindex 0
+    short "Lost Ship (Explore).mp3"
+    filename "lost ship (explore).mp3"
+  }
+  file
+  {
+    filenumber 132
+    fromgame 1
+    subdirindex 0
+    short "MAX COVERI - RUNNING IN THE 90'S MIDI.mp3"
+    filename "max coveri - running in the 90's midi.mp3"
+  }
+  file
+  {
+    filenumber 133
+    fromgame 1
+    subdirindex 0
+    short "Mogwai - Teenage Exorcists (Official Video).mp3"
+    filename "mogwai - teenage exorcists (official video).mp3"
+  }
+  file
+  {
+    filenumber 134
+    fromgame 1
+    subdirindex 0
+    short "Nickelback - I Wanna Be A Rock Star.mp3"
+    filename "nickelback - i wanna be a rock star.mp3"
+  }
+  file
+  {
+    filenumber 135
+    fromgame 1
+    subdirindex 0
+    short "Project 46 - Reasons (feat.mp3"
+    filename "project 46 - reasons (feat. andrew allen).mp3"
+  }
+  file
+  {
+    filenumber 136
+    fromgame 1
+    subdirindex 0
+    short "Puddle Of Mudd - Blurry.mp3"
+    filename "puddle of mudd - blurry.mp3"
+  }
+  file
+  {
+    filenumber 137
+    fromgame 1
+    subdirindex 0
+    short "rage agaist the machine -  bulls on parade.mp3"
+    filename "rage agaist the machine -  bulls on parade.mp3"
+  }
+  file
+  {
+    filenumber 138
+    fromgame 1
+    subdirindex 0
+    short "rolling-stones-paint-it-black.mp3"
+    filename "rolling-stones-paint-it-black.mp3"
+  }
+  file
+  {
+    filenumber 139
+    fromgame 1
+    subdirindex 0
+    short "Slipknot - Psychosocial [OFFICIAL VIDEO][freemp3x.mp3"
+    filename "slipknot - psychosocial [official video][freemp3x.org].mp3"
+  }
+  file
+  {
+    filenumber 140
+    fromgame 1
+    subdirindex 0
+    short "Slug (Battle).mp3"
+    filename "slug (battle).mp3"
+  }
+  file
+  {
+    filenumber 141
+    fromgame 1
+    subdirindex 0
+    short "Slug (Explore).mp3"
+    filename "slug (explore).mp3"
+  }
+  file
+  {
+    filenumber 142
+    fromgame 1
+    subdirindex 0
+    short "Sos - Bonusness.mp3"
+    filename "sos - bonusness.mp3"
+  }
+  file
+  {
+    filenumber 143
+    fromgame 1
+    subdirindex 0
+    short "Sos - It Will Blow, Won't It.mp3"
+    filename "sos - it will blow, won't it.mp3"
+  }
+  file
+  {
+    filenumber 144
+    fromgame 1
+    subdirindex 0
+    short "Sos - Lunch Break.mp3"
+    filename "sos - lunch break.mp3"
+  }
+  file
+  {
+    filenumber 145
+    fromgame 1
+    subdirindex 0
+    short "Sos - McPixel Theme.mp3"
+    filename "sos - mcpixel theme.mp3"
+  }
+  file
+  {
+    filenumber 146
+    fromgame 1
+    subdirindex 0
+    short "Sos - Oh, look!.mp3"
+    filename "sos - oh, look!.mp3"
+  }
+  file
+  {
+    filenumber 147
+    fromgame 1
+    subdirindex 0
+    short "Sos - Will It Blow.mp3"
+    filename "sos - will it blow.mp3"
+  }
+  file
+  {
+    filenumber 148
+    fromgame 1
+    subdirindex 0
+    short "Stendeck - Like Falling Crystals.mp3"
+    filename "stendeck - like falling crystals.mp3"
+  }
+  file
+  {
+    filenumber 149
+    fromgame 1
+    subdirindex 0
+    short "TDM.mp3"
+    filename "tdm.mp3"
+  }
+  file
+  {
+    filenumber 150
+    fromgame 1
+    subdirindex 0
+    short "Tobucus Remix.mp3"
+    filename "tobucus remix.mp3"
+  }
+  file
+  {
+    filenumber 151
+    fromgame 1
+    subdirindex 0
+    short "TWOAWESOMEGAMERZ.mp3"
+    filename "twoawesomegamerz.mp3"
+  }
+}
+directories
+{
+  directory
+  {
+    gamesounds 0
+    name "c:\Users\Kevin\Music\songs"
+    dirname "c:\Users\Kevin\Music\songs"
+    fullpath "c:\Users\Kevin\Music\songs"
+    files
+    {
+      file 0
+      file 1
+      file 2
+      file 3
+      file 4
+      file 5
+      file 6
+      file 7
+      file 8
+      file 9
+      file 10
+      file 11
+      file 12
+      file 13
+      file 14
+      file 15
+      file 16
+      file 17
+      file 18
+      file 19
+      file 20
+      file 21
+      file 22
+      file 23
+      file 24
+      file 25
+      file 26
+      file 27
+      file 28
+      file 29
+      file 30
+      file 31
+      file 32
+      file 33
+      file 34
+      file 35
+      file 36
+      file 37
+      file 38
+      file 39
+      file 40
+      file 41
+      file 42
+      file 43
+      file 44
+      file 45
+      file 46
+      file 47
+      file 48
+      file 49
+      file 50
+      file 51
+      file 52
+      file 53
+      file 54
+      file 55
+      file 56
+      file 57
+      file 58
+      file 59
+      file 60
+      file 61
+      file 62
+      file 63
+      file 64
+      file 65
+      file 66
+      file 67
+      file 68
+      file 69
+      file 70
+      file 71
+      file 72
+      file 73
+      file 74
+      file 75
+      file 76
+      file 77
+      file 78
+      file 79
+      file 80
+      file 81
+      file 82
+      file 83
+      file 84
+      file 85
+      file 86
+      file 87
+      file 88
+      file 89
+      file 90
+      file 91
+      file 92
+      file 93
+      file 94
+      file 95
+      file 96
+      file 97
+      file 98
+      file 99
+      file 100
+      file 101
+      file 102
+      file 103
+      file 104
+      file 105
+      file 106
+      file 107
+      file 108
+      file 109
+      file 110
+      file 111
+      file 112
+      file 113
+      file 114
+      file 115
+      file 116
+      file 117
+      file 118
+      file 119
+      file 120
+      file 121
+      file 122
+      file 123
+      file 124
+      file 125
+      file 126
+      file 127
+      file 128
+      file 129
+      file 130
+      file 131
+      file 132
+      file 133
+      file 134
+      file 135
+      file 136
+      file 137
+      file 138
+      file 139
+      file 140
+      file 141
+      file 142
+      file 143
+      file 144
+      file 145
+      file 146
+      file 147
+      file 148
+      file 149
+      file 150
+      file 151
+    }
+  }
+}

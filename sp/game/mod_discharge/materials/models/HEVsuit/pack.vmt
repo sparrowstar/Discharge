@@ -1,0 +1,29 @@
+
+VertexLitGeneric
+{
+	"$basetexture"	"models\HEVsuit\pack"
+        "$bumpmap"      "models\HEVsuit\pack_n"
+
+
+        "$phong" "1"
+//	"$phongexponent" "4"	    
+        "$phongboost"		"0.1"        
+	"$phongfresnelranges"	"[.05 .25 1]"         
+        "$nocull"	1	 
+
+       
+         "$phongexponenttexture"	"models\HEVsuit\pack_s"
+        "$phongalbedotint" "1"
+
+	"$normalmapalphaenvmapmask" "1"
+        "$model" "1"	
+        				
+        "$rimlight" "1"						
+	"$rimlightexponent" "8"				
+	"$rimlightboost" "0.05"
+	"$rimmask" "1"							
+
+}
+ 
+
+        
