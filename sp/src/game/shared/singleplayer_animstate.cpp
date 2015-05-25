@@ -21,7 +21,7 @@ extern ConVar mp_facefronttime, mp_feetyawrate, mp_ik;
 
 CSinglePlayerAnimState *CreatePlayerAnimationState(CBasePlayer *pPlayer)
 {
-	MDLCACHE_CRITICAL_SECTION();
+	//MDLCACHE_CRITICAL_SECTION();
 
 	CSinglePlayerAnimState *pState = new CSinglePlayerAnimState(pPlayer);
 	pState->Init(pPlayer);
