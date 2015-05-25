@@ -255,12 +255,13 @@ void CCrossbowBolt::BoltTouch( CBaseEntity *pOther )
 		if ( pOther->GetCollisionGroup() == COLLISION_GROUP_BREAKABLE_GLASS )
 			 return;
 
-		if(FClassnameIs(pOther, "func_breakable"))
+		//throws compile errors
+		/*if(FClassnameIs(pOther, "func_breakable"))
 		{
 			CBreakable* pOtherEntity =  static_cast<CBreakable*> (pOther);
 			if(pOtherEntity->GetMaterialType() == matGlass)
 			return;
-		}
+		}*/
 		 
 		if ( !pOther->IsAlive() )
 		{

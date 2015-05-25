@@ -4,7 +4,7 @@ WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
 	"printname"	"#Discharge_WPNHUD_AK47"
-	"viewmodel"				"models/weapons/v_rif_ak47.mdl"
+	"viewmodel"				"models/weapons/v_csgo_ak47.mdl"
 	"playermodel"			"models/weapons/w_rif_ak47.mdl"
 	"anim_prefix"			"ar1"
 	"bucket"				"2"
@@ -36,9 +36,9 @@ WeaponData
 	
 	IronSight
 	{
-		"forward"	"-10"
-		"right"		"-6.63"
-		"up"		"3.3"
+		"forward"	"0"
+		"right"		"-4.4"
+		"up"		"1"
 		"roll"		"0"
 		"fov"		"-30"
 	}
