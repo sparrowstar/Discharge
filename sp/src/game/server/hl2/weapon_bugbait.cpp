@@ -58,6 +58,7 @@ public:
 	bool	ShouldDisplayHUDHint() { return true; }
 
 	DECLARE_DATADESC();
+	DECLARE_ACTTABLE();
 
 protected:
 
@@ -85,6 +86,19 @@ BEGIN_DATADESC( CWeaponBugBait )
 	DEFINE_FUNCTION( BugbaitStickyTouch ),
 
 END_DATADESC()
+
+acttable_t CWeaponBugBait::m_acttable[] =
+{
+{ ACT_HL2MP_IDLE,                    ACT_HL2MP_IDLE_GRENADE,                    false },
+    { ACT_HL2MP_RUN,                    ACT_HL2MP_RUN_GRENADE,                    false },
+    { ACT_HL2MP_IDLE_CROUCH,            ACT_HL2MP_IDLE_CROUCH_GRENADE,            false },
+    { ACT_HL2MP_WALK_CROUCH,            ACT_HL2MP_WALK_CROUCH_GRENADE,            false },
+    { ACT_HL2MP_GESTURE_RANGE_ATTACK,    ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,    false },
+    { ACT_HL2MP_GESTURE_RELOAD,            ACT_HL2MP_GESTURE_RELOAD_GRENADE,        false },
+    { ACT_HL2MP_JUMP,						ACT_HL2MP_JUMP_GRENADE,			false },
+};
+ 
+IMPLEMENT_ACTTABLE( CWeaponBugBait );
 
 //-----------------------------------------------------------------------------
 // Purpose: 

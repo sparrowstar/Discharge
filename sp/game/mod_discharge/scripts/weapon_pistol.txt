@@ -28,7 +28,7 @@ WeaponData
 		"reload_npc"	"Weapon_Pistol.NPC_Reload"
 		"empty"			"Weapon_Pistol.Empty"
 		"single_shot"	"Weapon_Pistol.Single"
-		"single_shot_npc"	"Weapon_Pistol.NPC_Single"
+		"single_shot_npc"	"Weapon_Pistol.Single"
 		"special1"		"Weapon_Pistol.Special1"
 		"special2"		"Weapon_Pistol.Special2"
 		"burst"			"Weapon_Pistol.Burst"

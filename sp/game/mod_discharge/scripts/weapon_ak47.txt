@@ -25,11 +25,9 @@ WeaponData
 	SoundData
 	{
 		"empty"			"Weapon_AR2.Empty"
-		"reload"		"Weapon_AK47.Reload"
-		"single_shot"	"Weapon_AK47.Single"
-		"double_shot"	"Weapon_AK47.Double"
+		"single_shot"	"Weapon_CAK47.Single"
 		// NPC SECTION
-		"single_shot_npc"	"Weapon_AK47.Single"
+		"single_shot_npc"	"Weapon_CAK47.Single"
 		"reload_npc"		"Weapon_SMG1.NPC_Reload"
 		"double_shot_npc"	"Weapon_AR2.NPC_Double"
 	}
