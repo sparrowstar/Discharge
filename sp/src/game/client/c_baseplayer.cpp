@@ -2828,6 +2828,8 @@ bool C_BasePlayer::GetSteamID( CSteamID *pID )
 	return false;
 }
 
+
+
 #if defined USES_ECON_ITEMS
 //-----------------------------------------------------------------------------
 // Purpose: Update the visibility of our worn items.
