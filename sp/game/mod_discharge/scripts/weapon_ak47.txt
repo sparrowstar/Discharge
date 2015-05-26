@@ -15,7 +15,7 @@ WeaponData
 	"AllowFlipping" "1"  
 
 	"clip_size"				"30"
-	"primary_ammo"			"SMG1"
+	"primary_ammo"			"AR2"
 	"secondary_ammo"		"None"
 
 	"weight"				"2"

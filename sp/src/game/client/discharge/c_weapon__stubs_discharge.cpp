@@ -18,4 +18,5 @@ STUB_WEAPON_CLASS(weapon_snark, WeaponSnark, C_BaseHL1CombatWeapon);
 STUB_WEAPON_CLASS(weapon_wrench, WeaponWrench, C_BaseHLBludgeonWeapon);
 STUB_WEAPON_CLASS(weapon_ak47, WeaponAK47, C_HLMachineGun);
 STUB_WEAPON_CLASS(weapon_mp5, WeaponMP5, C_HLSelectFireMachineGun);
+STUB_WEAPON_CLASS( weapon_AWP, WeaponAWP, C_BaseHLCombatWeapon );
 

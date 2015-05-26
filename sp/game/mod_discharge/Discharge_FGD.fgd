@@ -101,6 +101,8 @@
 //Discharge/Modded HL2 things
 //----------------------
 
+@PointClass base(Item) studio("models/items/boxsniperrounds.mdl")= item_ammo_awp : "Box of AWP ammo" []
+
 @BaseClass base(BaseNPC, RappelNPC) = BaseCombine
 [
 	additionalequipment(choices) : "Weapons" : "weapon_smg1" =

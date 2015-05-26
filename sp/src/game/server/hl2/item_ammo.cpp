@@ -505,7 +505,7 @@ public:
 	}
 	bool MyTouch( CBasePlayer *pPlayer )
 	{
-		if (ITEM_GiveAmmo( pPlayer, SIZE_BOX_SNIPER_ROUNDS, "SniperRound"))
+		if (ITEM_GiveAmmo( pPlayer, SIZE_BOX_SNIPER_ROUNDS, "AWPRound"))
 		{
 			if ( g_pGameRules->ItemShouldRespawn( this ) == GR_ITEM_RESPAWN_NO )
 			{
@@ -517,6 +517,7 @@ public:
 	}
 };
 LINK_ENTITY_TO_CLASS(item_box_sniper_rounds, CItem_BoxSniperRounds);
+LINK_ENTITY_TO_CLASS(item_ammo_awp, CItem_BoxSniperRounds);
 
 
 // ========================================================================

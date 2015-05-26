@@ -4,8 +4,8 @@ WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
 	"printname"		"#Discharge_WPNHUD_AWP"
-	"viewmodel"		"models/weapons/v_snip_awp.mdl"
-	"playermodel"	"models/weapons/w_snip_awp.mdl"
+	"viewmodel"		"models/weapons/v_csgo_awp.mdl"
+	"playermodel"	"models/weapons/w_csgo_awp.mdl"
 	"anim_prefix"	"bow"
 	"bucket"			"3"
 	"bucket_position"	"1"
@@ -14,7 +14,7 @@ WeaponData
 
 	"clip_size"		"10"
 	"default_clip"		"10"
-	"primary_ammo"		"SniperRound"
+	"primary_ammo"		"AWPRound"
 	"secondary_ammo"	"None"
 
 	"weight"		"6"
@@ -58,7 +58,7 @@ WeaponData
 		"ammo"
 		{
 				"font"		"WeaponIconsSmall"
-				"character"	"w"
+				"character"	"u"
 		}
 		"crosshair"
 		{
