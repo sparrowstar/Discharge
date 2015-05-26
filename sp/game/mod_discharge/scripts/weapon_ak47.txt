@@ -8,7 +8,7 @@ WeaponData
 	"playermodel"			"models/weapons/w_csgo_ak47.mdl"
 	"anim_prefix"			"ar1"
 	"bucket"				"2"
-	"bucket_position"		"2"
+	"bucket_position"		"1"
 	
 	"ViewModelFOV"      "52"
 	"BuiltRightHanded" "1" 

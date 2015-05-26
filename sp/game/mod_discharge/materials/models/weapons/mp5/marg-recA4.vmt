@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/weapons/mp5/marg-recA4"
+	"$bumpmap" "models/weapons/mp5/marg-recA4_normal"
+
+// -- From here down is new stuff which will only be applied if $phong is set to 1 --
+	"$phong" "1"
+	"$phongexponent" "55"
+	"$phongboost"	"0.4"
+	"$phongfresnelranges"	"[.2 4 1]"
+
+	"360?$color2" "[ 0.4 0.4 0.4 ]"
+}
+

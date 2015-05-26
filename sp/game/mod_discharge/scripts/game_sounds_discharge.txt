@@ -64,3 +64,166 @@
 
 	"wave"			"weapons/ak47_go/ak47_clipout.wav"
 }
+
+//AWP
+"Weapon_CAWP.Single"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_93dB"
+	"wave"			")weapons/awp/awp1.wav"
+
+	"soundentry_version" "2"
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			
+			"import_stack" "CS_distance_weapon_start"
+			
+			"play_distant_version_1"
+			{
+				"entry_name" "Weapon_CAWP.SingleDistant"
+			}
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "FirstWeapons"
+			}
+			"volume_distance_xfade"
+			{
+				"input_map_min" "0.0"
+				"input_map_max" "1.0"
+			}
+                        "volume_accumulate"
+                        {
+                               "input3" "1.0"
+                        }
+
+		}
+	}
+}
+
+"Weapon_CAWP.SingleDistant"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_94dB"
+	"wave"			"weapons/awp/awp1-distant.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			"import_stack" "CS_limit_start"
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "DistWeapons"
+			}
+
+		}
+	}
+}
+
+"Weapon_CAWP.Clipin"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp/awp_clipin.wav"
+}
+
+"Weapon_CAWP.Cliphit"
+{
+	"channel"		"CHAN_sTATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp/awp_cliphit.wav"
+}
+
+"Weapon_CAWP.Clipout"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp/awp_clipout.wav"
+}
+
+"Weapon_CAWP.Draw"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		".5"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp/awp_draw.wav"
+}
+
+"Weapon_CAWP.BoltBack"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp/awp_boltback.wav"
+}
+
+"Weapon_CAWP.BoltForward"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp/awp_boltforward.wav"
+}
+
+"Weapon_CAWP.Zoom"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_60dB"
+	"wave"			"weapons/awp/zoom.wav"
+}
+
+"Weapon_CAWP.WeaponMove1"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement1.wav"
+}
+
+"Weapon_CAWP.WeaponMove2"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement2.wav"
+}
+
+"Weapon_CAWP.WeaponMove3"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement3.wav"
+}

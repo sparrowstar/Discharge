@@ -8,7 +8,7 @@ WeaponData
 	"playermodel"			"models/weapons/w_slam.mdl"
 	"anim_prefix"			"slam"
 	"bucket"				"4"
-	"bucket_position"		"2"
+	"bucket_position"		"1"
 
 	"clip_size"				"3"
 	"primary_ammo"			"None"

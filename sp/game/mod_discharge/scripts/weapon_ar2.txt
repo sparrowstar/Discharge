@@ -7,8 +7,8 @@ WeaponData
 	"viewmodel"			"models/weapons/v_irifle.mdl"
 	"playermodel"			"models/weapons/w_irifle.mdl"
 	"anim_prefix"			"ar2"
-	"bucket"			"2"
-	"bucket_position"		"1"
+	"bucket"			"5"
+	"bucket_position"		"5"
 	"bucket_360"			"1"
 	"bucket_position_360"		"2"
 

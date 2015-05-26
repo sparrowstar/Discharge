@@ -66,7 +66,8 @@ void CBaseHLCombatWeapon::ItemHolsterFrame( void )
 
 	// If it's been longer than three seconds, reload
 	//Fuck auto-reload, it's for pussies who can't play a fucking FPS.
-#if !defined (DISCHARGE_CLIENT)||(DISCHARGE_DLL)
+#if defined( DISCHARGE_DLL ) || defined( DISCHARGE_CLIENT )
+#else
 	if ( ( gpGlobals->curtime - m_flHolsterTime ) > sk_auto_reload_time.GetFloat() )
 	{
 		// Just load the clip with no animations
