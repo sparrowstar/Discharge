@@ -89,6 +89,10 @@ ConVar hl2_darkness_flashlight_factor ( "hl2_darkness_flashlight_factor", "1" );
 	#define	HL2_WALK_SPEED 150
 	#define	HL2_NORM_SPEED 190
 	#define	HL2_SPRINT_SPEED 320
+#elif DISCHARGE_DLL
+	#define	HL2_WALK_SPEED 150
+	#define	HL2_NORM_SPEED 400
+	#define	HL2_SPRINT_SPEED 400 // No running in Discharge c:
 #else
 	#define	HL2_WALK_SPEED hl2_walkspeed.GetFloat()
 	#define	HL2_NORM_SPEED hl2_normspeed.GetFloat()

@@ -100,7 +100,7 @@ static ConVar sv_maxusrcmdprocessticks( "sv_maxusrcmdprocessticks", "24", FCVAR_
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-static ConVar old_armor( "player_old_armor", "0" );
+static ConVar old_armor("player_old_armor", "1", FCVAR_CHEAT );
 
 static ConVar physicsshadowupdate_render( "physicsshadowupdate_render", "0" );
 bool IsInCommentaryMode( void );
