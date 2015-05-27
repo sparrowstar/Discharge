@@ -101,7 +101,62 @@
 //Discharge/Modded HL2 things
 //----------------------
 
+@PointClass base(Weapon) studio("models/weapons/w_csgo_ak47.mdl") = weapon_ak47 : "Kalashnikov" []
+@PointClass base(Weapon) studio("models/weapons/w_wrench.mdl") = weapon_wrench : "PIPE WRENCH" []
+@PointClass base(Weapon) studio("models/weapons/w_csgo_awp.mdl") = weapon_awp : "AWP" []
+@PointClass base(Weapon) studio("models/weapons/w_mp5.mdl") = weapon_mp5 : "MP5" []
+@PointClass base(Weapon) studio("models/weapons/w_knife_t.mdl") = weapon_knife : "Knife" []
 @PointClass base(Item) studio("models/items/boxsniperrounds.mdl")= item_ammo_awp : "Box of AWP ammo" []
+
+@NPCClass base(BaseNPC,RappelNPC) studio("models/Police.mdl") = npc_metropolice : "MetroPolice"
+[
+	additionalequipment(choices) : "Weapons" : "weapon_pistol" =
+	[
+		"weapon_pistol" : "Glock"
+		"weapon_smg1"  : "SMG1"
+		"weapon_mp5"  : "MP5"
+		"weapon_crowbar"  : "Crowbar"
+		"weapon_knife"  : "Knife"
+		"weapon_stunstick"  : "Stun Stick"
+		"weapon_wrench"  : "PIPE WRENCH"
+		"0"  : "Nothing"
+	]
+
+	manhacks(Choices) : "Number of Manhacks" : 0 =
+	[
+		0 : "None"
+		1 : "1"
+		2 : "2"
+	]
+
+	weapondrawn(Choices) : "Pistol starts drawn" : 0 =
+	[
+		0 : "No"
+		1 : "Yes"
+	]
+	
+	spawnflags(Flags) =
+	[
+		131072 : "Simple cops" : 0
+		262144 : "Rappel (UNCHECK THIS IF IT IS CHECKED!)" : 0
+		524288 : "Always stitch" : 0
+		1048576 : "No chatter" : 0
+		2097152 : "Arrest enemies" : 0
+		4194304 : "No far stitching" : 0
+		8388608 : "Prevent manhack toss" : 0
+		16777216: "Allowed to respond to thrown objects" : 0
+		33554432: "Mid-range attacks (halfway between normal + long-range)" : 0
+	]
+	  
+	// Inputs
+	input EnableManhackToss(void) : "Enables manhack toss (which had been disabled by the spawnflag)"
+	input SetPoliceGoal(string) : "Causes the NPC to police the area defined by an ai_goal_police"
+	input ActivateBaton(void) : "Set the baton to active"
+
+	// Outputs
+	output OnStunnedPlayer(void) : "Fires when the player is hit by a stunstick by this NPC."
+	output OnCupCopped(void) : "Fires if the player hits me with the cupcop can. ONLY use for x360 achievement."
+]
 
 @BaseClass base(BaseNPC, RappelNPC) = BaseCombine
 [
@@ -110,7 +165,8 @@
 		"weapon_ar2" : "AR2"
 		"weapon_shotgun" : "Shotgun"
 		"weapon_smg1" : "SMG1"
-		"weapon_ak47" : "KALASHNIKOV"
+		"weapon_mp5" : "MP5"
+		"weapon_ak47" : "Kalashnikov"
 		"0" : "Nothing"
 	]
 
@@ -164,7 +220,7 @@
 		"weapon_stunstick" : "Stunstick"
 		"weapon_crowbar" : "Crowbar"
 		"weapon_wrench" : "PIPE WRENCH"
-		"weapon_ak47" : "KALASHNIKOV"
+		"weapon_ak47" : "Kalashnikov"
 		"weapon_shotgun" : "Shotgun"
 		"weapon_rpg" : "RPG"
 		"0"  : "Nothing"
@@ -260,9 +316,6 @@
 	output OnPlayerUse(void) : "Fires when a player +USEs the citizen"
 	output OnNavFailBlocked(void) : "Fires when this Citizen's movement fails because he/she is blocked."
 ]
-
-@PointClass base(Weapon) studio("models/weapons/w_rif_ak47.mdl") = weapon_ak47 : "KALASHNIKOV" []
-@PointClass base(Weapon) studio("models/weapons/w_wrench.mdl") = weapon_wrench : "PIPE WRENCH" []
 
 @PointClass base(Targetname) iconsprite("editor/env_instructor_hint.vmt") = env_instructor_hint : "An entity that allows for creation and control of instructor lessons by map logic"
 [

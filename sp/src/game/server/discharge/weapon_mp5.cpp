@@ -43,7 +43,7 @@ public:
 	virtual void Equip( CBaseCombatCharacter *pOwner );
 	bool	Reload( void );
 
-	float	GetFireRate( void ) { return 0.075f; }	// 13.3hz
+	float	GetFireRate( void ) { return 0.065f; }	// 13.3hz
 	int		CapabilitiesGet( void ) { return bits_CAP_WEAPON_RANGE_ATTACK1; }
 	int		WeaponRangeAttack2Condition( float flDot, float flDist );
 	Activity	GetPrimaryAttackActivity( void );
@@ -52,12 +52,12 @@ public:
 	{
 		if (m_bIsIronsighted)
 		{
-			static const Vector cone = VECTOR_CONE_1DEGREES;
+			static const Vector cone = VECTOR_CONE_3DEGREES;
 			return cone;
 		}
 		else
 		{
-			static const Vector cone = VECTOR_CONE_5DEGREES;
+			static const Vector cone = VECTOR_CONE_7DEGREES;
 			return cone;
 		}
 	}

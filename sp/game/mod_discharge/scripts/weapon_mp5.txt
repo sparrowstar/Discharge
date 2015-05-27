@@ -18,7 +18,7 @@ WeaponData
 	"default_clip"			"30"
 	"default_clip2"			"-1"
 
-	"primary_ammo"			"SMG1"
+	"primary_ammo"			"Pistol"
 	"secondary_ammo"		"SMG1_Grenade"
 
 	"weight"				"3"
