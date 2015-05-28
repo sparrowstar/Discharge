@@ -11,7 +11,7 @@ WeaponData
 	"bucket_position"		"0"
 	"bucket_360"				"2"
 	"bucket_position_360"		"0"
-	"ViewModelFOV"      "74"
+	"ViewModelFOV"      "56"
 
 	"clip_size"				"-1"
 	"primary_ammo"			"None"

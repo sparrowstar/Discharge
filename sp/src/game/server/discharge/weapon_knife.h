@@ -1,11 +1,11 @@
-//====== Copyright © 2015, Discharge Team, Some rights reserved. =======
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose:
 //
 //=============================================================================//
 
-#ifndef WEAPON_Wrench_H
-#define WEAPON_Wrench_H
+#ifndef WEAPON_KNIFE_H
+#define WEAPON_KNIFE_H
 
 #include "basebludgeonweapon.h"
 
@@ -14,28 +14,28 @@
 #endif
 
 #ifdef HL2MP
-#error weapon_crowbar.h must not be included in hl2mp. The windows compiler will use the wrong class elsewhere if it is.
+#error weapon_KNIFE.h must not be included in hl2mp. The windows compiler will use the wrong class elsewhere if it is.
 #endif
 
-#define	HAMMER_RANGE	75.0f
-#define	HAMMER_REFIRE	1.0f
+#define	KNIFE_RANGE	75.0f
+#define	KNIFE_REFIRE	0.4f
 
 //-----------------------------------------------------------------------------
-// CWeaponWrench
+// CWeaponKnife
 //-----------------------------------------------------------------------------
 
-class CWeaponWrench : public CBaseHLBludgeonWeapon
+class CWeaponKnife : public CBaseHLBludgeonWeapon
 {
 public:
-	DECLARE_CLASS( CWeaponWrench, CBaseHLBludgeonWeapon );
+	DECLARE_CLASS( CWeaponKnife, CBaseHLBludgeonWeapon );
 
 	DECLARE_SERVERCLASS();
 	DECLARE_ACTTABLE();
 
-	CWeaponWrench();
+	CWeaponKnife();
 
-	float		GetRange( void )		{	return	HAMMER_RANGE;	}
-	float		GetFireRate( void )		{	return	HAMMER_REFIRE;	}
+	float		GetRange( void )		{	return	KNIFE_RANGE;	}
+	float		GetFireRate( void )		{	return	KNIFE_REFIRE;	}
 
 	void		AddViewKick( void );
 	float		GetDamageForActivity( Activity hitActivity );
@@ -51,4 +51,4 @@ private:
 	void HandleAnimEventMeleeHit( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
 };
 
-#endif // WEAPON_Wrench_H
+#endif // WEAPON_KNIFE_H

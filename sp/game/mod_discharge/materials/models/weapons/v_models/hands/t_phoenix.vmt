@@ -1,0 +1,6 @@
+"vertexlitgeneric"
+{
+// FOR BETTER PERFOMANCE, TURN THIS OFF WHEN YOU USE SLEVES K
+	"$no_draw" "0"
+	"$baseTexture" "models\weapons\v_models\hands\t_phoenix"
+}

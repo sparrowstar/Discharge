@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models\weapons\v_models\hands\v_hands"
+	"$bumpmap" "models\weapons\v_models\hands\v_hands_normal"
+"$phong" "1"
+"$phongboost" "0.3"
+"$phongfresnelranges" "[0 0.5 1]"
+"$phongexponent" "2"
+"$phongalbedotint" "1"
+//"$phongexponenttexture" "models\weapons\v_models\hands\v_hands_exp"
+// "$halflambert" "1"
+/////////////////////////////////////////
+//http://sharpshark28.com//
+//SharpShark28/////////////////////////
+//////////////////////////////////////
+}

@@ -20,4 +20,8 @@ Revolver texture/World model by BlackMesa Team http://www.blackmesasource.com/
 
 Default .357 on HyperMetal's by HyperMetal, AsIsAy, Strelok and USAR http://hl2.gamebanana.com/skins/137670
 
-Oldschool HK MP5a5/M203 http://hl2.gamebanana.com/skins/44055
+Oldschool HK MP5a5/M203 by Dr. Zoidburg, Firegold, geno, Hellspike, klla_syc3, Lonewolf, Lordn00b, modderfreak, Schmung, Thanez and Twinke Masta http://hl2.gamebanana.com/skins/44055
+
+M9 Probis III on Ilopn's anim by wdx green, will, PuR4fAx, Mr. T, DikFaic, Andeh, ziomek jebiesuki nabosaka, Markilly, Blueguile and Guest http://css.gamebanana.com/skins/135278
+
+Player pain sounds by Dickens http://hl2.gamebanana.com/sounds/19328

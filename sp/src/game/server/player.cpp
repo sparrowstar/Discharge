@@ -189,7 +189,7 @@ ConVar  sv_player_net_suppress_usercommands( "sv_player_net_suppress_usercommand
 #endif // _DEBUG
 ConVar  sv_player_display_usercommand_errors( "sv_player_display_usercommand_errors", "0", FCVAR_CHEAT, "1 = Display warning when command values are out-of-range. 2 = Spew invalid ranges." );
 
-ConVar  player_debug_print_damage( "player_debug_print_damage", "0", FCVAR_CHEAT, "When true, print amount and type of all damage received by player to console." );
+ConVar  player_debug_print_damage( "player_debug_print_damage", "1", FCVAR_CHEAT, "When true, print amount and type of all damage received by player to console." );
 
 
 void CC_GiveCurrentAmmo( void )
@@ -6177,6 +6177,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "weapon_slam" );
 		GiveNamedItem( "weapon_mp5" );
 		GiveNamedItem( "weapon_mp5navy" );
+		GiveNamedItem( "weapon_knife" );
 #ifdef HL2_EPISODIC
 		// GiveNamedItem( "weapon_magnade" );
 #endif
