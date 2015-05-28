@@ -34,6 +34,24 @@
 			game				|all_source_engine_paths|sourcetest
 			game				|all_source_engine_paths|hl2
 			platform			|all_source_engine_paths|platform
+			
+			//!!NOTENOTE: Remove before we ship this!
+			//Remember to add any CS:S/DOD:S/HL:S/HL2:DM/Portal content we use to the mod_discharge folder before we ship it!
+			//That includes scripts, sounds, textures, models, particles, ect...
+			//I have it set to try to load EVERYTHING, but 'corse only include what we use!
+			//Only small error messages will come from doing that, but nothing that effects the player experience.
+			game				"|all_source_engine_paths|../counter-strike source/cstrike/cstrike_pak.vpk"
+			game				"|all_source_engine_paths|../counter-strike source/cstrike"
+			game				"|all_source_engine_paths|../day of defeat source/dod/dod_pak.vpk"
+			game				"|all_source_engine_paths|../day of defeat source/dod"
+			game				"|all_source_engine_paths|../Portal/Portal/Portal_pak.vpk"
+			game				"|all_source_engine_paths|../Portal/Portal"
+			game				"|all_source_engine_paths|../Half-Life 2 Deathmatch/hl2mp/hl2mp_pak.vpk"
+			game				"|all_source_engine_paths|../Half-Life 2 Deathmatch/hl2mp"
+			game				"|all_source_engine_paths|../Half-Life 2/hl1_hd/hl1_hd_pak.vpk"
+			game				"|all_source_engine_paths|../Half-Life 2/hl1_hd"
+			game				"|all_source_engine_paths|../Half-Life 2/hl1/hl1_pak.vpk"
+			game				"|all_source_engine_paths|../Half-Life 2/hl1"
 		}
 	}
 }

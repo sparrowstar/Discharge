@@ -4,11 +4,14 @@ game_sounds_manifest
 	"precache_file"		"scripts/game_sounds.txt"
 	"precache_file"		"scripts/game_sounds_ui.txt"
 	"precache_file"		"scripts/game_sounds_player.txt"
+	"precache_file"		"scripts/game_sounds_player_hl2mp.txt"
 
 	// Weapon sounds
 	"precache_file"		"scripts/game_sounds_weapons.txt"
 	"precache_file"		"scripts/game_sounds_weapons_ep2.txt"
 	"precache_file"		"scripts/game_sounds_weapons_cs.txt"
+	"precache_file"		"scripts/game_sounds_weapons_dod.txt"
+	"precache_file"		"scripts/game_sounds_weapons_portal.txt"
 
 	// HL2 World, Ambient Generic, Items, Physics, Vehicles
 	"precache_file"		"scripts/game_sounds_world.txt"
@@ -119,6 +122,27 @@ game_sounds_manifest
    	"precache_file"		"scripts/npc_sounds_combine_cannon.txt"
 	"precache_file"		"scripts/npc_sounds_alyx_episodic2.txt"
 	"precache_file"		"scripts/npc_sounds_turret_episodic2.txt"
+	
+	//Cstrike stuff
+	"precache_file"  	"scripts/game_sounds_hostages.txt"
+	"precache_file"  	"scripts/game_sounds_bots.txt"
+	"preload_file"  	"scripts/game_sounds_radio.txt"
+	
+	//DoD stuff
+	"preload_file"  	"scripts/game_sounds_player_dod.txt"
+	"preload_file"  	"scripts/game_sounds_ger_commands.txt"	
+	"preload_file"  	"scripts/game_sounds_us_commands.txt"
+	
+	//Portal stuff
+	"precache_file"		"scripts/game_sounds_portal.txt"
+	"precache_file"		"scripts/game_sounds_player_portal.txt"
+	"precache_file"		"scripts/level_sounds_music_portal.txt"
+	"precache_file"		"scripts/level_sounds_escape.txt"
+	"precache_file"		"scripts/npc_sounds_aperture_ai.txt"
+	"precache_file"		"scripts/npc_sounds_energy_ball.txt"
+	"precache_file"		"scripts/npc_sounds_turret_portal.txt"
+	"precache_file"		"scripts/npc_sounds_rocket_turret.txt"
+	"precache_file"		"scripts/npc_sounds_glados_cores.txt"
 	
 	//Always load HL1 shit last
 	"precache_file"		"scripts/game_sounds_halflife.txt"

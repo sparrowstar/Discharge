@@ -7,7 +7,7 @@
 
 #include "cbase.h"
 #include "hl1_grenade_mp5.h"
-#include "hl1mp_weapon_mp5.h"
+#include "hl1/hl1mp_weapon_mp5.h"
 #include "soundent.h"
 #include "decals.h"
 #include "shake.h"
