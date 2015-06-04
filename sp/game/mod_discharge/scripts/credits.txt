@@ -54,9 +54,7 @@
 	" " "CreditsOutroText"
 	"Thanks to all these awesome people:" "CreditsOutroText"
 	//NOTENOTE: IF ANYONE FINDS ANY DUPE NAMES, PLEASE REMOVE IT. THANK YOU.
-	"Lime.Pro" "CreditsOutroText"
 	"Combine-" "CreditsOutroText"
-	"The Triage Team" "CreditsOutroText"
 	"Mr.Marder" "CreditsOutroText"
 	"MrCrash407" "CreditsOutroText"
 	"AsIsAy" "CreditsOutroText"
