@@ -12,6 +12,72 @@
 	"wave"			"weapons/pwrench_big_miss.wav"
 }
 
+//CSGO Knife
+
+//KNIFE
+"Weapon_CKnife.Deploy"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"0.4"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/knife_go/knife_deploy1.wav"
+}
+
+"Weapon_CKnife.Hit"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"rndwave"
+	{
+				"wave" "weapons/knife_go/knife_hit1.wav"
+				"wave" "weapons/knife_go/knife_hit2.wav"
+				"wave" "weapons/knife_go/knife_hit3.wav"
+				"wave" "weapons/knife_go/knife_hit4.wav"
+	}
+}
+
+"Weapon_CKnife.HitWall"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"rndwave"
+	{
+	"wave" 			"weapons/knife_go/knife_hit_01.wav"
+	"wave" 			"weapons/knife_go/knife_hit_02.wav"
+	"wave" 			"weapons/knife_go/knife_hit_03.wav"
+	"wave" 			"weapons/knife_go/knife_hit_04.wav"
+	"wave" 			"weapons/knife_go/knife_hit_05.wav"
+	}
+}
+
+"Weapon_CKnife.Slash"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"rndwave"
+	{
+				"wave" "weapons/knife_go/knife_slash1.wav"
+				"wave" "weapons/knife_go/knife_slash2.wav"
+	}
+}
+
+"Weapon_CKnife.Stab"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"  		"weapons/knife_go/knife_stab.wav"
+	
+}
+
 //CSGO M4A1
 
 "Weapon_CM4A1.Single"

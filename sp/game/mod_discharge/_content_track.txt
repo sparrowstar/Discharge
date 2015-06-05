@@ -1,26 +1,26 @@
-Use this file to keep crap of stuff you use from:
-cstrike_pak
-dod_pak
-portal_pak
-hl2mp_pak
-hl1_hd_pak
-hl1_pak
+UPDATE:
+Just put EVERY sound/model/texture you use in this list, RaraFolf will sort all of it out before release.
+Please include the VMF file, it helps RaraFolf do that.
+No need to list textures used by the model, RaraFolf will sort that out.
 
 Do it like this:
 ExampleName:
 -sdk_examplemap1:
--- cstrike_pak 	models/player/t_leet
--- portal_pak 	materials/overlays/cake_picture
--- dod_pak		sound/misc/dod_nemesis
+-- models/player/t_leet
+-- materials/overlays/cake_picture
+-- sound/misc/dod_nemesis
 -sdk_examplemap2
--- hl1_hd_pak	models/agrunt
--- hl1_hd_pak	sound/fvox/boop
+-- models/agrunt
+-- sound/fvox/boop
 
-No need to list textures used by the model, RaraFolf will sort that out.
-
-Sparrow:
+!!PREFIX ALL OF YOUR SP MAPS WITH "discharge_" AND MP MAPS WITH "dmcharge_" !!
+sparrowstar:
+-discharge_bootcamp
+-- 
 
 RaraFolf:
+-dmcharge_office
+--
 
 Imanobody:
 

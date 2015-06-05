@@ -72,7 +72,7 @@ extern ConVar autoaim_max_dist;
 
 // This switches between the single primary weapon, and multiple weapons with buckets approach (jdw)
 #define	HL2_SINGLE_PRIMARY_WEAPON_MODE	0
-#define PLAYER_MODEL "models/player/ct_gsg9.mdl" //!FIXME: Replace this with a better model later
+#define PLAYER_MODEL "models/player/dudeplayer.mdl" //!FIXME: Replace this with a better model later
 #define TIME_IGNORE_FALL_DAMAGE 10.0
 
 extern int gEvilImpulse101;

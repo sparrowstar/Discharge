@@ -4,8 +4,8 @@ WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
 	"printname"	"#Discharge_WPNHUD_Knife"
-	"viewmodel"				"models/weapons/v_knife_t.mdl"
-	"playermodel"			"models/weapons/w_knife_t.mdl"
+	"viewmodel"				"models/weapons/v_crowbar.mdl" //!!!TEMP
+	"playermodel"			"models/weapons/w_crowbar.mdl" //!!!TEMP
 	"anim_prefix"			"crowbar"
 	"bucket"				"0"
 	"bucket_position"		"1"
@@ -24,10 +24,10 @@ WeaponData
 	// Sounds for the weapon. There is a max of 16 sounds per category (i.e. max 16 "single_shot" sounds)
 	SoundData
 	{
-		"deploy"			"Weapon_Knife.deploy"
+		"deploy"			"Weapon_CKnife.deploy"
 		"single_shot"		"Weapon_Crowbar.Single"
-		"melee_hit"			"Weapon_Knife.Melee_Hit"
-		"melee_hit_world"	"Weapon_Knife.Melee_HitWorld"
+		"melee_hit"			"Weapon_CKnife.Melee_Hit"
+		"melee_hit_world"	"Weapon_CKnife.Melee_HitWorld"
 	}
 	
 	IronSight
