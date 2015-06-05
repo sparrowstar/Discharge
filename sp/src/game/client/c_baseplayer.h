@@ -64,6 +64,7 @@ public:
 
 
 bool IsInFreezeCam( void );
+bool IsInEye( void );
 
 //-----------------------------------------------------------------------------
 // Purpose: Base Player class
@@ -284,6 +285,7 @@ public:
 
 	virtual bool				ShouldDraw();
 	virtual int					DrawModel( int flags );
+	const Vector& C_BasePlayer::GetRenderOrigin();
 
 	// Called when not in tactical mode. Allows view to be overriden for things like driving a tank.
 	virtual void				OverrideView( CViewSetup *pSetup );

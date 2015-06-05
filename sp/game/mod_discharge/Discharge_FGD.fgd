@@ -101,7 +101,7 @@
 //Discharge/Modded HL2 things
 //----------------------
 
-@PointClass base(Weapon) studio("models/weapons/w_csgo_ak47.mdl") = weapon_ak47 : "Kalashnikov" []
+@PointClass base(Weapon) studio("models/weapons/w_csgo_m4a1.mdl") = weapon_m4a1 : "Kalashnikov" []
 @PointClass base(Weapon) studio("models/weapons/w_wrench.mdl") = weapon_wrench : "PIPE WRENCH" []
 @PointClass base(Weapon) studio("models/weapons/w_csgo_awp.mdl") = weapon_awp : "AWP" []
 @PointClass base(Weapon) studio("models/weapons/w_mp5.mdl") = weapon_mp5 : "MP5" []
@@ -158,6 +158,12 @@
 	output OnCupCopped(void) : "Fires if the player hits me with the cupcop can. ONLY use for x360 achievement."
 ]
 
+@PointClass base(game_text) iconsprite("editor/game_text.vmt") = mm_game_text : 
+    "An entity that displays customized text on player's screens."
+[
+  input DisplayText(string) : "Display this message text."
+]
+
 @BaseClass base(BaseNPC, RappelNPC) = BaseCombine
 [
 	additionalequipment(choices) : "Weapons" : "weapon_smg1" =
@@ -166,7 +172,7 @@
 		"weapon_shotgun" : "Shotgun"
 		"weapon_smg1" : "SMG1"
 		"weapon_mp5" : "MP5"
-		"weapon_ak47" : "Kalashnikov"
+		"weapon_m4a1" : "Kalashnikov"
 		"0" : "Nothing"
 	]
 
@@ -220,7 +226,7 @@
 		"weapon_stunstick" : "Stunstick"
 		"weapon_crowbar" : "Crowbar"
 		"weapon_wrench" : "PIPE WRENCH"
-		"weapon_ak47" : "Kalashnikov"
+		"weapon_m4a1" : "Kalashnikov"
 		"weapon_shotgun" : "Shotgun"
 		"weapon_rpg" : "RPG"
 		"0"  : "Nothing"

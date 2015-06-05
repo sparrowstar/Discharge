@@ -1388,7 +1388,31 @@ bool C_BasePlayer::ShouldInterpolate()
 
 bool C_BasePlayer::ShouldDraw()
 {
-	return ShouldDrawThisPlayer() && BaseClass::ShouldDraw();
+	return BaseClass::ShouldDraw();
+}
+ 
+static ConVar cl_legs("cl_legs", "1", FCVAR_CHEAT, "Enable or disable player leg rendering", true, 0, true, 1);
+static ConVar cl_legs_origin_shift("cl_legs_origin_shift", "-17", FCVAR_CHEAT, "Amount in game units to shift the player model relative to the direction the player is facing");
+static ConVar cl_legs_clip_height("cl_legs_clip_height", "0", FCVAR_CHEAT, "Amount in game units of the player model to render up to [0 = disable]", true, 0, false, 0);
+ 
+const Vector& C_BasePlayer::GetRenderOrigin( void )
+{
+	// If we're not observing this player, or if we're not drawing it at the
+	// moment then use the normal absolute origin.
+	// NOTE: the GetCurrentlyDrawingEntity check is here to make sure the
+	// shadow is rendered from the correct origin
+	if(!IsInEye() || view->GetCurrentlyDrawingEntity() != this)
+		return BaseClass::GetRenderOrigin();
+ 
+	// Get the forward vector
+	static Vector forward; // static because this method returns a reference
+	AngleVectors(GetRenderAngles(), &forward);
+ 
+	// Shift the render origin by a fixed amount
+	forward *= cl_legs_origin_shift.GetFloat();
+	forward += GetAbsOrigin();
+ 
+	return forward;
 }
 
 int C_BasePlayer::DrawModel( int flags )
@@ -1402,6 +1426,14 @@ int C_BasePlayer::DrawModel( int flags )
 	}
 #endif
 	return BaseClass::DrawModel( flags );
+	
+	CMatRenderContextPtr context(materials);
+
+	if (cl_legs_clip_height.GetInt() > 0)
+	{
+		context->SetHeightClipMode(MATERIAL_HEIGHTCLIPMODE_RENDER_BELOW_HEIGHT);
+		context->SetHeightClipZ(GetAbsOrigin().z + cl_legs_clip_height.GetFloat());
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -2685,6 +2717,13 @@ bool IsInFreezeCam( void )
 		return true;
 
 	return false;
+}
+
+bool IsInEye( void )
+{
+	C_BasePlayer *pPlayer = C_BasePlayer::GetLocalPlayer();
+	if ( pPlayer && pPlayer->GetObserverMode() == OBS_MODE_IN_EYE )
+	return true;
 }
 
 //-----------------------------------------------------------------------------

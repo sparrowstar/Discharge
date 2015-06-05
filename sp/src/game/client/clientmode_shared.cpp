@@ -13,6 +13,7 @@
 #include "iinput.h"
 #include "view_shared.h"
 #include "iviewrender.h"
+#include "clienteffectprecachesystem.h"
 #include "hud_basechat.h"
 #include "weapon_selection.h"
 #include <vgui/IVGui.h>
@@ -69,6 +70,11 @@ extern ConVar replay_rendersetting_renderglow;
 #include "tier0/memdbgon.h"
 
 #define ACHIEVEMENT_ANNOUNCEMENT_MIN_TIME 10
+
+CLIENTEFFECT_REGISTER_BEGIN( PrecachePostProcessingEffectsGlow )
+CLIENTEFFECT_MATERIAL( "dev/glow_color" )
+CLIENTEFFECT_MATERIAL( "dev/halo_add_to_screen" )
+CLIENTEFFECT_REGISTER_END_CONDITIONAL( engine->GetDXSupportLevel() >= 90 )
 
 class CHudWeaponSelection;
 class CHudChat;
@@ -769,6 +775,8 @@ bool ClientModeShared::DoPostScreenSpaceEffects( const CViewSetup *pSetup )
 	}
 #endif 
 	return true;
+	
+	g_GlowObjectManager.RenderGlowEffects( pSetup, 0 );
 }
 
 //-----------------------------------------------------------------------------
