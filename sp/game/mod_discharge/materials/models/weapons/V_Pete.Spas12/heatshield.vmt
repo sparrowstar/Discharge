@@ -1,0 +1,9 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\weapons\V_Pete.Spas12\heatshield"
+	"$bumpmap" "models\weapons\V_Pete.Spas12\heatshield_ddn"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$envmaptint" "[ 0.42 0.42 0.42 ]"
+	"$envmapcontrast" 0.65
+}

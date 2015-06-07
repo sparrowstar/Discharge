@@ -1,0 +1,9 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\weapons\V_Pete.Spas12\foldstock"
+	"$bumpmap" "models\weapons\V_Pete.Spas12\foldstock_ddn"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$envmaptint" "[ 0.25 0.25 0.25 ]"
+	"$envmapcontrast" 0.5
+}

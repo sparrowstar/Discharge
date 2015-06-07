@@ -49,8 +49,8 @@
 	"'Alyx Vance'"	"CreditsOutroText" //Didn't give us his real name :c
 	"Modelling:" "CreditsOutroText" 
 	"Richard 'Sgt. Bounty' Garland" "CreditsOutroText"
-	"Webmaster:" "CreditsOutroText" 
-	"Trevor 'RandomIsMyMiddleName' Corbin" "CreditsOutroText"
+	//"Webmaster:" "CreditsOutroText" 
+	//"Trevor 'RandomIsMyMiddleName' Corbin" "CreditsOutroText"
 	" " "CreditsOutroText"
 	"Thanks to all these awesome people:" "CreditsOutroText"
 	//NOTENOTE: IF ANYONE FINDS ANY DUPE NAMES, PLEASE REMOVE IT. THANK YOU.
@@ -103,6 +103,9 @@
 	"Markilly" "CreditsOutroText"
 	"Blueguile" "CreditsOutroText"
 	"Guest" "CreditsOutroText"
+	"JIHAD"	"CreditsOutroText"
+	"Pete"	"CresitsOutroText"
+	"FXdarkloki"	"CreditsOutroText"
 	" " "CreditsOutroText"
 	" " "CreditsOutroText"
 	"And last but sure as hell an't least:" "CreditsOutroText"

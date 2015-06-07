@@ -32,7 +32,7 @@
 				"flags set"					"int hint_flags"
 				"flags has bit"				"int 8"
 				"icon_target set"			"player local_player"
-				"string1 set"				"string hint_name"
+				"hint_name"					"string hint_name"
 				"timeout set"				"int hint_timeout"
 				"onscreen_icon set"			"string hint_icon_onscreen"
 				"offscreen_icon set"		"string hint_icon_offscreen"
@@ -51,7 +51,7 @@
 				"flags set"					"int hint_flags"
 				"flags !has bit"			"int 8"
 				"icon_target set"			"entity hint_target"
-				"string1 set"				"string hint_name"
+				"hint_name"					"string hint_name"
 				"timeout set"				"int hint_timeout"
 				"onscreen_icon set"			"string hint_icon_onscreen"
 				"offscreen_icon set"		"string hint_icon_offscreen"
@@ -70,7 +70,7 @@
 		{
 			"instructor_server_hint_stop"
 			{
-				"string1 is"				"string hint_name"
+				"hint_name"				"string hint_name"
 			}
 		}
 	}

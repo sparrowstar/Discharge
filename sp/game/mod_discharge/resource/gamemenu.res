@@ -60,9 +60,15 @@
 	}
 	"11"
 	{
+		"label" "#GameUI_GameMenu_Credits"
+		"command" "map credits.bsp"
+		"InGameOrder" "80"
+	}
+	"12"
+	{
 		"label" "#GameUI_GameMenu_Quit"
 		"command" "Quit"
-		"InGameOrder" "80"
+		"InGameOrder" "90"
 	}
 }
 

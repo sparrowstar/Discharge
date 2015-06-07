@@ -1,0 +1,9 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\weapons\V_Pete.Spas12\grips"
+	"$bumpmap" "models\weapons\V_Pete.Spas12\grips_ddn"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$envmaptint" "[ 0.15 0.15 0.15 ]"
+	"$envmapsaturation" .5
+}
