@@ -1,0 +1,565 @@
+// *******
+// WEAPONS
+// *******
+
+// weapon_wrench
+"Weapon_Wrench.Swing"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"0.7"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"weapons/pwrench_big_miss.wav"
+}
+
+//CSGO M4A1
+
+"Weapon_CM4A1.Single"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_93dB"
+	"wave"			")weapons/m4a1_go/m4a1_unsil-1.wav"
+
+	"soundentry_version" "2"
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			
+			"import_stack" "CS_distance_weapon_start"
+			
+			"play_distant_version_1"
+			{
+				"entry_name" "Weapon_CM4A1.SingleDistant"
+			}
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "FirstWeapons"
+			}
+			"volume_distance_xfade"
+			{
+				"input_map_min" "0.0"
+				"input_map_max" "1.0"
+			}
+                        "volume_accumulate"
+                        {
+                               "input3" "0.55"
+                        }
+		}
+	}
+	
+}
+
+"Weapon_CM4A1.SingleDistant"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_94dB"
+	"wave"			"weapons/m4a1_go/m4a1_unsil-1-distant.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			"import_stack" "CS_limit_start"
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "DistWeapons"
+			}
+
+		}
+	}
+	
+}
+
+"Weapon_CM4A1.Silenced"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_73dB"
+	"wave"			")weapons/m4a1_go/m4a1-1.wav"
+
+	"soundentry_version" "2"
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			
+			"import_stack" "CS_distance_weapon_start"
+			
+			"play_distant_version_1"
+			{
+				"entry_name" "Weapon_CM4A1.SilencedDistant"
+			}
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "FirstWeapons"
+			}
+			"volume_distance_xfade"
+			{
+				"input_map_min" "0.0"
+				"input_map_max" "1.0"
+			}
+		}
+	}
+}
+
+"Weapon_CM4A1.SilencedDistant"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_94dB"
+	"wave"			"weapons/m4a1_go/m4a1-1-distant.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "DistWeapons"
+			}
+
+		}
+	}
+}
+
+"Weapon_CM4A1.SilencedSingle"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_93dB"
+	"wave"			")weapons/m4a1_go/m4a1-1-single.wav"
+
+	"soundentry_version" "2"
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			
+			"import_stack" "CS_distance_weapon_start"
+			
+			"play_distant_version_1"
+			{
+				"entry_name" "Weapon_CM4A1.SilencedDistant"
+			}
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "FirstWeapons"
+			}
+			"volume_distance_xfade"
+			{
+				"input_map_min" "0.0"
+				"input_map_max" "1.0"
+			}
+		}
+	}
+}
+
+"Weapon_CM4A1.SilencedSingleDistant"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_94dB"
+	"wave"			"weapons/m4a1_go/m4a1-1-single-distant.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "DistWeapons"
+			}
+
+		}
+	}
+}
+
+"Weapon_CM4A1.Silencer_Off"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_off.wav"
+}
+
+"Weapon_CM4A1.Silencer_On"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_on.wav"
+}
+
+"Weapon_CM4A1.Clipout"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_clipout.wav"
+}
+
+"Weapon_CM4A1.Clipin"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_clipin.wav"
+}
+
+"Weapon_CM4A1.BoltBack"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_boltback.wav"
+}
+
+"Weapon_CM4A1.BoltForward"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_boltforward.wav"
+}
+
+"Weapon_CM4A1.Draw"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		".5"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_draw.wav"
+}
+
+"Weapon_CM4A1.SilencerWeaponMove1"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement1.wav"
+}
+
+"Weapon_CM4A1.SilencerWeaponMove3"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement3.wav"
+}
+
+"Weapon_CM4A1.SilencerWeaponMove2"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement2.wav"
+}
+
+"Weapon_CM4A1.SilencerScrewOnStart"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_screw_on_start.wav"
+}
+
+"Weapon_CM4A1.SilencerScrewOffEnd"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_screw_off_end.wav"
+}
+
+"Weapon_CM4A1.SilencerScrew1"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_screw_1.wav"
+}
+
+"Weapon_CM4A1.SilencerScrew2"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_screw_2.wav"
+}
+
+"Weapon_CM4A1.SilencerScrew3"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_screw_3.wav"
+}
+
+"Weapon_CM4A1.SilencerScrew4"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_screw_4.wav"
+}
+
+"Weapon_CM4A1.SilencerScrew5"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/m4a1_go/m4a1_silencer_screw_5.wav"
+}
+
+"Weapon_CM4A1.WeaponMove1"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement1.wav"
+}
+
+"Weapon_CM4A1.WeaponMove3"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement3.wav"
+}
+
+"Weapon_CM4A1.WeaponMove2"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement2.wav"
+}
+
+//CSGO AWP
+"Weapon_CAWP.Single"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_93dB"
+	"wave"			")weapons/awp_go/awp1.wav"
+
+	"soundentry_version" "2"
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			
+			"import_stack" "CS_distance_weapon_start"
+			
+			"play_distant_version_1"
+			{
+				"entry_name" "Weapon_CAWP.SingleDistant"
+			}
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "FirstWeapons"
+			}
+			"volume_distance_xfade"
+			{
+				"input_map_min" "0.0"
+				"input_map_max" "1.0"
+			}
+                        "volume_accumulate"
+                        {
+                               "input3" "1.0"
+                        }
+
+		}
+	}
+}
+
+"Weapon_CAWP.SingleDistant"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_94dB"
+	"wave"			"weapons/awp_go/awp1-distant.wav"
+
+	"soundentry_version" "2"
+
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			"import_stack" "CS_limit_start"
+		}
+
+		"update_stack"
+		{
+			"import_stack" "CS_update_weapon"
+			"mixer"
+			{
+				"mixgroup" "DistWeapons"
+			}
+
+		}
+	}
+}
+
+"Weapon_CAWP.Clipin"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp_go/awp_clipin.wav"
+}
+
+"Weapon_CAWP.Cliphit"
+{
+	"channel"		"CHAN_sTATIC"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp_go/awp_cliphit.wav"
+}
+
+"Weapon_CAWP.Clipout"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp_go/awp_clipout.wav"
+}
+
+"Weapon_CAWP.Draw"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		".5"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp_go/awp_draw.wav"
+}
+
+"Weapon_CAWP.BoltBack"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp_go/awp_boltback.wav"
+}
+
+"Weapon_CAWP.BoltForward"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/awp_go/awp_boltforward.wav"
+}
+
+"Weapon_CAWP.Zoom"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_60dB"
+	"wave"			"weapons/awp_go/zoom.wav"
+}
+
+"Weapon_CAWP.WeaponMove1"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement1.wav"
+}
+
+"Weapon_CAWP.WeaponMove2"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement2.wav"
+}
+
+"Weapon_CAWP.WeaponMove3"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		".25"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"  		"SNDLVL_65dB"
+	"wave"			"weapons/movement3.wav"
+}
+
+//MP5
+"Weapon_MP5.Reload"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.7"
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"		"weapons/mp5/smg1_reload.wav"
+}
