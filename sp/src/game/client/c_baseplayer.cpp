@@ -2723,7 +2723,9 @@ bool IsInEye( void )
 {
 	C_BasePlayer *pPlayer = C_BasePlayer::GetLocalPlayer();
 	if ( pPlayer && pPlayer->GetObserverMode() == OBS_MODE_IN_EYE )
-	return true;
+		return true;
+
+	return false;
 }
 
 //-----------------------------------------------------------------------------

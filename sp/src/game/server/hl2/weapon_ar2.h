@@ -1,4 +1,9 @@
-//========= Copyright Valve Corporation, All rights reserved. ============//
+//=========== (C) Copyright 1999 Valve, L.L.C. All rights reserved. ===========
+//
+// The copyright to the contents herein is the property of Valve, L.L.C.
+// The contents may be used and/or copied only with the written permission of
+// Valve, L.L.C., or in accordance with the terms and conditions stipulated in
+// the agreement/contract under which the contents have been supplied.
 //
 // Purpose:		Projectile shot from the AR2 
 //
@@ -9,13 +14,15 @@
 // $Log: $
 //
 // $NoKeywords: $
-//=============================================================================//
+//=============================================================================
 
 #ifndef	WEAPONAR2_H
 #define	WEAPONAR2_H
 
 #include "basegrenade_shared.h"
 #include "basehlcombatweapon.h"
+
+class CGrenadeAR2;
 
 class CWeaponAR2 : public CHLMachineGun
 {
@@ -26,59 +33,49 @@ public:
 
 	DECLARE_SERVERCLASS();
 
+	bool	Holster( CBaseCombatWeapon *pSwitchingTo = NULL );
+	bool	Reload( void );
+	float	GetFireRate( void );
 	void	ItemPostFrame( void );
 	void	Precache( void );
-	
-	void	SecondaryAttack( void );
-	void	DelayedAttack( void );
-
-	const char *GetTracerType( void ) { return "AR2Tracer"; }
-
+	void	PrimaryAttack( void );
 	void	AddViewKick( void );
-
-	void	FireNPCPrimaryAttack( CBaseCombatCharacter *pOperator, bool bUseWeaponAngles );
-	void	FireNPCSecondaryAttack( CBaseCombatCharacter *pOperator, bool bUseWeaponAngles );
-	void	Operator_ForceNPCFire( CBaseCombatCharacter  *pOperator, bool bSecondary );
 	void	Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
 
-	int		GetMinBurst( void ) { return 2; }
-	int		GetMaxBurst( void ) { return 5; }
-	float	GetFireRate( void ) { return 0.1f; }
-
-	bool	CanHolster( void );
-	bool	Reload( void );
+	int		GetMinBurst() { return 4; }
+	int		GetMaxBurst() { return 7; }
 
 	int		CapabilitiesGet( void ) { return bits_CAP_WEAPON_RANGE_ATTACK1; }
 
-	Activity	GetPrimaryAttackActivity( void );
-	
-	void	DoImpactEffect( trace_t &tr, int nDamageType );
 
 	virtual const Vector& GetBulletSpread( void )
 	{
 		static Vector cone;
 		
-		if (m_bIsIronsighted)
+		if( GetOwner() && GetOwner()->IsPlayer() )
 		{
-			cone = VECTOR_CONE_1DEGREES;
+			cone = ( m_bZoomed ) ? VECTOR_CONE_1DEGREES : VECTOR_CONE_3DEGREES;
 		}
 		else
 		{
-			cone = VECTOR_CONE_3DEGREES;
+			cone = VECTOR_CONE_8DEGREES;
 		}
 		
-
 		return cone;
 	}
-
-	const WeaponProficiencyInfo_t *GetProficiencyValues();
+	
+	virtual bool	Deploy( void );
+	virtual void	Drop( const Vector &velocity );
 
 protected:
 
-	float					m_flDelayedFire;
-	bool					m_bShotDelayed;
-	int						m_nVentPose;
-	
+	void			Zoom( void );
+
+	int				m_nShotsFired;
+	bool			m_bZoomed;
+
+	static const char *pShootSounds[];
+
 	DECLARE_ACTTABLE();
 	DECLARE_DATADESC();
 };
