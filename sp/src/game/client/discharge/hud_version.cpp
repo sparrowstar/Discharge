@@ -65,8 +65,8 @@ void CHudVersion::Init( void )
 // Purpose: 
 //-----------------------------------------------------------------------------
 void CHudVersion::Reset( void )
-{
-	SetLabelText(L"Discharge Pre-Alpha");
+{				//Major Minor Release Build
+	SetLabelText(L"Discharge Pre-Alpha 0.0.1.84");
 }
 
 //-----------------------------------------------------------------------------
