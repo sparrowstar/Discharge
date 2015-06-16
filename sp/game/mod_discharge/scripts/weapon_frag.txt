@@ -25,8 +25,8 @@ WeaponData
 	SoundData
 	{
 		"special1"		"WeaponFrag.Roll"
-		"double_shot"	"common/null.wav"
-		"single_shot"	"common/null.wav"
+		"double_shot"	"Discharge_Player.GrenadeThrow"
+		"single_shot"	"Discharge_Player.GrenadeThrow"
 	}
 
 	IronSight
