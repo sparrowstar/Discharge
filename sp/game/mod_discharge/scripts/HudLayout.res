@@ -707,6 +707,23 @@
 		"font"			"Default"
 		"maxchars"		"-1"
 	}
+	HudVersion
+	{
+		"fieldName"		"HudVersion"
+		"xpos"	"r87"
+		"ypos"	"10"
+		"wide"	"108"
+		"tall"  "20"
+		"visible" "1"
+		"enabled" "1"
+
+		"PaintBackgroundType"	"2"
+
+		"text_xpos" "8"
+		"text_ypos" "6"
+		"digit_xpos" "0"
+		"digit_ypos" "100"
+	}
 
 	AchievementNotificationPanel	
 	{
