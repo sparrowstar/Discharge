@@ -86,17 +86,17 @@ ConVar hl2_sprintspeed( "hl2_sprintspeed", "320" );
 ConVar hl2_darkness_flashlight_factor ( "hl2_darkness_flashlight_factor", "1" );
 
 #ifdef HL2MP
-	#define	HL2_WALK_SPEED 150
-	#define	HL2_NORM_SPEED 190
-	#define	HL2_SPRINT_SPEED 320
+#define	HL2_WALK_SPEED 150
+#define	HL2_NORM_SPEED 190
+#define	HL2_SPRINT_SPEED 320
 #elif DISCHARGE_DLL
-	#define	HL2_WALK_SPEED 150
-	#define	HL2_NORM_SPEED 400
-	#define	HL2_SPRINT_SPEED 400 // No running in Discharge c:
+#define	HL2_WALK_SPEED 150
+#define	HL2_NORM_SPEED 400
+#define	HL2_SPRINT_SPEED 400 // No running in Discharge c:
 #else
-	#define	HL2_WALK_SPEED hl2_walkspeed.GetFloat()
-	#define	HL2_NORM_SPEED hl2_normspeed.GetFloat()
-	#define	HL2_SPRINT_SPEED hl2_sprintspeed.GetFloat()
+#define	HL2_WALK_SPEED hl2_walkspeed.GetFloat()
+#define	HL2_NORM_SPEED hl2_normspeed.GetFloat()
+#define	HL2_SPRINT_SPEED hl2_sprintspeed.GetFloat()
 #endif
 
 ConVar player_showpredictedposition( "player_showpredictedposition", "0" );
@@ -444,6 +444,7 @@ void CHL2_Player::Precache( void )
 	PrecacheScriptSound( "HL2Player.TrainUse" );
 	PrecacheScriptSound( "HL2Player.Use" );
 	PrecacheScriptSound( "HL2Player.BurnPain" );
+	PrecacheScriptSound( "Discharge_Player.Hurt" );
 }
 
 //-----------------------------------------------------------------------------
@@ -2571,6 +2572,18 @@ int CHL2_Player::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 		}
 	}
 
+	// Shot at
+	if (info.GetDamageType() & DMG_BULLET)
+	{
+		EmitSound("Discharge_Player.Hurt");
+	}
+
+	// Meleed - Crowbar
+	if (info.GetDamageType() & DMG_CLUB)
+	{
+		EmitSound("Discharge_Player.Hurt");
+	}
+
 	// Burnt
 	if ( info.GetDamageType() & DMG_BURN )
 	{
@@ -2580,12 +2593,20 @@ int CHL2_Player::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 
 	if( (info.GetDamageType() & DMG_SLASH) && hl2_episodic.GetBool() )
 	{
+
+		EmitSound("Discharge_Player.Hurt");
+
 		if( m_afPhysicsFlags & PFLAG_USING )
 		{
 			// Stop the player using a rotating button for a short time if hit by a creature's melee attack.
 			// This is for the antlion burrow-corking training in EP1 (sjb).
 			SuspendUse( 0.5f );
 		}
+	}
+
+	if ((info.GetDamageType() & DMG_SLASH) && !hl2_episodic.GetBool())
+	{
+		EmitSound("Discharge_Player.Hurt");
 	}
 
 

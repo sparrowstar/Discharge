@@ -56,6 +56,7 @@ void CHealthKit::Precache( void )
 	PrecacheModel("models/items/healthkit.mdl");
 
 	PrecacheScriptSound( "HealthKit.Touch" );
+	PrecacheScriptSound("Discharge_Player.Heal");
 }
 
 
@@ -77,6 +78,8 @@ bool CHealthKit::MyTouch( CBasePlayer *pPlayer )
 
 		CPASAttenuationFilter filter( pPlayer, "HealthKit.Touch" );
 		EmitSound( filter, pPlayer->entindex(), "HealthKit.Touch" );
+
+		EmitSound( filter, pPlayer->entindex(), "Discharge_Player.Heal");
 
 		if ( g_pGameRules->ItemShouldRespawn( this ) )
 		{
@@ -115,6 +118,8 @@ public:
 		PrecacheModel("models/healthvial.mdl");
 
 		PrecacheScriptSound( "HealthVial.Touch" );
+
+		PrecacheScriptSound("Discharge_Player.Heal");
 	}
 
 	bool MyTouch( CBasePlayer *pPlayer )
@@ -130,7 +135,7 @@ public:
 
 			CPASAttenuationFilter filter( pPlayer, "HealthVial.Touch" );
 			EmitSound( filter, pPlayer->entindex(), "HealthVial.Touch" );
-
+			EmitSound( filter, pPlayer->entindex(), "Discharge_Player.Heal");
 			if ( g_pGameRules->ItemShouldRespawn( this ) )
 			{
 				Respawn();
@@ -284,6 +289,8 @@ void CWallHealth::Precache(void)
 	PrecacheScriptSound( "WallHealth.Start" );
 	PrecacheScriptSound( "WallHealth.LoopingContinueCharge" );
 	PrecacheScriptSound( "WallHealth.Recharge" );
+
+	PrecacheScriptSound("Discharge_Player.Heal");
 }
 
 
@@ -354,7 +361,9 @@ void CWallHealth::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE u
 	if (!m_iOn)
 	{
 		m_iOn++;
-		EmitSound( "WallHealth.Start" );
+		EmitSound("WallHealth.Start");
+		EmitSound("Discharge_Player.Heal");
+
 		m_flSoundTime = 0.56 + gpGlobals->curtime;
 
 		m_OnPlayerUse.FireOutput( pActivator, this );
@@ -566,6 +575,9 @@ void CNewWallHealth::Precache(void)
 	PrecacheScriptSound( "WallHealth.Start" );
 	PrecacheScriptSound( "WallHealth.LoopingContinueCharge" );
 	PrecacheScriptSound( "WallHealth.Recharge" );
+
+
+	PrecacheScriptSound("Discharge_Player.Heal");
 }
 
 void CNewWallHealth::StudioFrameAdvance( void )
@@ -665,7 +677,8 @@ void CNewWallHealth::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYP
 	if (!m_iOn)
 	{
 		m_iOn++;
-		EmitSound( "WallHealth.Start" );
+		EmitSound("WallHealth.Start");
+		EmitSound("Discharge_Player.Heal");
 		m_flSoundTime = 0.56 + gpGlobals->curtime;
 
 		m_OnPlayerUse.FireOutput( pActivator, this );
