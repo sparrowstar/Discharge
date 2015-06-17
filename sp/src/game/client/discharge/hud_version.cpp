@@ -1,4 +1,4 @@
-//========= Copyright Valve Corporation, All rights reserved. ============//
+//====== Copyright © 2015, Discharge Team, Some rights reserved. =======
 //
 // Purpose: 
 //
@@ -66,7 +66,7 @@ void CHudVersion::Init( void )
 //-----------------------------------------------------------------------------
 void CHudVersion::Reset( void )
 {				//Major Minor Release Build
-	SetLabelText(L"Discharge Pre-Alpha 0.0.1.84");
+	SetLabelText(L"Pre-Alpha 0.0.1.84");
 }
 
 //-----------------------------------------------------------------------------

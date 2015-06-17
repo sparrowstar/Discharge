@@ -20,4 +20,5 @@ STUB_WEAPON_CLASS(weapon_m4a1, WeaponM4A1, C_HLSelectFireMachineGun);
 STUB_WEAPON_CLASS(weapon_mp5, WeaponMP5, C_HLSelectFireMachineGun);
 STUB_WEAPON_CLASS( weapon_AWP, WeaponAWP, C_BaseHLCombatWeapon );
 STUB_WEAPON_CLASS(weapon_knife, WeaponKnife, C_BaseHLBludgeonWeapon);
+STUB_WEAPON_CLASS(weapon_ociw, WeaponOCIW, C_HLMachineGun);
 

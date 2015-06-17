@@ -60,8 +60,8 @@
 	}
 	"11"
 	{
-		"label" "#GameUI_GameMenu_Credits"
-		"command" "map credits.bsp"
+		"label" "#DischargeUi_GameMenu_Credits"
+		"command" "engine map credits"
 		"InGameOrder" "80"
 	}
 	"12"

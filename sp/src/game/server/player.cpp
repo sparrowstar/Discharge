@@ -6142,7 +6142,8 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveAmmo( 255,	"AR2");
 		GiveAmmo( 5,	"AR2AltFire");
 		GiveAmmo( 255,	"SMG1");
-		GiveAmmo( 255,	"Buckshot");
+		GiveAmmo(255, "Buckshot");
+		GiveAmmo(255, "OCIW");
 		GiveAmmo( 3,	"smg1_grenade");
 		GiveAmmo( 3,	"rpg_round");
 		GiveAmmo( 5,	"grenade");
@@ -6156,7 +6157,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 #endif		
 		GiveNamedItem( "weapon_frag" );
 		GiveNamedItem( "weapon_pistol" );
-		GiveNamedItem( "weapon_ar2" );
+		GiveNamedItem( "weapon_OCIW" );
 		GiveNamedItem( "weapon_shotgun" );
 		GiveNamedItem( "weapon_rpg" );
 		GiveNamedItem( "weapon_357" );
