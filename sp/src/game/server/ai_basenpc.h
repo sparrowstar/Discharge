@@ -1182,7 +1182,7 @@ public:
 	virtual bool		FOkToMakeSound( int soundPriority = 0 );
 	virtual void		JustMadeSound( int soundPriority = 0, float flSoundLength = 0.0f );
 
-	virtual void		DeathSound( const CTakeDamageInfo &info )	{ return; };
+	virtual void		DeathSound(const CTakeDamageInfo &info)		{ return; };
 	virtual void		AlertSound( void )							{ return; };
 	virtual void		IdleSound( void )							{ return; };
 	virtual void		PainSound( const CTakeDamageInfo &info )	{ return; };
@@ -1763,7 +1763,7 @@ public:
 	
 	virtual bool		ShouldGib( const CTakeDamageInfo &info ) { return false; }	// Always ragdoll, unless specified by the leaf class
 	virtual bool		Event_Gibbed( const CTakeDamageInfo &info );
-	virtual void		Event_Killed( const CTakeDamageInfo &info );
+	virtual void		Event_Killed( const CTakeDamageInfo &info, CBasePlayer *pPlayer );
 
 	virtual Vector		GetShootEnemyDir( const Vector &shootOrigin, bool bNoisy = true );
 #ifdef HL2_DLL

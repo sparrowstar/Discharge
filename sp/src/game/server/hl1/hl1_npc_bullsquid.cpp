@@ -78,7 +78,7 @@ enum
 #define		BSQUID_AE_HOP		( 5 )
 #define		BSQUID_AE_THROW		( 6 )
 
-LINK_ENTITY_TO_CLASS( monster_bullchicken, CNPC_Bullsquid );
+LINK_ENTITY_TO_CLASS( npc_bullchicken, CNPC_Bullsquid );
 
 int ACT_SQUID_EXCITED;
 int ACT_SQUID_EAT;

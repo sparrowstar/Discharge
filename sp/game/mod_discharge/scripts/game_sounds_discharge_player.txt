@@ -63,44 +63,27 @@
 		wave "player_dude/dude_ak.wav"
 		wave "player_dude/dude_augh.wav"
 		wave "player_dude/dude_augh2.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_augh3.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_augh4.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_aughthatsgonnabe.wav"
 		wave "player_dude/dude_aughthatsgonnabe2.wav"
 		wave "player_dude/dude_damnthatstings.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_fuck.wav"
 		wave "player_dude/dude_fuck2.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_fuck3.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_fuck4.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_heynowicantfeel.wav"
-		wave "player_dude/dude_idontfeelsogood.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_ohmyhead.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_ohmynads.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_ohmynads2.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_oof.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_ow.wav"
 		wave "player_dude/dude_ohrightinthestuff.wav"
 		wave "player_dude/dude_ohthatcanthave.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_owmyclavichord.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_owoohthatcantbe.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_owsothatswhatthat.wav"
 		wave "player_dude/dude_shit.wav"
-		wave "common/null.wav"
 		wave "player_dude/dude_shit2.wav"
 		wave "player_dude/dude_shit3.wav"
 		wave "player_dude/dude_ughnowmyspleens.wav"
@@ -109,6 +92,7 @@
 		wave "player_dude/oww2.wav"
 		wave "player_dude/shit.wav"
 		wave "player_dude/dude_thatsgoingto.wav"
+		wave "player_dude/dude_ohmommy.wav"
 	}
 }
 
@@ -156,6 +140,52 @@
 	}
 }
 
+"Discharge_Player.GetSuit"
+{
+	"channel"	"CHAN_VOICE"
+	"volume"	"1"
+	"soundlevel"  "SNDLVL_75dB"
+	
+	"rndwave"
+	{	
+		wave "player_dude/dude_thisisgonnabe.wav"
+	} 
+}
+
+"Discharge_Player.Kill_Monster"
+{
+	"channel"	"CHAN_VOICE"
+	"volume"	"1"
+	"soundlevel"  "SNDLVL_75dB"
+
+	"rndwave"
+	{	
+		wave "player_dude/dude_buttsauce.wav"
+		wave "player_dude/dude_dontcrowdtheres.wav"
+		wave "player_dude/dude_fascinating.wav"
+		wave "player_dude/dude_fuckyou.wav"
+		wave "player_dude/dude_gunsdontkill.wav"
+		wave "player_dude/dude_haveaniceday.wav"
+		wave "player_dude/dude_hehhehheh.wav"
+		wave "player_dude/dude_iknowwhatyoure.wav"
+		wave "player_dude/dude_imboredalready.wav"
+		wave "player_dude/dude_justkiddin.wav"
+		wave "player_dude/dude_mybad.wav"
+		wave "player_dude/dude_mybad2.wav"
+		wave "player_dude/dude_mypresidentis.wav"
+		wave "player_dude/dude_ohthatsgottahurt.wav"
+		wave "player_dude/dude_thatstheone.wav"
+		wave "player_dude/dude_thatwasbadofme.wav"
+		wave "player_dude/dude_thatwasbadofme2.wav"
+		wave "player_dude/dude_todaysthefirst.wav"
+		wave "player_dude/dude_videogamesdont.wav"
+		wave "player_dude/dude_wellwhodathought.wav"
+		wave "player_dude/dude_yougogirl.wav"
+		wave "player_dude/imprettygoodatthis.wav"
+		wave "player_dude/suprisinglysatisfying.wav"
+	}
+}
+
 "Discharge_Player.Kill"
 {
 	"channel"	"CHAN_VOICE"
@@ -168,8 +198,6 @@
 		wave "player_dude/dude_cantwealljustget.wav"
 		wave "player_dude/dude_damndothesepeople.wav"
 		wave "player_dude/dude_damnhereiwas.wav"
-		wave "player_dude/dude_doesmyvoiceannoy.wav"
-		wave "player_dude/dude_doesmyvoiceannoy2.wav"
 		wave "player_dude/dude_dontcrowdtheres.wav"
 		wave "player_dude/dude_fascinating.wav"
 		wave "player_dude/dude_fuckyou.wav"
@@ -193,7 +221,6 @@
 		wave "player_dude/dude_mypresidentis.wav"
 		wave "player_dude/dude_nowthatswhaticall.wav"
 		wave "player_dude/dude_ohlikethatsnot.wav"
-		wave "player_dude/dude_ohmommy.wav"
 		wave "player_dude/dude_ohthatsgottahurt.wav"
 		wave "player_dude/dude_oohmedicareaint.wav"
 		wave "player_dude/dude_pleasedontthink.wav"

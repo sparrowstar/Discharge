@@ -232,7 +232,7 @@ int CNPC_GroundTurret::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 //---------------------------------------------------------
 void CNPC_GroundTurret::Event_Killed( const CTakeDamageInfo &info )
 {
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 
 	if ( m_pSmoke != NULL )
 		return;

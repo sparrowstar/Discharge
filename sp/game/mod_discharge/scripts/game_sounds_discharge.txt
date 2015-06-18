@@ -12,6 +12,19 @@
 	"wave"			"weapons/pwrench_big_miss.wav"
 }
 
+"Weapon_Knife.Swing"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"0.55"
+	"soundlevel"	"SNDLVL_105dB"
+	"pitch"			"95,100"
+	"rndwave"
+	{	
+		wave			"weapons/knife_slash2.wav"
+		wave			"weapons/knife_slash1.wav"
+	}
+}
+
 //CSGO M4A1
 
 "Weapon_CM4A1.Single"

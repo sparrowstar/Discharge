@@ -406,7 +406,7 @@ void CNPC_Manhack::Event_Killed( const CTakeDamageInfo &info )
 		KillSprites( 0.0f );
 	}
 
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 }
 
 void CNPC_Manhack::HitPhysicsObject( CBaseEntity *pOther )

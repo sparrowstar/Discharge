@@ -574,7 +574,7 @@ void CNPC_BaseScanner::Gib( void )
 	// is to add a datadesc to CTakeDamageInfo
 	if ( m_KilledInfo.GetInflictor() )
 	{
-		BaseClass::Event_Killed( m_KilledInfo );
+		BaseClass::Event_Killed( m_KilledInfo, NULL );
 	}
 
 	UTIL_Remove(this);

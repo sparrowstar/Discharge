@@ -2539,7 +2539,7 @@ void CNPC_RollerMine::Explode( void )
 	}
 
 	CTakeDamageInfo	info( this, this, 1, DMG_GENERIC );
-	Event_Killed( info );
+	Event_Killed( info, NULL );
 
 	// Remove myself a frame from now to avoid doing it in the middle of running AI
 	SetThink( &CNPC_RollerMine::SUB_Remove );

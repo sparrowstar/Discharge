@@ -37,17 +37,26 @@ public:
 	}
 	void Precache( void )
 	{
-		PrecacheModel ("models/items/hevsuit.mdl");
+		PrecacheModel("models/items/hevsuit.mdl");
+		PrecacheScriptSound("Discharge_Player.GetSuit");
 	}
 	bool MyTouch( CBasePlayer *pPlayer )
 	{
 		if ( pPlayer->IsSuitEquipped() )
 			return FALSE;
 
-		if ( m_spawnflags & SF_SUIT_SHORTLOGON )
-			UTIL_EmitSoundSuit(pPlayer->edict(), "!HEV_A0");		// short version of suit logon,
+		if (m_spawnflags & SF_SUIT_SHORTLOGON)
+		{
+			//Do nothing
+		}
 		else
-			UTIL_EmitSoundSuit(pPlayer->edict(), "!HEV_AAx");	// long version of suit logon
+		{
+			UTIL_EmitSoundSuit(pPlayer->edict(), "!HEV_AAx"); //Play BEEP, Welcome, and suit powers int and have a safe day.
+			CPASAttenuationFilter filter(pPlayer, "Discharge_Player.GetSuit");  //Pre-Load GetSuit
+			EmitSound(filter, pPlayer->entindex(), "Discharge_Player.GetSuit"); //Play GetSuit (This is gonna be sweet!)
+		}
+
+		
 
 		pPlayer->EquipSuit();
 				

@@ -1307,7 +1307,7 @@ void CNPC_FloorTurret::TippedThink( void )
 				CTakeDamageInfo	info;
 				info.SetDamage( 1 );
 				info.SetDamageType( DMG_CRUSH );
-				Event_Killed( info );
+				Event_Killed( info, NULL );
 			}
 		}
 		else if ( IsActivityFinished() )

@@ -84,7 +84,7 @@
 //----------------------
 
 
-@NPCClass base(BaseNPC) studio("models/houndeye.mdl") = monster_houndeye : "Houndeye" 
+@NPCClass base(BaseNPC) studio("models/houndeye.mdl") = npc_houndeye : "Houndeye" 
 [
 	netname(string) : "Squad Name"
 	spawnflags(Flags) =
@@ -93,7 +93,7 @@
 	]
 ]
 
-@NPCClass base(BaseNPC) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken" []
+@NPCClass base(BaseNPC) studio("models/bullsquid.mdl") = npc_bullchicken : "BullChicken" []
 
 @PointClass base(Weapon) studio("models/w_SQKNEST.mdl") = weapon_snark : "Squeak Grenade" []
 

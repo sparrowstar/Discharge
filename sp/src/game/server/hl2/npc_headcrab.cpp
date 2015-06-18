@@ -1790,7 +1790,7 @@ void CBaseHeadcrab::Event_Killed( const CTakeDamageInfo &info )
 		UTIL_DecalTrace( &tr, "YellowBlood" );
 	}
 
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 }
 
 //-----------------------------------------------------------------------------

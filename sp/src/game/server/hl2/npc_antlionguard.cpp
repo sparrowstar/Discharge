@@ -4318,7 +4318,7 @@ void CNPC_AntlionGuard::DeathSound( const CTakeDamageInfo &info )
 //-----------------------------------------------------------------------------
 void CNPC_AntlionGuard::Event_Killed( const CTakeDamageInfo &info )
 {
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 
 	// Tell all of my antlions to burrow away, 'cos they fear the Freeman
 	if ( m_iNumLiveAntlions )

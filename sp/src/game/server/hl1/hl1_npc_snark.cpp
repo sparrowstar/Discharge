@@ -25,7 +25,7 @@ ConVar sk_snark_dmg_bite	( "sk_snark_dmg_bite",				"0" );
 ConVar sk_snark_dmg_pop		( "sk_snark_dmg_pop",				"0" );
 
 
-LINK_ENTITY_TO_CLASS( monster_snark, CSnark);
+LINK_ENTITY_TO_CLASS( npc_snark, CSnark);
 
 
 //---------------------------------------------------------
@@ -184,7 +184,7 @@ void CSnark::Event_Killed( const CTakeDamageInfo &inputInfo )
 	int iGibDamage = g_pGameRules->Damage_GetShouldGibCorpse();
 	info.SetDamageType( iGibDamage );
 
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 }
 
 

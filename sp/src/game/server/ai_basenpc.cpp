@@ -574,7 +574,7 @@ void CAI_BaseNPC::SelectDeathPose( const CTakeDamageInfo &info )
 // Purpose:
 // Input  :
 //-----------------------------------------------------------------------------
-void CAI_BaseNPC::Event_Killed( const CTakeDamageInfo &info )
+void CAI_BaseNPC::Event_Killed( const CTakeDamageInfo &info, CBasePlayer *pPlayer )
 {
 	if (IsCurSchedule(SCHED_NPC_FREEZE))
 	{
@@ -600,6 +600,12 @@ void CAI_BaseNPC::Event_Killed( const CTakeDamageInfo &info )
 	}
 
 	BaseClass::Event_Killed( info );
+
+	/*
+	CPASAttenuationFilter filter(pPlayer, "Discharge_Player.Kill");
+	EmitSound(filter, pPlayer->entindex(), "Discharge_Player.Kill");
+	*/
+	//This needs a better home... Something actually player related maybe?
 
 	if ( m_bFadeCorpse )
 	{

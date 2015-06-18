@@ -1235,9 +1235,7 @@ METROPOLICE_HIT_BY_PHYSOBJECT4 on1 malcompliant10107my1020 off1 {Len 1.5}
 
 // powerup
 
-HEV_AAx hl1/fvox/bell
-
-//HEV_logon, powerarmor_on, atmospherics_on,vitalsigns_on, automedic_on, weaponselect_on, munitionview_on, communications_on, safe_day {Len 41.76}
+HEV_AAx hl1/fvox/bell HEV_logon, powerarmor_on, atmospherics_on,vitalsigns_on, automedic_on, weaponselect_on, munitionview_on, communications_on, safe_day {Len 41.76}
 
 //HEV_A0 hl1/fvox/bell, HEV_logon {Len 11.07}
 

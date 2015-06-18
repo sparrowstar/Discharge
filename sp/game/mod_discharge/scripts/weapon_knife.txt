@@ -25,7 +25,7 @@ WeaponData
 	SoundData
 	{
 		"deploy"			"Weapon_Knife.deploy"
-		"single_shot"		"Weapon_Crowbar.Single"
+		"single_shot"		"Weapon_Knife.Swing"
 		"melee_hit"			"Weapon_Knife.Melee_Hit"
 		"melee_hit_world"	"Weapon_Knife.Melee_HitWorld"
 	}

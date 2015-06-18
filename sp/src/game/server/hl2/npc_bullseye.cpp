@@ -226,7 +226,7 @@ void CNPC_Bullseye::Activate( void )
 //------------------------------------------------------------------------------
 void CNPC_Bullseye::Event_Killed( const CTakeDamageInfo &info )
 {
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 
 	if( GetParent() )
 	{

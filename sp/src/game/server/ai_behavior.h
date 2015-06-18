@@ -1798,7 +1798,7 @@ inline void CAI_BehaviorHost<BASE_NPC>::Event_Killed( const CTakeDamageInfo &inf
 	{
 		m_Behaviors[i]->BridgeEvent_Killed( info );
 	}
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 }
 
 //-------------------------------------

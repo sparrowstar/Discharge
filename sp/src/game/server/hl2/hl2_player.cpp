@@ -76,6 +76,7 @@ extern ConVar autoaim_max_dist;
 #define TIME_IGNORE_FALL_DAMAGE 10.0
 
 extern int gEvilImpulse101;
+float     m_fSpeakRemander;
 
 ConVar sv_autojump( "sv_autojump", "0" );
 
@@ -84,6 +85,10 @@ ConVar hl2_normspeed( "hl2_normspeed", "190" );
 ConVar hl2_sprintspeed( "hl2_sprintspeed", "320" );
 
 ConVar hl2_darkness_flashlight_factor ( "hl2_darkness_flashlight_factor", "1" );
+
+ConVar sv_damagespeak ("sv_damagespeak", "1", FCVAR_REPLICATED ); //Time from hit to speak
+ConVar sv_damagespeak_wait_time("sv_damagespeak_wait_time", "0", FCVAR_REPLICATED); //Leave this zero
+ConVar sv_damagespeak_rate("sv_damagespeak_rate", "3.5", FCVAR_REPLICATED); //Time from speak to next speak. I think?
 
 #ifdef HL2MP
 #define	HL2_WALK_SPEED 150
@@ -401,7 +406,7 @@ CHL2_Player::CHL2_Player()
 	m_nNumMissPositions    = 0;
 	m_pPlayerAISquad = 0;
 	m_bSprintEnabled = true;
- 
+	m_fSpeakRemander = 0;
 	m_flArmorReductionTime = 0.0f;
 	m_iArmorReductionFrom = 0;
 }
@@ -445,6 +450,8 @@ void CHL2_Player::Precache( void )
 	PrecacheScriptSound( "HL2Player.Use" );
 	PrecacheScriptSound( "HL2Player.BurnPain" );
 	PrecacheScriptSound( "Discharge_Player.Hurt" );
+	PrecacheScriptSound( "Discharge_Player.Kill" );
+	PrecacheScriptSound( "Discharge_Player.Kill_Monster" );
 }
 
 //-----------------------------------------------------------------------------
@@ -2575,6 +2582,17 @@ int CHL2_Player::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 	// Shot at
 	if (info.GetDamageType() & DMG_BULLET)
 	{
+		/* 
+		if (gpGlobals->curtime > m_flLastDamageTime + sv_damagespeak_wait_time.GetFloat())
+		{
+			m_fSpeakRemander += sv_damagespeak_rate.GetFloat() * gpGlobals->frametime;
+
+			if (m_fSpeakRemander >= 1)
+			{
+				EmitSound("Discharge_Player.Hurt");
+			}
+		}*/
+		//The shit above an't working. lets try to fix that at some point...
 		EmitSound("Discharge_Player.Hurt");
 	}
 

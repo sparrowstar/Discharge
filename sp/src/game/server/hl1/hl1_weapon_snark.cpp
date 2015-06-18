@@ -93,7 +93,7 @@ void CWeaponSnark::Precache( void )
 	PrecacheScriptSound( "WpnSnark.PrimaryAttack" );
 	PrecacheScriptSound( "WpnSnark.Deploy" );
 
-	UTIL_PrecacheOther("monster_snark");
+	UTIL_PrecacheOther("npc_snark");
 }
 
 //-----------------------------------------------------------------------------
@@ -128,7 +128,7 @@ void CWeaponSnark::PrimaryAttack( void )
 	SendWeaponAnim( ACT_VM_PRIMARYATTACK );
 	pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
-	CSnark *pSnark = (CSnark*)Create( "monster_snark", tr.endpos, pPlayer->EyeAngles(), GetOwner() );
+	CSnark *pSnark = (CSnark*)Create( "npc_snark", tr.endpos, pPlayer->EyeAngles(), GetOwner() );
 	if ( pSnark )
 	{
 		pSnark->SetAbsVelocity( vecForward * 200 + pPlayer->GetAbsVelocity() );

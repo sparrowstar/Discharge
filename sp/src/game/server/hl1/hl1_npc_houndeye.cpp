@@ -59,7 +59,7 @@ BEGIN_DATADESC( CNPC_Houndeye )
 	DEFINE_FIELD( m_vecPackCenter, FIELD_POSITION_VECTOR ),
 END_DATADESC()
 
-LINK_ENTITY_TO_CLASS( monster_houndeye, CNPC_Houndeye );
+LINK_ENTITY_TO_CLASS( npc_houndeye, CNPC_Houndeye );
 
 //=========================================================
 // monster-specific tasks
@@ -158,7 +158,7 @@ void CNPC_Houndeye::Event_Killed( const CTakeDamageInfo &info )
 {
 	// Close the eye to make death more obvious
 	m_nSkin = 1;
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 }
 
 int CNPC_Houndeye::RangeAttack1Conditions ( float flDot, float flDist )

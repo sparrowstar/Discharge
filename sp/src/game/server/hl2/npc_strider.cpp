@@ -3255,7 +3255,7 @@ void CNPC_Strider::Event_Killed( const CTakeDamageInfo &info )
 	// Determine if we're going to explode into pieces
 	m_bExploding = ShouldExplodeFromDamage( info );
 
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 
 	// Stop our large cannon
 	EntityMessageBegin( this, true );
