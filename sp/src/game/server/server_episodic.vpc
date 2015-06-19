@@ -51,6 +51,7 @@ $Project "Server (Discharge)"
 
 		$Folder	"Discharge DLL"
 		{
+			$File	"$SRCDIR\game\shared\discharge\achievements_discharge.cpp"
 			$File	"hl2mp\grenade_satchel.cpp"
 			$File	"hl2mp\grenade_satchel.h"
 			$File	"hl2mp\grenade_tripmine.cpp"
@@ -69,6 +70,7 @@ $Project "Server (Discharge)"
 			$File	"discharge\weapon_ociw.h"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.cpp"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.h"
+			$File	"discharge\weapon_positiongrabber.cpp"
 			$File	"discharge\weapon_wrench.cpp"
 			$File	"discharge\weapon_wrench.h"
 		}
@@ -98,9 +100,6 @@ $Project "Server (Discharge)"
 		
 		$Folder	"HL2 DLL"
 		{
-			$File	"$SRCDIR\game\shared\episodic\achievements_ep1.cpp"
-			$File	"$SRCDIR\game\shared\episodic\achievements_ep2.cpp"
-			$File	"$SRCDIR\game\shared\episodic\achievements_epx.cpp"
 			$File	"hl2\ai_allymanager.cpp"
 			$File	"hl2\ai_behavior_actbusy.cpp"
 			$File	"hl2\ai_behavior_actbusy.h"

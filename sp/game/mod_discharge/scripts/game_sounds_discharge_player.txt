@@ -122,7 +122,6 @@
 	{	
 		wave "player_dude/dude_herecatch.wav"
 		wave "player_dude/dude_heyliberacecatch.wav"
-		wave "common/null.wav"
 	}
 }
 

@@ -35,6 +35,7 @@ $Project "Client (Discharge)"
 
 		$Folder	"Discharge DLL"
 		{
+			$File	"$SRCDIR\game\shared\episodic\achievements_discharge.cpp"
 			$File	"discharge\c_ironsight_stub.cpp"
 			$File	"discharge\c_weapon__stubs_discharge.cpp"
 			$File	"cstrike\fx_cs_weaponfx.cpp"
@@ -75,9 +76,6 @@ $Project "Client (Discharge)"
 		$Folder	"HL2 DLL"
 		{
 			$File	"$SRCDIR\game\shared\hl2\basehlcombatweapon_shared.cpp"
-			$File	"$SRCDIR\game\shared\episodic\achievements_ep1.cpp"
-			$File	"$SRCDIR\game\shared\episodic\achievements_ep2.cpp"
-			$File	"$SRCDIR\game\shared\episodic\achievements_epx.cpp"
 			$File	"hl2\c_antlion_dust.cpp"
 			$File	"hl2\c_ar2_explosion.cpp"
 			$File	"hl2\c_barnacle.cpp"
