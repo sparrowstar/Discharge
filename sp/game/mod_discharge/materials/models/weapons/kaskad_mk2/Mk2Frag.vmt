@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\weapons\kaskad_mk2\Mk2Frag"
+      	"$bumpmap" "models\weapons\kaskad_mk2\Mk2Frag_normal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[.50 .50 .50]"
+}

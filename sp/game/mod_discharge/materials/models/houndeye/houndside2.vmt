@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\houndeye\houndside2"
+	"$bumpmap" "models\houndeye\houndside2_normal"
+	"$model" 1
+	"$phong"	"1"
+ 	"$phongexponent"	"45"
+	"$phongboost"	"0.6"
+	"$phongfresnelranges"   "[.2 .8 1]"
+}

@@ -2,4 +2,8 @@
 {
 	"$baseTexture" "models\bullsquid/bullchicken2"
 	"$bumpmap" "models\bullsquid/bullchicken2_normal"
+	"$phong"	"1"
+ 	"$phongexponent"	"45"
+	"$phongboost"	"0.4"
+	"$phongfresnelranges"   "[.2 .8 1]"
 }
