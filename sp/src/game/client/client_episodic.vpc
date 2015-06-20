@@ -35,7 +35,7 @@ $Project "Client (Discharge)"
 
 		$Folder	"Discharge DLL"
 		{
-			$File	"$SRCDIR\game\shared\episodic\achievements_discharge.cpp"
+			$File	"$SRCDIR\game\shared\discharge\achievements_discharge.cpp"
 			$File	"discharge\c_ironsight_stub.cpp"
 			$File	"discharge\c_weapon__stubs_discharge.cpp"
 			$File	"cstrike\fx_cs_weaponfx.cpp"
