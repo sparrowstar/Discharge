@@ -1,0 +1,61 @@
+// *********************************
+// ** auto generated vertexshader **
+// *********************************
+
+#define SHADER_EDITOR_2013_COMPILE
+
+
+// Includes
+#include "common_vs_fxc.h"
+
+
+// Constants
+const float _g_Time		: register( c48 );
+
+// User code - function bodies
+void noiseCoords( in float2 texCoords, in float time, out float4 noiseCoords )
+{
+	//this will be the var we will use to modify the coords
+	float4 distortedCoords;
+
+	//modify the texture coords
+	distortedCoords.xy = texCoords * 0.5; 
+
+	//modify the texture coords ( z and w ) with time
+	distortedCoords.zw = texCoords * float2(1.0, 0.25) * 0.5 + float2(0.0, -time);
+
+	//modify the texture coords ( z ) with time
+	distortedCoords.z += (sin(time) + sin(time*0.5))*0.5 + 0.5;
+
+	//output our ( distortedCoords ) to our output named ( noiseCoords )
+	noiseCoords = distortedCoords;
+		
+}
+
+// Semantic structures
+struct VS_INPUT
+{
+	float3 vPos					:	POSITION;
+	float2 vTexCoord_0			:	TEXCOORD0;
+};
+
+struct VS_OUTPUT
+{
+	float4 vProjPos				:	POSITION;
+	float2 vTexCoord_0			:	TEXCOORD0;
+	float4 vTexCoord_1			:	TEXCOORD1;
+};
+
+// Entry point
+VS_OUTPUT main( const VS_INPUT In )
+{
+	VS_OUTPUT Out;
+	float4 _var0 = float4( In.vPos.x, In.vPos.y, In.vPos.z, 1.000000 );
+	float _var1 = _g_Time * float( 0.100000 );
+	float4 _var2 = (float4)0;
+	noiseCoords( In.vTexCoord_0, _var1, _var2 );
+	Out.vProjPos = _var0;
+	Out.vTexCoord_0 = In.vTexCoord_0;
+	Out.vTexCoord_1 = _var2;
+	return Out;
+}

@@ -2,6 +2,8 @@
 // ** auto generated pixelshader **
 // ********************************
 
+#define SHADER_EDITOR_2013_COMPILE
+
 // Combos
 // DYNAMIC: "PIXELFOGTYPE"		"0..1"
 // STATIC: "FLASHLIGHT"		"0..1"

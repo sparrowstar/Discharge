@@ -1,0 +1,86 @@
+// ********************************
+// ** auto generated pixelshader **
+// ********************************
+
+#define SHADER_EDITOR_2013_COMPILE
+
+
+// Includes
+#include "common_ps_fxc.h"
+#include "common_vertexlitgeneric_dx9.h"
+#include "common_lightmappedgeneric_fxc.h"
+#include "common_flashlight_fxc.h"
+#include "common_parallax.h"
+
+
+// Samplers
+sampler _Sampler_00		: register( s0 );
+sampler _Sampler_01		: register( s1 );
+
+// User code - globals
+// Cryteks method. - Converted & modified by Drew 
+// www.drewwatts.net
+// Enjoy ya dingus!
+
+static float4 bloodColor = float4(1.0, 0.20, 0.20, 0.0);
+
+// User code - function bodies
+void doBlood( in float2 texCoords, in float4 noiseCoords, in sampler waterNormal, in sampler frameBuffer, out float4 finalColor )
+{
+	float4 noise0 = tex2D(waterNormal, noiseCoords.xy);
+	float4 noise1 = tex2D(waterNormal, noiseCoords.zw);
+
+	float4 noiseVec;
+	noiseVec.z = (noise0.z * 2.0 - 1.0) * 0.5 + (2.0 * noise1.w - 1.0);
+	noiseVec.xy = (noise0.xy * 2.0 - 1.0);
+
+	// refraction vector
+	float3 refraction = normalize(noiseVec.xyz * float3(0.01, 0.01, 1.0));
+
+	// distort the framebuffer
+	float4 frameColor = tex2D(frameBuffer, texCoords - refraction.xy*0.25);
+
+	// gray frame
+	float4 frameBloody = dot(frameColor, float4(0.3, 0.59, 0.11, 0.0)); 
+	// give it some color
+	frameBloody = (frameBloody * bloodColor);
+
+	// to mask our blood effect
+	float bloodMask = refraction.b;
+	bloodMask = pow(bloodMask, 5.0);
+
+	// modified refraction vector for our highlight
+	refraction = normalize(noiseVec.xyz * float3(0.025, 0.025, 1.0));
+
+	// do the highlight
+	float highlight = saturate(pow(refraction.x, 10.0) * 0.5) * 1.0;
+
+	// lerp between our blood, the and the frame, then add the highlight
+	finalColor.rgb = lerp(frameBloody.rgb, frameColor.rgb, bloodMask) + highlight;
+
+	//assign an alpha
+	finalColor.a = 1.0;
+
+}
+
+// Semantic structures
+struct PS_INPUT
+{
+	float2 vTexCoord_0			:	TEXCOORD0;
+	float4 vTexCoord_1			:	TEXCOORD1;
+};
+
+struct PS_OUTPUT
+{
+	float4 vColor_0				:	COLOR0;
+};
+
+// Entry point
+PS_OUTPUT main( const PS_INPUT In )
+{
+	PS_OUTPUT Out;
+	float4 _var0 = (float4)0;
+	doBlood( In.vTexCoord_0, In.vTexCoord_1, _Sampler_00, _Sampler_01, _var0 );
+	Out.vColor_0 = _var0;
+	return Out;
+}

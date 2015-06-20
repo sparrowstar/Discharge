@@ -4,7 +4,7 @@
 	title 		"DISCHARGE"
 	icon		"resource/discharge"
 	supportsvr	1
-	type		singleplayer_only
+	type		both
 	FileSystem
 	{
 		SteamAppId				243730

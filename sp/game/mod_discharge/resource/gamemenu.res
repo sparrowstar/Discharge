@@ -54,21 +54,29 @@
 	}
 	"10"
 	{
-		"label" "#GameUI_GameMenu_Options"
-		"command" "OpenOptionsDialog"
-		"InGameOrder" "70"
+		"label" "#DischargeUI_GameMenu_MainMenu"
+		"command"	"engine save mainmenu; wait 20; disconnect"
+		"InGameOrder"	"70"
+		"OnlyInGame"	"1"
 	}
 	"11"
 	{
-		"label" "#DischargeUi_GameMenu_Credits"
-		"command" "engine map credits"
+		"label" "#GameUI_GameMenu_Options"
+		"command" "OpenOptionsDialog"
 		"InGameOrder" "80"
 	}
 	"12"
 	{
+		"label" "#DischargeUi_GameMenu_Credits"
+		"command" "engine save game; wait 5; map credits"
+		"InGameOrder" "90"
+		"OnlyInGame" "0"
+	}
+	"13"
+	{
 		"label" "#GameUI_GameMenu_Quit"
 		"command" "Quit"
-		"InGameOrder" "90"
+		"InGameOrder" "100"
 	}
 }
 
