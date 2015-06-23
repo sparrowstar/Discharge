@@ -23,22 +23,22 @@
 class CAchievementMgr : public CAutoGameSystemPerFrame, public CGameEventListener, public IAchievementMgr
 {
 public:
-    //=============================================================================
-    // HPE_BEGIN
-    // [dwenger] Steam Cloud Support
-    //=============================================================================
+	//=============================================================================
+	// HPE_BEGIN
+	// [dwenger] Steam Cloud Support
+	//=============================================================================
 
-    enum SteamCloudPersisting
-    {
-        SteamCloudPersist_Off = 0,
-        SteamCloudPersist_On,
-    };
+	enum SteamCloudPersisting
+	{
+		SteamCloudPersist_Off = 0,
+		SteamCloudPersist_On,
+	};
 
-	CAchievementMgr( SteamCloudPersisting ePersistToSteamCloud = SteamCloudPersist_Off );
+	CAchievementMgr(SteamCloudPersisting ePersistToSteamCloud = SteamCloudPersist_Off);
 
-    //=============================================================================
-    // HPE_END
-    //=============================================================================
+	//=============================================================================
+	// HPE_END
+	//=============================================================================
 
 	virtual bool Init();
 	virtual void PostInit();
@@ -46,45 +46,48 @@ public:
 	virtual void LevelInitPreEntity();
 	virtual void LevelShutdownPreEntity();
 	virtual void InitializeAchievements();
-	virtual void Update( float frametime );
+	virtual void Update(float frametime);
 #ifdef GAME_DLL
 	virtual void FrameUpdatePostEntityThink();
 #endif
 
-	void OnMapEvent( const char *pchEventName );
-	
+	void OnMapEvent(const char *pchEventName);
+
 	// Interfaces exported to other dlls for achievement list queries
-	IAchievement* GetAchievementByIndex( int index );
+	IAchievement* GetAchievementByIndex(int index);
 	int GetAchievementCount();
 
-	CBaseAchievement *GetAchievementByID( int iAchievementID );
+	CBaseAchievement *GetAchievementByID(int iAchievementID);
 	CUtlMap<int, CBaseAchievement *> &GetAchievements() { return m_mapAchievement; }
 
-	CBaseAchievement *GetAchievementByName( const char *pchName );
-	bool	HasAchieved( const char *pchName );
+	CBaseAchievement *GetAchievementByName(const char *pchName);
+	bool	HasAchieved(const char *pchName);
 
 	void UploadUserData();
 	void DownloadUserData();
-	void SaveGlobalState( bool bAsync = false );
+	void SaveGlobalState(bool bAsync = false);
 	void LoadGlobalState();
-	void SaveGlobalStateIfDirty( bool bAsync = false );
+	void SaveGlobalStateIfDirty(bool bAsync = false);
 	void EnsureGlobalStateLoaded();
-	void AwardAchievement( int iAchievementID );
-	void UpdateAchievement( int iAchievementID, int nData );
+#ifdef GAME_DLL
+	void ShowAchievementMessage(CBaseEntity *pEntity, const char *pMessage);
+#endif
+	void AwardAchievement(int iAchievementID);
+	void UpdateAchievement(int iAchievementID, int nData);
 	void PreRestoreSavedGame();
 	void PostRestoreSavedGame();
 	void ResetAchievements();
-	void ResetAchievement( int iAchievementID );
+	void ResetAchievement(int iAchievementID);
 	void PrintAchievementStatus();
 	float GetLastClassChangeTime() { return m_flLastClassChangeTime; }
 	float GetTeamplayStartTime() { return m_flTeamplayStartTime; }
 	int	  GetMiniroundsCompleted() { return m_iMiniroundsCompleted; }
 	const char *GetMapName() { return m_szMap; }
-	void OnAchievementEvent( int iAchievementID, int iCount = 1 );
+	void OnAchievementEvent(int iAchievementID, int iCount = 1);
 
-	void CheckMetaAchievements( void );
+	void CheckMetaAchievements(void);
 
-	void SetDirty( bool bDirty )
+	void SetDirty(bool bDirty)
 	{
 		if (bDirty)
 		{
@@ -92,35 +95,35 @@ public:
 			m_bSteamDataDirty = true;
 		}
 	}
-	
+
 	//=============================================================================
 	// HPE_END
 	//=============================================================================
 
 	bool CheckAchievementsEnabled();
-	bool LoggedIntoSteam() 
-	{ 
+	bool LoggedIntoSteam()
+	{
 #if !defined(NO_STEAM)
-		return ( steamapicontext->SteamUser() && steamapicontext->SteamUserStats() && steamapicontext->SteamUser()->BLoggedOn() ); 
+		return (steamapicontext->SteamUser() && steamapicontext->SteamUserStats() && steamapicontext->SteamUser()->BLoggedOn());
 #else
 		return false;
 #endif
 	}
 	float GetTimeLastUpload() { return m_flTimeLastSaved; }			// time we last uploaded to Steam
 
-	bool WereCheatsEverOn( void ) { return m_bCheatsEverOn; }
+	bool WereCheatsEverOn(void) { return m_bCheatsEverOn; }
 
 #if !defined(NO_STEAM)
-	STEAM_CALLBACK( CAchievementMgr, Steam_OnUserStatsReceived, UserStatsReceived_t, m_CallbackUserStatsReceived );
-	STEAM_CALLBACK( CAchievementMgr, Steam_OnUserStatsStored, UserStatsStored_t, m_CallbackUserStatsStored );
+	STEAM_CALLBACK(CAchievementMgr, Steam_OnUserStatsReceived, UserStatsReceived_t, m_CallbackUserStatsReceived);
+	STEAM_CALLBACK(CAchievementMgr, Steam_OnUserStatsStored, UserStatsStored_t, m_CallbackUserStatsStored);
 #endif
 
-	void SetAchievementThink( CBaseAchievement *pAchievement, float flThinkTime );
+	void SetAchievementThink(CBaseAchievement *pAchievement, float flThinkTime);
 
 private:
-	void FireGameEvent( IGameEvent *event );
-	void OnKillEvent( CBaseEntity *pVictim, CBaseEntity *pAttacker, CBaseEntity *pInflictor, IGameEvent *event );
-	void ResetAchievement_Internal( CBaseAchievement *pAchievement );
+	void FireGameEvent(IGameEvent *event);
+	void OnKillEvent(CBaseEntity *pVictim, CBaseEntity *pAttacker, CBaseEntity *pInflictor, IGameEvent *event);
+	void ResetAchievement_Internal(CBaseAchievement *pAchievement);
 	void UpdateStateFromSteam_Internal();
 
 	CUtlMap<int, CBaseAchievement *> m_mapAchievement;					// map of all achievements
@@ -149,26 +152,26 @@ private:
 	bool  m_bCheatsEverOn;				// have cheats ever been turned on in this level
 	float m_flTimeLastSaved;			// last time we uploaded to Steam
 
-    //=============================================================================
-    // HPE_BEGIN
-    // [dwenger] Steam Cloud Support
-    //=============================================================================
+	//=============================================================================
+	// HPE_BEGIN
+	// [dwenger] Steam Cloud Support
+	//=============================================================================
 
-    bool  m_bPersistToSteamCloud;       // true = persist data to steam cloud
+	bool  m_bPersistToSteamCloud;       // true = persist data to steam cloud
 
-    //=============================================================================
-    // HPE_END
-    //=============================================================================
+	//=============================================================================
+	// HPE_END
+	//=============================================================================
 
-    CUtlVector<int> m_AchievementsAwarded;
+	CUtlVector<int> m_AchievementsAwarded;
 };
 
 // helper functions
-const char *GetModelName( CBaseEntity *pBaseEntity );
+const char *GetModelName(CBaseEntity *pBaseEntity);
 
 #ifdef CLIENT_DLL
-bool CalcPlayersOnFriendsList( int iMinPlayers );
-bool CalcHasNumClanPlayers( int iClanTeammates );
+bool CalcPlayersOnFriendsList(int iMinPlayers);
+bool CalcHasNumClanPlayers(int iClanTeammates);
 int	CalcPlayerCount();
 int	CalcTeammateCount();
 #endif // CLIENT
@@ -178,6 +181,6 @@ extern ConVar	cc_achievement_debug;
 extern IMatchmaking *matchmaking;
 
 #ifdef CLIENT_DLL
-void MsgFunc_AchievementEvent( bf_read &msg );
+void MsgFunc_AchievementEvent(bf_read &msg);
 #endif // CLIENT_DLL
 #endif // ACHIEVEMENTMGR_H
