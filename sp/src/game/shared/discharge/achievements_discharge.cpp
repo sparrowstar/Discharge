@@ -7,8 +7,8 @@
 
 #include "cbase.h"
 
-#define ACHIEVEMENT_DISCHARGE_TEST 151
-#define ACHIEVEMENT_DISCHARGE_KILL_5_COMBINE 152
+#define DISCHARGE_ACHIEVEMENT_TEST 151
+#define DISCHARGE_ACHIEVEMENT_KILL5COMBINE 152
 
 #if GAME_DLL
 
@@ -26,7 +26,7 @@ class CAchievementDischargeTestBasic : public CBaseAchievement
 		SetGoal(1);
 	}
 };
-DECLARE_ACHIEVEMENT(CAchievementDischargeTestBasic, ACHIEVEMENT_DISCHARGE_TEST, "DISCHARGE_TEST", 5);
+DECLARE_ACHIEVEMENT(CAchievementDischargeTestBasic, DISCHARGE_ACHIEVEMENT_TEST, "ACHIEVEMENT_TEST", 5);
 
 class CAchievementDischargeKill5Combine : public CBaseAchievement
 {
@@ -37,6 +37,6 @@ class CAchievementDischargeKill5Combine : public CBaseAchievement
 		SetGoal(5);
 	}
 };
-DECLARE_ACHIEVEMENT(CAchievementDischargeKill5Combine, ACHIEVEMENT_DISCHARGE_KILL_5_COMBINE, "DISCHARGE_KILL_5_COMBINE", 5);
+DECLARE_ACHIEVEMENT(CAchievementDischargeKill5Combine, DISCHARGE_ACHIEVEMENT_KILL5COMBINE, "ACHIEVEMENT_KILL5COMBINE", 5);
 
 #endif // GAME_DLL
