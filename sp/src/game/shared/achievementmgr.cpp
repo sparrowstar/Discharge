@@ -1357,11 +1357,11 @@ void CAchievementMgr::ResetAchievements()
 		return;
 	}
 
-	if (!LoggedIntoSteam())
+	/*if (!LoggedIntoSteam())
 	{
 		Msg("Steam not running, achievements disabled. Cannot reset achievements.\n");
 		return;
-	}
+	}*/
 
 	FOR_EACH_MAP(m_mapAchievement, i)
 	{
@@ -1960,7 +1960,7 @@ void MsgFunc_AchievementEvent(bf_read &msg)
 	pAchievementMgr->OnAchievementEvent(iAchievementID, iCount);
 }
 
-#if defined(_DEBUG) || defined(STAGING_ONLY) || DEBUG_ACHIEVEMENTS_IN_RELEASE
+//#if defined(_DEBUG) || defined(STAGING_ONLY) || DEBUG_ACHIEVEMENTS_IN_RELEASE
 CON_COMMAND_F(achievement_reset_all, "Clears all achievements", FCVAR_CHEAT)
 {
 	CAchievementMgr *pAchievementMgr = dynamic_cast<CAchievementMgr *>(engine->GetAchievementMgr());
@@ -2101,7 +2101,7 @@ CON_COMMAND_F(achievement_mark_dirty, "Mark achievement data as dirty", FCVAR_CH
 		return;
 	pAchievementMgr->SetDirty(true);
 }
-#endif // _DEBUG
+//#endif // _DEBUG
 
 #endif // CLIENT_DLL
 
