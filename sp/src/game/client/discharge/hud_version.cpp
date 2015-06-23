@@ -60,7 +60,7 @@ void CHudVersion::Init( void )
 //-----------------------------------------------------------------------------
 void CHudVersion::Reset( void )
 {				//Major Minor Release Build
-	SetLabelText(L"Pre-Alpha 0.0.1.91");
+	SetLabelText(L"Pre-Alpha 0.0.1.95");
 }
 
 //-----------------------------------------------------------------------------
