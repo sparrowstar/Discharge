@@ -70,7 +70,7 @@
 				}
 				"jackIn_01"
 				{
-					"iTarget_node"		"34"
+					"iTarget_node"		"33"
 					"iTarget_jack"		"0"
 				}
 			}
@@ -175,12 +175,12 @@
 			{
 				"jackIn_00"
 				{
-					"iTarget_node"		"33"
+					"iTarget_node"		"32"
 					"iTarget_jack"		"0"
 				}
 				"jackIn_01"
 				{
-					"iTarget_node"		"29"
+					"iTarget_node"		"34"
 					"iTarget_jack"		"0"
 				}
 			}
@@ -560,7 +560,7 @@
 			{
 				"jackIn_00"
 				{
-					"iTarget_node"		"31"
+					"iTarget_node"		"30"
 					"iTarget_jack"		"0"
 				}
 			}
@@ -583,17 +583,6 @@
 		}
 		"Node_029"
 		{
-			"iType"		"5"
-			"szName"		"decay"
-			"pos_x"		"-332.019897"
-			"pos_y"		"-73.928772"
-			"size_x"		"50.000000"
-			"size_y"		"-50.000000"
-			"iPreview"		"1"
-			"szConstantString"		"0.95"
-		}
-		"Node_030"
-		{
 			"iType"		"19"
 			"pos_x"		"-302.042847"
 			"pos_y"		"-631.567932"
@@ -615,7 +604,7 @@
 			}
 			"i_mat_rotation"		"0"
 		}
-		"Node_031"
+		"Node_030"
 		{
 			"iType"		"19"
 			"pos_x"		"-147.744141"
@@ -627,7 +616,7 @@
 			{
 				"jackIn_00"
 				{
-					"iTarget_node"		"30"
+					"iTarget_node"		"29"
 					"iTarget_jack"		"0"
 				}
 				"jackIn_01"
@@ -638,7 +627,7 @@
 			}
 			"i_mat_rotation"		"0"
 		}
-		"Node_032"
+		"Node_031"
 		{
 			"iType"		"5"
 			"pos_x"		"-446.937622"
@@ -648,7 +637,7 @@
 			"iPreview"		"1"
 			"szConstantString"		"1"
 		}
-		"Node_033"
+		"Node_032"
 		{
 			"iType"		"32"
 			"pos_x"		"-287.005707"
@@ -660,12 +649,12 @@
 			{
 				"jackIn_00"
 				{
-					"iTarget_node"		"32"
+					"iTarget_node"		"31"
 					"iTarget_jack"		"0"
 				}
 			}
 		}
-		"Node_034"
+		"Node_033"
 		{
 			"iType"		"5"
 			"szName"		"sample delta"
@@ -676,15 +665,26 @@
 			"iPreview"		"1"
 			"szConstantString"		"0.011"
 		}
-		"Node_035"
+		"Node_034"
 		{
 			"iType"		"5"
-			"pos_x"		"-579.794006"
-			"pos_y"		"-643.367920"
+			"szName"		"decay"
+			"pos_x"		"-332.019897"
+			"pos_y"		"-73.928772"
 			"size_x"		"50.000000"
 			"size_y"		"-50.000000"
 			"iPreview"		"1"
-			"szConstantString"		"0.045"
+			"szConstantString"		"0.95"
+		}
+		"Node_035"
+		{
+			"iType"		"5"
+			"pos_x"		"-618.144897"
+			"pos_y"		"-642.596191"
+			"size_x"		"50.000000"
+			"size_y"		"-50.000000"
+			"iPreview"		"1"
+			"szConstantString"		"0.08"
 		}
 	}
 }

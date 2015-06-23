@@ -45,6 +45,12 @@
 		"OnlyWhenVREnabled" "1"
 		"OnlyWhenVRActive" "1"
 	}
+	"8"
+	{
+		"label" "#GameUI_GameMenu_Achievements"
+		"command" "OpenAchievementsDialog"
+		"InGameOrder"	"50"
+	}
 	"9"
 	{
 		"label" "#GameUI_Controller"

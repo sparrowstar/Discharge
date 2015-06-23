@@ -680,11 +680,11 @@
 		{
 			"iType"		"5"
 			"pos_x"		"-579.794006"
-			"pos_y"		"-643.367920"
+			"pos_y"		"-642.596191"
 			"size_x"		"50.000000"
 			"size_y"		"-50.000000"
 			"iPreview"		"1"
-			"szConstantString"		"0.045"
+			"szConstantString"		"0.06"
 		}
 	}
 }

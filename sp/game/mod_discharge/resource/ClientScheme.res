@@ -633,7 +633,7 @@ Scheme
 			"1"
 			{
 				"name"  "DischargeFont"
-				"tall"			"34"
+				"tall"			"78"
 				"weight" "0"
 				"additive" "0"
 				"antialias" "1"
