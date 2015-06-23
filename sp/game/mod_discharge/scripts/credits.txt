@@ -125,6 +125,7 @@
 	"THANK YOU FOR PLAYING OUR MOD!" "CreditsOutroText"
 	" " "CreditsOutroText"
 	" " "CreditsOutroText"
+
 	"HALF-LIFE'"	"ClientTitleFont_hl2"
 	"DISCHARGE" "ClientTitleFont"
 	
