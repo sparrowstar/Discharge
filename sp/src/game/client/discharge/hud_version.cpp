@@ -35,12 +35,6 @@ public:
 	void Init( void );
 	void Reset( void );
 	void VidInit( void );
-	void OnThink( void );
-	void MsgFunc_Battery(bf_read &msg );
-	
-private:
-	int		m_iBat;	
-	int		m_iNewBat;
 };
 
 DECLARE_HUDELEMENT( CHudVersion );
@@ -75,26 +69,4 @@ void CHudVersion::Reset( void )
 void CHudVersion::VidInit( void )
 {
 	Reset();
-}
-
-
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-void CHudVersion::OnThink( void )
-{
-	if ( m_iBat == m_iNewBat )
-		return;
-
-	m_iBat = m_iNewBat;
-
-	SetDisplayValue(m_iBat);
-}
-
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-void CHudVersion::MsgFunc_Battery( bf_read &msg )
-{
-	m_iNewBat = msg.ReadShort();
 }
