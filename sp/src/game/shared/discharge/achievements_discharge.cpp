@@ -12,6 +12,9 @@
 #include "achievementmgr.h"
 #include "baseachievement.h"
 
+
+CAchievementMgr g_AchievementMgrHL2;	// global achievement mgr for HL2
+
 class CAchievementDischargeTestBasic : public CBaseAchievement
 {
 protected:
