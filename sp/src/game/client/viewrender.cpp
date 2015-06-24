@@ -54,6 +54,7 @@
 #include "sourcevr/isourcevirtualreality.h"
 #include "client_virtualreality.h"
 #include "ShaderEditor/ShaderEditorSystem.h"
+#include "ShaderEditor\IVShaderEditor.h"
 
 #ifdef PORTAL
 //#include "C_Portal_Player.h"

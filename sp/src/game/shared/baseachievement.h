@@ -22,30 +22,30 @@ class CAchievementMgr;
 
 class CBaseAchievement : public CGameEventListener, public IAchievement
 {
-	DECLARE_CLASS_NOBASE( CBaseAchievement );
+	DECLARE_CLASS_NOBASE(CBaseAchievement);
 public:
-	CBaseAchievement();	
+	CBaseAchievement();
 	virtual ~CBaseAchievement();
 	virtual void Init() {}
 	virtual void ListenForEvents() {};
-	virtual void Event_EntityKilled( CBaseEntity *pVictim, CBaseEntity *pAttacker, CBaseEntity *pInflictor, IGameEvent *event );
+	virtual void Event_EntityKilled(CBaseEntity *pVictim, CBaseEntity *pAttacker, CBaseEntity *pInflictor, IGameEvent *event);
 
 	int GetAchievementID() { return m_iAchievementID; }
-	void SetAchievementID( int iAchievementID ) { m_iAchievementID = iAchievementID; }
-	void SetName( const char *pszName ) { m_pszName = pszName; }
+	void SetAchievementID(int iAchievementID) { m_iAchievementID = iAchievementID; }
+	void SetName(const char *pszName) { m_pszName = pszName; }
 	const char *GetName() { return m_pszName; }
-	const char *GetStat() { return m_pszStat?m_pszStat:GetName(); }
-	void SetFlags( int iFlags );
+	const char *GetStat() { return m_pszStat ? m_pszStat : GetName(); }
+	void SetFlags(int iFlags);
 	int GetFlags() { return m_iFlags; }
-	void SetGoal( int iGoal ) { m_iGoal = iGoal; }
+	void SetGoal(int iGoal) { m_iGoal = iGoal; }
 	int GetGoal() { return m_iGoal; }
-	void SetGameDirFilter( const char *pGameDir );
-	bool HasComponents() { return ( m_iFlags & ACH_HAS_COMPONENTS ) > 0; }	
-	void SetPointValue( int iPointValue ) { m_iPointValue = iPointValue; }
+	void SetGameDirFilter(const char *pGameDir);
+	bool HasComponents() { return (m_iFlags & ACH_HAS_COMPONENTS) > 0; }
+	void SetPointValue(int iPointValue) { m_iPointValue = iPointValue; }
 	int	GetPointValue() { return m_iPointValue; }
 	bool ShouldHideUntilAchieved() { return m_bHideUntilAchieved; }
-	void SetHideUntilAchieved( bool bHide ) { m_bHideUntilAchieved = bHide; }
-	void SetStoreProgressInSteam( bool bStoreProgressInSteam ) { m_bStoreProgressInSteam = bStoreProgressInSteam; }
+	void SetHideUntilAchieved(bool bHide) { m_bHideUntilAchieved = bHide; }
+	void SetStoreProgressInSteam(bool bStoreProgressInSteam) { m_bStoreProgressInSteam = bStoreProgressInSteam; }
 	bool StoreProgressInSteam() { return m_bStoreProgressInSteam; }
 	virtual bool ShouldShowProgressNotification() { return true; }
 	virtual void OnPlayerStatsUpdate() {}
@@ -54,14 +54,14 @@ public:
 	bool ShouldSaveGlobal();
 	virtual void PreRestoreSavedGame();
 	virtual void PostRestoreSavedGame();
-	void SetCount( int iCount ) { m_iCount = iCount; }
+	void SetCount(int iCount) { m_iCount = iCount; }
 	int GetCount() { return m_iCount; }
-	void SetProgressShown( int iProgressShown ) { m_iProgressShown = iProgressShown; }
+	void SetProgressShown(int iProgressShown) { m_iProgressShown = iProgressShown; }
 	int GetProgressShown() { return m_iProgressShown; }
 	virtual bool IsAchieved() { return m_bAchieved; }
 	virtual bool IsActive();
-	virtual bool LocalPlayerCanEarn( void ) { return true; }
-	void SetAchieved( bool bAchieved ) { m_bAchieved = bAchieved; }
+	virtual bool LocalPlayerCanEarn(void) { return true; }
+	void SetAchieved(bool bAchieved) { m_bAchieved = bAchieved; }
 	virtual bool IsMetaAchievement() { return false; }
 	virtual bool AlwaysListen() { return false; }
 	virtual bool AlwaysEnabled() { return false; }
@@ -70,62 +70,62 @@ public:
 	// HPE_BEGIN:
 	// [pfreese] Notification method for derived classes
 	//=============================================================================
-	
+
 	virtual void OnAchieved() {}
 	uint32 GetUnlockTime() const { return m_uUnlockTime; }
-	void SetUnlockTime( uint32 unlockTime ) { m_uUnlockTime = unlockTime; }
-	
+	void SetUnlockTime(uint32 unlockTime) { m_uUnlockTime = unlockTime; }
+
 	//=============================================================================
 	// HPE_END
 	//=============================================================================
 
 	uint64 GetComponentBits() { return m_iComponentBits; }
-	void SetComponentBits( uint64 iComponentBits );
-	void OnComponentEvent( const char *pchComponentName );
-	void EnsureComponentBitSetAndEvaluate( int iBitNumber );
+	void SetComponentBits(uint64 iComponentBits);
+	void OnComponentEvent(const char *pchComponentName);
+	void EnsureComponentBitSetAndEvaluate(int iBitNumber);
 	void EvaluateIsAlreadyAchieved();
-	virtual void OnMapEvent( const char *pEventName );
+	virtual void OnMapEvent(const char *pEventName);
 	virtual void PrintAdditionalStatus() {}		// for debugging, achievements may report additional status in achievement_status concmd
 	virtual void OnSteamUserStatsStored() {}
-	virtual void UpdateAchievement( int nData ) {}
+	virtual void UpdateAchievement(int nData) {}
 	virtual bool ShouldShowOnHUD() { return m_bShowOnHUD; }
-	virtual void SetShowOnHUD( bool bShow );
+	virtual void SetShowOnHUD(bool bShow);
 
 	//=============================================================================
 	// HPE_BEGIN:
 	// [pfreese] Serialization methods
 	//=============================================================================
-	
-	virtual void GetSettings( KeyValues* pNodeOut );				// serialize
-	virtual void ApplySettings( /* const */ KeyValues* pNodeIn );	// unserialize
-	
+
+	virtual void GetSettings(KeyValues* pNodeOut);				// serialize
+	virtual void ApplySettings( /* const */ KeyValues* pNodeIn);	// unserialize
+
 	//=============================================================================
 	// HPE_END
 	//=============================================================================
 
-	virtual void Think( void ) { return; }
+	virtual void Think(void) { return; }
 
-	const char *GetMapNameFilter( void ){ return m_pMapNameFilter; }
-	CAchievementMgr *GetAchievementMgr( void ){ return m_pAchievementMgr; }
+	const char *GetMapNameFilter(void){ return m_pMapNameFilter; }
+	CAchievementMgr *GetAchievementMgr(void){ return m_pAchievementMgr; }
 
 protected:
-	virtual void FireGameEvent( IGameEvent *event );
-	virtual void FireGameEvent_Internal( IGameEvent *event ) {};
-	void SetVictimFilter( const char *pClassName );
-	void SetAttackerFilter( const char *pClassName );
-	void SetInflictorFilter( const char *pClassName );
-	void SetInflictorEntityNameFilter( const char *pEntityName );
-	void SetMapNameFilter( const char *pMapName );
-	void SetComponentPrefix( const char *pPrefix );
-	void IncrementCount( int iOptIncrement = 0 );
+	virtual void FireGameEvent(IGameEvent *event);
+	virtual void FireGameEvent_Internal(IGameEvent *event) {};
+	void SetVictimFilter(const char *pClassName);
+	void SetAttackerFilter(const char *pClassName);
+	void SetInflictorFilter(const char *pClassName);
+	void SetInflictorEntityNameFilter(const char *pEntityName);
+	void SetMapNameFilter(const char *pMapName);
+	void SetComponentPrefix(const char *pPrefix);
+	void IncrementCount(int iOptIncrement = 0);
 	void EvaluateNewAchievement();
 	void AwardAchievement();
 	void ShowProgressNotification();
 	void HandleProgressUpdate();
 	virtual void CalcProgressMsgIncrement();
-	void SetNextThink( float flThinkTime );
-	void ClearThink( void );
-	void SetStat( const char* pStatName ) { m_pszStat = pStatName; }
+	void SetNextThink(float flThinkTime);
+	void ClearThink(void);
+	void SetStat(const char* pStatName) { m_pszStat = pStatName; }
 
 	const char *m_pszName;								// name of this achievement
 	const char *m_pszStat;								// stat this achievement uses
@@ -144,7 +144,7 @@ protected:
 	const char *m_pMapNameFilter;						// if non-NULL, map name to filter with
 	const char *m_pGameDirFilter;						// if non-NULL, game dir name to filter with
 
-	const char **m_pszComponentNames;			
+	const char **m_pszComponentNames;
 	int			m_iNumComponents;
 	const char *m_pszComponentPrefix;
 	int			m_iComponentPrefixLen;
@@ -163,10 +163,10 @@ public:
 
 class CFailableAchievement : public CBaseAchievement
 {
-	DECLARE_CLASS( CFailableAchievement, CBaseAchievement );
+	DECLARE_CLASS(CFailableAchievement, CBaseAchievement);
 public:
 	CFailableAchievement();
-	void SetFailed();	
+	void SetFailed();
 
 	virtual bool ShouldSaveWithGame();
 	virtual void PreRestoreSavedGame();
@@ -175,18 +175,18 @@ public:
 	virtual bool IsActive() { return m_bActivated && !m_bFailed && BaseClass::IsActive(); }
 	bool IsFailed() { return m_bFailed; }
 
-	virtual void OnMapEvent( const char *pEventName );
+	virtual void OnMapEvent(const char *pEventName);
 	virtual void OnActivationEvent() { Activate(); }
 	virtual void OnEvaluationEvent();
-	virtual const char *GetActivationEventName() =0;
-	virtual const char *GetEvaluationEventName() =0;
+	virtual const char *GetActivationEventName() = 0;
+	virtual const char *GetEvaluationEventName() = 0;
 
 protected:
 	void Activate();
 
 	bool	m_bActivated;		// are we activated? (If there is a map event that turns us on, has that happened)
 	bool	m_bFailed;			// has this achievement failed
-	
+
 public:
 	DECLARE_DATADESC();
 };
@@ -195,9 +195,31 @@ class CMapAchievement : public CBaseAchievement
 {
 	virtual void Init()
 	{
-		SetFlags( ACH_LISTEN_MAP_EVENTS | ACH_SAVE_GLOBAL );
-		SetGoal( 1 );
+		SetFlags(ACH_LISTEN_MAP_EVENTS | ACH_SAVE_GLOBAL);
+		SetGoal(1);
 	}
+};
+
+class CFailableAchievementNoEvent : public CBaseAchievement
+{
+	DECLARE_CLASS(CFailableAchievementNoEvent, CBaseAchievement);
+public:
+	CFailableAchievementNoEvent();
+	void SetFailed();
+
+	virtual bool ShouldSaveWithGame();
+	virtual void PreRestoreSavedGame();
+	virtual bool IsAchieved() { return !m_bFailed && BaseClass::IsAchieved(); }
+	bool IsFailed() { return m_bFailed; }
+
+	virtual void CheckIncrementCount();
+
+protected:
+
+	bool	m_bFailed;			// has this achievement failed
+
+public:
+	DECLARE_DATADESC();
 };
 
 
@@ -206,7 +228,7 @@ class CAchievement_AchievedCount : public CBaseAchievement
 {
 public:
 	void Init();
-	virtual void OnSteamUserStatsStored( void );
+	virtual void OnSteamUserStatsStored(void);
 	virtual bool IsMetaAchievement() { return true; }
 
 	int GetLowRange() { return m_iLowRange; }
@@ -214,7 +236,7 @@ public:
 	int GetNumRequired() { return m_iNumRequired; }
 
 protected:
-	void SetAchievementsRequired( int iNumRequired, int iLowRange, int iHighRange );
+	void SetAchievementsRequired(int iNumRequired, int iLowRange, int iHighRange);
 
 private:
 	int m_iNumRequired;
@@ -225,12 +247,12 @@ private:
 //
 // Helper class for achievement creation
 //
- 
+
 typedef CBaseAchievement* (*achievementCreateFunc) (void);
 class CBaseAchievementHelper
 {
 public:
-	CBaseAchievementHelper( achievementCreateFunc createFunc )
+	CBaseAchievementHelper(achievementCreateFunc createFunc)
 	{
 		m_pfnCreate = createFunc;
 		m_pNext = s_pFirst;

@@ -18,6 +18,7 @@
 #include "bitmap/tgawriter.h"
 #include "filesystem.h"
 #include "tier0/vprof.h"
+#include "ShaderEditor\IVShaderEditor.h"
 
 #include "proxyentity.h"
 
@@ -2625,10 +2626,10 @@ void DoEnginePostProcessing( int x, int y, int w, int h, bool bFlashlightIsOn, b
 			}
 			pRenderContext->SetRenderTarget( NULL );
 			break;
+
 		}
+
 	}
-
-
 #if defined( _X360 )
 	pRenderContext->PopVertexShaderGPRAllocation();
 #endif
