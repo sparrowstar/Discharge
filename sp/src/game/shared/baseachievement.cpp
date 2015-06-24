@@ -393,7 +393,8 @@ void CBaseAchievement::AwardAchievement()
 	{
 	pPanel->AddNotification(GetName(), ACHIEVEMENT_LOCALIZED_NAME_FROM_STR(GetName()), g_pVGuiLocalize->Find("#GameUI_Achievement_Unlocked"));
 	}
-	*/
+*/
+
 
 	m_pAchievementMgr->AwardAchievement(m_iAchievementID);
 }

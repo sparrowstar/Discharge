@@ -119,7 +119,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"12"
 				"weight"	"700"
 				"antialias" "1"
@@ -382,7 +382,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"HALFLIFE2"
 				"tall"		"30"
 				"weight"	"0"
 				"antialias" "1"
@@ -394,7 +394,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"HALFLIFE2"
 				"tall"		"20"
 				"weight"	"0"
 				"blur"		"4"
@@ -408,7 +408,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"HALFLIFE2"
 				"tall"		"16"	[$WIN32]
 				"tall"		"22"	[$X360]
 				"weight"	"1000"
@@ -421,7 +421,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"HALFLIFE2"
 				"tall"		"11"
 				"weight"	"700"
 				"antialias" "1"
@@ -439,7 +439,7 @@ Scheme
 			}
 			"1"	[$WIN32]
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"14"
 				"weight"	"1000"
 				"antialias" "1"
@@ -450,7 +450,7 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"11"
 				"weight"	"0"
 				"antialias" "1"
@@ -469,7 +469,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"8"
 				"weight"	"700"
 				"antialias" "1"
@@ -477,7 +477,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"10"
 				"weight"	"700"
 				"antialias" "1"
@@ -485,7 +485,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"12"
 				"weight"	"900"
 				"antialias" "1"
@@ -493,7 +493,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"16"
 				"weight"	"900"
 				"antialias" "1"
@@ -501,7 +501,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"17"
 				"weight"	"1000"
 				"antialias" "1"
@@ -611,7 +611,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Trebuchet MS"
 				"tall"		"24"
 				"weight"	"900"
 				"range"		"0x0000 0x007F"	//	Basic Latin
@@ -702,7 +702,7 @@ Scheme
 			// note that this scales with the screen resolution
 			"1"
 			{
-				"name"		"Shoguns Clan"
+				"name"		"Verdana"
 				"tall"		"18"
 				"weight"	"900"
 				"antialias" "1"

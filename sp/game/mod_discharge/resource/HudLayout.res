@@ -1,17 +1,5 @@
 "Resource/HudLayout.res"
 {
-    HudConstruction
-   {
-      "fieldName" "HudConstruction"
-      "xpos" "r86"
-      "ypos" "6"
-      "wide" "80"
-      "tall" "34"
-      "visible" "0"
-      "enabled" "1"
-      
-      "PaintBackgroundType"   "2"
-   }
 	HudHealth [$WIN32]
 	{
 		"fieldName"		"HudHealth"
@@ -555,6 +543,23 @@
 		"PaintBackgroundType"	"2"
 	}
 
+	HudAchievementHintDisplay
+	{
+		"fieldName"	"HudAchievementHintDisplay"
+		"visible"	"0"
+		"enabled" 	"1"
+		"xpos"		"r120"
+		"ypos"		"r260"
+		"wide"		"100"
+		"tall"		"200"
+		"text_xpos"	"8"
+		"text_ypos"	"8"
+		"text_xgap"	"8"
+		"text_ygap"	"8"
+		"TextColor"	"255 170 0 220"
+
+		"PaintBackgroundType"	"2"
+	}
 
 	HudSquadStatus	[$WIN32]
 	{
@@ -719,7 +724,23 @@
 		"font"			"Default"
 		"maxchars"		"-1"
 	}
+	HudVersion
+	{
+		"fieldName"		"HudVersion"
+		"xpos"	"r87"
+		"ypos"	"10"
+		"wide"	"108"
+		"tall"  "20"
+		"visible" "1"
+		"enabled" "1"
 
+		"PaintBackgroundType"	"2"
+
+		"text_xpos" "8"
+		"text_ypos" "6"
+		"digit_xpos" "0"
+		"digit_ypos" "100"
+	}
 
 	AchievementNotificationPanel	
 	{
@@ -732,6 +753,4 @@
 		"wide"					"f60"	[$X360]
 		"tall"					"100"
 	}
-	
-
 }

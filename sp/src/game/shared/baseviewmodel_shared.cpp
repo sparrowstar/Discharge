@@ -443,7 +443,7 @@ void CBaseViewModel::CalcViewModelView(CBasePlayer *owner, const Vector& eyePosi
 		AddViewModelBob( owner, vmorigin, vmangles );
 
 		// Add lag
-		CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
+		//CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
 
 #if defined( CLIENT_DLL )
 		if ( !prediction->InPrediction() )

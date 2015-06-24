@@ -7,32 +7,37 @@
 
 #include "cbase.h"
 
-#define DISCHARGE_ACHIEVEMENT_TEST 151
-#define DISCHARGE_ACHIEVEMENT_KILL5COMBINE 152
-
-#if GAME_DLL
+#ifdef GAME_DLL
 
 #include "achievementmgr.h"
 #include "baseachievement.h"
 
-CAchievementMgr g_AchievementMgrHL2;	// global achievement mgr for HL2
-
 class CAchievementDischargeTestBasic : public CBaseAchievement
 {
-	void Init()
+protected:
+
+	virtual void Init()
 	{
-		SetFlags(ACH_LISTEN_PLAYER_KILL_ENEMY_EVENTS | ACH_SAVE_WITH_GAME);
-		SetVictimFilter("npc_houndeye");
+		SetFlags(ACH_LISTEN_PLAYER_KILL_ENEMY_EVENTS | ACH_SAVE_GLOBAL);
+		SetGameDirFilter("mod_discharge");
 		SetGoal(1);
+	}
+
+	virtual void Event_EntityKilled( CBaseEntity *pVictim, CBaseEntity *pAttacker, CBaseEntity *pInflictor, IGameEvent *event ) 
+	{
+		if (FClassnameIs(pVictim, "npc_houndeye"))
+		{
+			IncrementCount();
+		}
 	}
 };
 DECLARE_ACHIEVEMENT(CAchievementDischargeTestBasic, DISCHARGE_ACHIEVEMENT_TEST, "ACHIEVEMENT_TEST", 5);
 
 class CAchievementDischargeKill5Combine : public CBaseAchievement
 {
-	void Init()
+	virtual void Init()
 	{
-		SetFlags(ACH_LISTEN_PLAYER_KILL_ENEMY_EVENTS | ACH_SAVE_WITH_GAME);
+		SetFlags(ACH_LISTEN_PLAYER_KILL_ENEMY_EVENTS | ACH_SAVE_GLOBAL);
 		SetVictimFilter("npc_combine_s");
 		SetGoal(5);
 	}
