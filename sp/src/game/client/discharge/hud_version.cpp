@@ -44,7 +44,7 @@ DECLARE_HUDELEMENT( CHudVersion );
 //-----------------------------------------------------------------------------
 CHudVersion::CHudVersion( const char *pElementName ) : BaseClass(NULL, "HudVersion"), CHudElement( pElementName )
 {
-	SetHiddenBits( HIDEHUD_HEALTH | HIDEHUD_NEEDSUIT );
+
 }
 
 //-----------------------------------------------------------------------------
@@ -60,7 +60,7 @@ void CHudVersion::Init( void )
 //-----------------------------------------------------------------------------
 void CHudVersion::Reset( void )
 {				//Major Minor Release Build
-	SetLabelText(L"Pre-Alpha 0.0.1.96");
+	SetLabelText(L"Pre-Alpha 0.0.1.99");
 }
 
 //-----------------------------------------------------------------------------

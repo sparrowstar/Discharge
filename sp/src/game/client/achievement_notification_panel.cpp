@@ -94,7 +94,7 @@ void CAchievementNotificationPanel::PerformLayout(void)
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-/*
+
 void CAchievementNotificationPanel::FireGameEvent( IGameEvent * event )
 {
 const char *name = event->GetName();
@@ -146,7 +146,7 @@ AddNotification( pchName, g_pVGuiLocalize->Find( "#GameUI_Achievement_Progress" 
 }
 }
 }
-*/
+
 
 //-----------------------------------------------------------------------------
 // Purpose: Called on each tick
