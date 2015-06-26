@@ -21,8 +21,6 @@
 // "damage_table"	: Specify a custom physics impact damage table for this prop.
 // "health"		: Amount of damage this prop should take before breaking.
 //
-// "explosion_type"	: (molotov/grenade/normal).  If normal, explosive_damage/explosive_radius are used as usual
-//
 // "explosive_damage"	: Explosive damage done by this prop.
 // "explosive_radius"	: Radius of the explosion caused by this prop when it breaks.
 //		NOTE: If these two fields are specified for a prop, then the prop will automatically
@@ -35,10 +33,6 @@
 // "multiplayer_break"	: Set multiplayer breakable spawn behavior (default/server/client/both)
 //		NOTE: if multiplayer_break is "both", each piece is spawned by the default dll unless its
 //			  "break" section has a "multiplayer_break" key with a value of "client" or "server".
-//		NOTE: if specifying non-default behavior, the top-level breakable and the breakable pieces
-//			  need to "agree".
-// 		NOTE:	Make sure you add a prop data heading to all children that are labeled "debris"	"0" and "multiplayer_break" "server"
-//
 //
 "PropData.txt"
 {
@@ -104,14 +98,6 @@
 		"physicsmode"	"3"
 	}
 
-	// Cardboard Boxes (non-breakable physics)
-	//	i.e. fileboxes, boxes of paper
-	"Cardboard.physics"
-	{
-		"base"		"Cardboard.Base"
-		"physicsmode"	"3"
-	}
-	
 //=================================================================================
 //		CLOTH
 //=================================================================================
@@ -157,27 +143,7 @@
 		"physicsmode"	"3"
 	}
 
-	// Medium undamageable objects / luggage
-	//	i.e. suitcases, luggage
-	"Cloth.MediumNonBreak"
-	{
-		"base"		"Cloth.Base"
-		"physicsmode"	"1"
-	}
 
-//=================================================================================
-//		DOORS
-//=================================================================================
-	// Base damage modifiers for doors
-	// All doors have the same propdata - metal/wood/etc is handled in the door QC!
-	"Door.Standard"
-	{
-		"dmg.bullets"		"1.0"
-		"dmg.club"			"1.25"
-		"dmg.explosive" 	"1.5"
-		"health"			"1000"
-	}
-	
 //=================================================================================
 //		WOOD
 //=================================================================================
@@ -215,24 +181,6 @@
 		"breakable_count"	"2"
 	}
 
-	// Wooden blocks, less than 1 foot cubed.
-	//	i.e pieces of board, branches. Client side
-	"Wooden.Small_Client"
-	{
-		"base"			"Wooden.Base"
-		"health"		"20"
-		"physicsmode"		"3"
-		"breakable_count"	"2"
-	}
-
-	"Wooden.Chair"
-	{
-		"base"			"Wooden.Base"
-		"health"		"30"
-		"physicsmode"	"3"
-		"breakable_count"	"4"
-	}
-	
 	// Wooden blocks, less than 3 foot cubed.
 	//	i.e boards, small crates, pallettes, ladders, chairs.
 	"Wooden.Medium"
@@ -327,23 +275,6 @@
 		"breakable_count"	"0"
 		
 	}
-	
-	"Wood.LargeServerCollision"
-	{
-		"base"		"wood.Base"
-		"health"	"100"
-		"physicsmode"	"1"
-		"multiplayer_break" "server"
-	}
-
-	// Large wooden blocks, less than 5 foot cubed.
-	//	i.e Crates, benches.
-	"Wooden.LargeNoBreak"
-	{
-		"base"			"Wooden.Base"
-		"health"		"0"
-		"physicsmode"		"1"
-	}
 
 
 //=================================================================================
@@ -384,15 +315,6 @@
 		"physicsmode"	"1"
 	}
 
-	// Large stone blocks, less than 5 foot cubed
-	// i.e. big rubble chunks 	CLIENT SIDE
-	"Stone.LargeClient"
-	{
-		"base"		"Stone.Base"
-		"health"	"200"
-		"physicsmode"	"3"
-	}
-
 	// Huge stone blocks, less than 5 foot cubed
 	// i.e. enormous rubble chunks
 	"Stone.Huge"
@@ -409,28 +331,6 @@
 		"base"		"Stone.Base"
 		"health"	"600"
 		"physicsmode"	"1"
-	}
-
-	// Large stone blocks, less than 5 foot cubed
-	// i.e. big rubble chunks
-	"Stone.LargeServerCollision"
-	{
-		"base"		"Stone.Base"
-		"health"	"100"
-		"physicsmode"	"1"
-		"multiplayer_break" "server"
-	}
-
-
-	// Large stone blocks, less than 5 foot cubed
-	// i.e. big rubble chunks
-	"Stone.LargeBreak"
-	{
-		"base"		"Stone.Base"
-		"health"	"200"
-		"physicsmode"	"1"
-		"breakable_model" "ConcreteChunks"
-		"breakable_count" "2"
 	}
 
 //=================================================================================
@@ -538,23 +438,6 @@
 		"physicsmode"	"1"
 		"health"	"100"
 	}
-	
-	// Breakable Medium Metal objects
-	"Metal.BreakClient"
-	{
-		"base"		"Metal.Base"
-		"physicsmode"	"3"
-		"health"	"100"
-	}
-
-	// Breakable Large Metal objects
-	// i.e. gas pumps
-	"Metal.break3"
-	{
-		"base"		"Metal.Base"
-		"physicsmode"	"1"
-		"health"	"100"
-	}
 
 	// Medium metal objects (Client Side).
 	// i.e. wheelbarrows, metal boxes, bicycles, barrels, ladders, filing cabinets.
@@ -564,40 +447,6 @@
 		"physicsmode"	"3"
 	}
 
-	"Metal.GasCan"
-	{
-		"base" "Metal.Small"
-		"dmg.bullets"		"1.0"
-		"dmg.club"		"0"
-		"dmg.explosive" 	"1.0"
-		"health"		"20"
-		"explosion_type"	"molotov"
-	}
-
-	"Metal.PropaneTank"
-	{
-		"base" "Metal.GasCan"
-		"explosion_type"	"grenade"
-	}
-
-	"Metal.OxygenTank"
-	{
-		"base" "Metal.GasCan"
-		"explosion_type"	"grenade"
-		"explosive_damage"	"90"
-		"explosive_radius"	"200"
-		"explosion_delay"	"2"
-		"explosion_buildup"	"OxygenTank.Whine"
-	}
-
-	// Large metal objects with health.
-	// i.e. ibeams, dumpsters, car bodies, refridgerators
-	"Metal.LargeHealth"
-	{
-		"base"		"Metal.Base"
-		"physicsmode"	"1"
-		"health"		"200"
-	}
 
 
 //=================================================================================
@@ -653,6 +502,7 @@
 		"health"	"10"
 	}
 
+
 	// Breakable small plastic objects
 	"Plastic.Small2"
 	{
@@ -660,13 +510,7 @@
 		"physicsmode"	"1"
 	}
 
-	// Plastic blocks, less than 2 foot cubed
-	// i.e. plastic cups, plastic milk crates, phones
-	"Plastic.SmallClient"
-	{
-		"base"		"Plastic.Base"
-		"physicsmode"	"3"
-	}
+
 		
 //=================================================================================
 //		ITEMS

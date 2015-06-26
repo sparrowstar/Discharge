@@ -1,0 +1,5 @@
+"EDITOR_SHADER"
+{
+	"$SHADERNAME" "postproc_vignette"
+	"$basetexture"	"tools/toolsnodraw"
+}

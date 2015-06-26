@@ -153,3 +153,29 @@ void UpdateFullScreenDepthTexture( void )
 		pMaterial->DecrementReferenceCount();
 	}
 }
+
+static void Nightvision_f(void)
+{
+	IMaterial *pMaterial = materials->FindMaterial("postproc_nightvision", TEXTURE_GROUP_OTHER, true);
+
+	{
+		static bool bDisplayed = false;
+
+		if (bDisplayed)
+		{
+			view->SetScreenOverlayMaterial(NULL);
+;			CLocalPlayerFilter filter;
+			C_BaseEntity::EmitSound(filter, 0, "Discharge.NightVisOff");
+		}
+		else
+		{
+			view->SetScreenOverlayMaterial(pMaterial);
+			CLocalPlayerFilter filter;
+			C_BaseEntity::EmitSound(filter, 0, "Discharge.NightVisOn");
+		}
+
+		bDisplayed = !bDisplayed;
+	}
+}
+
+static ConCommand r_nightvision("r_nightvision", Nightvision_f);

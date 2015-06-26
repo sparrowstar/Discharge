@@ -45,7 +45,7 @@ extern ConVar sv_gameinstructor_disable;
 // Comandos de consola
 //=========================================================
 
-ConVar gameinstructor_verbose("gameinstructor_verbose", "1", FCVAR_CHEAT, "Set to 1 for standard debugging or 2 (in combo with gameinstructor_verbose_lesson) to show update actions.");
+ConVar gameinstructor_verbose("gameinstructor_verbose", "0", FCVAR_CHEAT, "Set to 1 for standard debugging or 2 (in combo with gameinstructor_verbose_lesson) to show update actions.");
 ConVar gameinstructor_verbose_lesson("gameinstructor_verbose_lesson", "", FCVAR_CHEAT, "Display more verbose information for lessons have this name.");
 ConVar gameinstructor_find_errors("gameinstructor_find_errors", "1", FCVAR_CHEAT, "Set to 1 and the game instructor will run EVERY scripted command to uncover errors.");
 

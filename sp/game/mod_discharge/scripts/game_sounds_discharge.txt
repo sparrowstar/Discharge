@@ -1,3 +1,26 @@
+// ****
+// MISC
+// ****
+// NIGHTVISION
+"Discharge.NightVisOn"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+	
+	"wave"			"items/nightvison.wav"
+}
+
+"Discharge.NightVisOff"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NORM"
+	
+	"wave"			"items/nightvisoff.wav"
+}
+
+
 // *******
 // WEAPONS
 // *******
