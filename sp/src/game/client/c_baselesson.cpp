@@ -1647,7 +1647,7 @@ LessonVariable LessonVariableFromString(const char *pchName, bool bWarnOnInvalid
 
 	if (bWarnOnInvalidNames)
 	{
-		AssertMsg(0, "Invalid scripted lesson variable!");
+		DevWarning(0, "Invalid scripted lesson variable!"); //This doesn't need to be an assert. Well, it kinda does... but for debug reasons it's just in the way.
 		DevWarning("Invalid scripted lesson variable: %s\n", pchName);
 	}
 

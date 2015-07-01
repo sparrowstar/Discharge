@@ -6202,7 +6202,10 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "weapon_snark" );
 		GiveNamedItem( "weapon_slam" );
 		GiveNamedItem( "weapon_mp5" );
-		GiveNamedItem( "weapon_knife" );
+		GiveNamedItem("weapon_knife");
+		GiveNamedItem("weapon_grenadelauncher");
+		GiveNamedItem("weapon_physcannon");
+		GiveNamedItem("weapon_portalgun");
 #ifdef HL2_EPISODIC
 		// GiveNamedItem( "weapon_magnade" );
 #endif

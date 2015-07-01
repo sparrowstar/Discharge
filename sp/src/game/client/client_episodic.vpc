@@ -38,6 +38,7 @@ $Project "Client (Discharge)"
 			$File	"$SRCDIR\game\shared\discharge\achievements_discharge.cpp"
 			$File	"discharge\c_ironsight_stub.cpp"
 			$File	"discharge\c_weapon__stubs_discharge.cpp"
+			$File	"discharge\c_weapon_portalgun.cpp"
 			$File	"cstrike\fx_cs_weaponfx.cpp"
 			$File	"discharge\hud_version.cpp"
 			$File	"$SRCDIR\game\shared\singleplayer_animstate.cpp"
@@ -46,6 +47,7 @@ $Project "Client (Discharge)"
 			$File	"tne_RenderTargets.h"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.cpp"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.h"
+			$File	"$SRCDIR\game\shared\discharge\weapon_pg.cpp"
 		}
 		
 		$Folder "Shader Editor" [$WIN32]

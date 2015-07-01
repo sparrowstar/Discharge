@@ -572,14 +572,9 @@ bool CNPC_MetroPolice::OverrideMoveFacing( const AILocalMoveGoal_t &move, float 
 //-----------------------------------------------------------------------------
 void CNPC_MetroPolice::Precache( void )
 {
-	if ( HasSpawnFlags( SF_NPC_START_EFFICIENT ) )
-	{
-		SetModelName( AllocPooledString("models/police_cheaple.mdl" ) );
-	}
-	else
-	{
-		SetModelName( AllocPooledString("models/police.mdl") );
-	}
+
+	PrecacheModel("models/police.mdl");
+	PrecacheModel("models/police_fem.mdl");
 
 	PrecacheModel( STRING( GetModelName() ) );
 
@@ -621,7 +616,12 @@ void CNPC_MetroPolice::Spawn( void )
 	AddSpawnFlags( SF_NPC_FADE_CORPSE );
 #endif // _XBOX
 
-	SetModel( STRING( GetModelName() ) );
+	static const char* modelnames[] = {
+		"models/police.mdl",
+		"models/police_fem.mdl",
+	};
+
+	SetModel(modelnames[random->RandomInt(0, ARRAYSIZE(modelnames) - 1)]);
 
 	SetHullType(HULL_HUMAN);
 	SetHullSizeNormal();
