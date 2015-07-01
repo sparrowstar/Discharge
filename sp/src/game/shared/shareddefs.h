@@ -102,7 +102,7 @@ public:
 
 #define MAX_CLIMB_SPEED		200
 
-#if defined(TF_DLL) || defined(TF_CLIENT_DLL)
+#if defined(TF_DLL) || defined(TF_CLIENT_DLL) || defined(DISCHARGE_DLL) || defined(DISCHARGE_CLIENT) //Is this a good idea? 
 	#define TIME_TO_DUCK		0.2
 	#define TIME_TO_DUCK_MS		200.0f
 #else
@@ -151,19 +151,7 @@ typedef enum
 	VOTE_FAILED_MAP_NOT_VALID,
 	VOTE_FAILED_CANNOT_KICK_FOR_TIME,
 	VOTE_FAILED_CANNOT_KICK_DURING_ROUND,
-
-	// TF-specific?
-	VOTE_FAILED_MODIFICATION_ALREADY_ACTIVE,
 } vote_create_failed_t;
-
-enum
-{
-#ifdef STAGING_ONLY
-	SERVER_MODIFICATION_ITEM_DURATION_IN_MINUTES = 2
-#else
-	SERVER_MODIFICATION_ITEM_DURATION_IN_MINUTES = 120
-#endif
-};
 
 #define MAX_VOTE_DETAILS_LENGTH 64
 #define INVALID_ISSUE			-1
@@ -664,6 +652,8 @@ enum FireBulletsFlags_t
 	FIRE_BULLETS_DONT_HIT_UNDERWATER = 0x2,		// If the shot hits its target underwater, don't damage it
 	FIRE_BULLETS_ALLOW_WATER_SURFACE_IMPACTS = 0x4,	// If the shot hits water surface, still call DoImpactEffect
 	FIRE_BULLETS_TEMPORARY_DANGER_SOUND = 0x8,		// Danger sounds added from this impact can be stomped immediately if another is queued
+	FIRE_BULLETS_USEPENITRATION_DEPTH = 0x16,		// Tells the bullet penetration system that we are using bullet thickness for penetration calculation
+	FIRE_BULLETS_USEPENITRATION_COUNT = 0x32,		// Tells the bullet penetratiob system that we are using a counter to factor bullet penetration
 };
 
 
@@ -688,9 +678,11 @@ struct FireBulletsInfo_t
 		m_vecDirShooting.Init( VEC_T_NAN, VEC_T_NAN, VEC_T_NAN );
 #endif
 		m_bPrimaryAttack = true;
+		m_iPenetrationCount = 1;
+		m_flPenetrationForce = 96.0f;
 	}
 
-	FireBulletsInfo_t( int nShots, const Vector &vecSrc, const Vector &vecDir, const Vector &vecSpread, float flDistance, int nAmmoType, bool bPrimaryAttack = true )
+	FireBulletsInfo_t( int nShots, const Vector &vecSrc, const Vector &vecDir, const Vector &vecSpread, float flDistance, int nAmmoType, bool bPrimaryAttack = true,  int iPenetrationCount = 0,  float flPenetrationDeph = 0.0f)
 	{
 		m_iShots = nShots;
 		m_vecSrc = vecSrc;
@@ -706,6 +698,8 @@ struct FireBulletsInfo_t
 		m_pAdditionalIgnoreEnt = NULL;
 		m_flDamageForceScale = 1.0f;
 		m_bPrimaryAttack = bPrimaryAttack;
+		m_iPenetrationCount = iPenetrationCount;
+		m_flPenetrationForce = flPenetrationDeph;
 	}
 
 	int m_iShots;
@@ -722,6 +716,8 @@ struct FireBulletsInfo_t
 	CBaseEntity *m_pAttacker;
 	CBaseEntity *m_pAdditionalIgnoreEnt;
 	bool m_bPrimaryAttack;
+	int m_iPenetrationCount;
+	float m_flPenetrationForce;
 };
 
 //-----------------------------------------------------------------------------
@@ -931,17 +927,14 @@ enum
 #define TF_VISION_FILTER_NONE			0
 #define TF_VISION_FILTER_PYRO			(1<<0)		// 1
 #define TF_VISION_FILTER_HALLOWEEN		(1<<1)		// 2
-#define TF_VISION_FILTER_ROME			(1<<2)		// 4
 
-// THIS ENUM SHOULD MATCH THE ORDER OF THE FLAGS ABOVE
 enum
 {
-	VISION_MODE_NONE = 0,
-	VISION_MODE_PYRO,
-	VISION_MODE_HALLOWEEN,
-	VISION_MODE_ROME,
+	MODEL_INDEX_OVERRIDE_DEFAULT = 0,
+	MODEL_INDEX_OVERRIDE_PYRO,
+	MODEL_INDEX_OVERRIDE_HALLOWEEN,
 
-	MAX_VISION_MODES
+	MAX_MODEL_INDEX_OVERRIDES
 };
 #endif // TF_DLL || TF_CLIENT_DLL
 

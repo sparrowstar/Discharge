@@ -10,7 +10,13 @@
 #include "filesystem.h"
 #include "utldict.h"
 #include "ammodef.h"
-
+#if defined(CLIENT_DLL)
+	#include "hl2/c_basehlcombatweapon.h"
+	#include "SMMOD/c_weapon_custom.h"
+	#include "c_baseentity.h"
+#else
+	#include "SMMOD/weapon_custom.h"
+#endif
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -160,11 +166,94 @@ void ResetFileWeaponInfoDatabase( void )
 }
 #endif
 
+#ifdef CLIENT_DLL
+
+
+#define CWeaponCustom C_WeaponCustom 
+static C_BaseEntity *CCHL2MPScriptedWeaponFactory( void )
+{
+	return static_cast< C_BaseEntity * >( new CWeaponCustom );
+};
+#endif
+
+#ifndef CLIENT_DLL
+static CUtlDict< CEntityFactory<CWeaponCustom>*, unsigned short > m_WeaponFactoryDatabase;
+#endif
+
+void RegisterScriptedWeapon( const char *className )
+{
+#ifdef CLIENT_DLL
+	if ( GetClassMap().FindFactory( className ) )
+	{
+		return;
+	}
+		GetClassMap().Add( className, "CWeaponCustom", sizeof( CWeaponCustom ),
+		&CCHL2MPScriptedWeaponFactory, true );
+	//GetClassMap().Add( className, "CWeaponCustom", sizeof( C_HLSelectFireMachineGun));
+#else
+	if ( EntityFactoryDictionary()->FindFactory( className ) )
+	{
+		return;
+	}
+
+	unsigned short lookup = m_WeaponFactoryDatabase.Find( className );
+	if ( lookup != m_WeaponFactoryDatabase.InvalidIndex() )
+	{
+		return;
+	}
+
+	// Andrew; This fixes months worth of pain and anguish.
+	CEntityFactory<CWeaponCustom> *pFactory = new CEntityFactory<CWeaponCustom>( className );
+
+	lookup = m_WeaponFactoryDatabase.Insert( className, pFactory );
+	Assert( lookup != m_WeaponFactoryDatabase.InvalidIndex() );
+#endif
+	// BUGBUG: When attempting to precache weapons registered during runtime,
+	// they don't appear as valid registered entities.
+	// static CPrecacheRegister precache_weapon_(&CPrecacheRegister::PrecacheFn_Other, className);
+}
+void InitCustomWeapon( )
+{
+		FileFindHandle_t findHandle; // note: FileFINDHandle
+
+	const char *pFilename = filesystem->FindFirstEx( "scripts/weapon_custom/*.txt", "MOD", &findHandle );
+	while (pFilename)
+	{
+		Msg("%s added to custom weapons!\n",pFilename);
+
+		#if !defined(CLIENT_DLL)
+		//	CEntityFactory<CWeaponCustom> weapon_custom( pFilename );
+		//	UTIL_PrecacheOther(pFilename);
+		#endif
+		char fileBase[512] = "";
+		Q_FileBase( pFilename, fileBase, sizeof(fileBase) );
+		RegisterScriptedWeapon(fileBase);
+		//CEntityFactory<CWeaponCustom>(CEntityFactory<CWeaponCustom> &);
+		//LINK_ENTITY_TO_CLASS2(pFilename,CWeaponCustom);
+
+			WEAPON_FILE_INFO_HANDLE tmp;
+		#ifdef CLIENT_DLL
+			if ( ReadWeaponDataFromFileForSlot( filesystem, fileBase, &tmp ) )
+			{
+				gWR.LoadWeaponSprites( tmp, true );
+			}
+		#else
+			ReadWeaponDataFromFileForSlot( filesystem, fileBase, &tmp );
+		#endif
+
+
+		pFilename = filesystem->FindNext( findHandle );
+	}
+ 
+	filesystem->FindClose( findHandle );
+
+}
 void PrecacheFileWeaponInfoDatabase( IFileSystem *filesystem, const unsigned char *pICEKey )
 {
+
 	if ( m_WeaponInfoDatabase.Count() )
 		return;
-
+		InitCustomWeapon( );
 	KeyValues *manifest = new KeyValues( "weaponscripts" );
 	if ( manifest->LoadFromFile( filesystem, "scripts/weapon_manifest.txt", "GAME" ) )
 	{
@@ -292,8 +381,7 @@ bool ReadWeaponDataFromFileForSlot( IFileSystem* filesystem, const char *szWeapo
 		false
 #endif
 		);
-
-	if ( !pKV )
+	if ( !pKV ) //If it failed even after the custom weapon check, then don't read it
 		return false;
 
 	pFileInfo->Parse( pKV, szWeaponName );
@@ -357,7 +445,7 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 {
 	// Okay, we tried at least once to look this up...
 	bParsedScript = true;
-	m_flViewModelFOV = pKeyValuesData->GetFloat("ViewModelFOV", 54.0f);
+
 	// Classname
 	Q_strncpy( szClassName, szWeaponName, MAX_WEAPON_STRING );
 	// Printable name
@@ -369,27 +457,6 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 	iSlot = pKeyValuesData->GetInt( "bucket", 0 );
 	iPosition = pKeyValuesData->GetInt( "bucket_position", 0 );
 	
-	KeyValues *pSights = pKeyValuesData->FindKey("IronSight");
-	if (pSights)
-	{
-		vecIronsightPosOffset.x = pSights->GetFloat("forward", 0.0f);
-		vecIronsightPosOffset.y = pSights->GetFloat("right", 0.0f);
-		vecIronsightPosOffset.z = pSights->GetFloat("up", 0.0f);
-
-		angIronsightAngOffset[PITCH] = pSights->GetFloat("pitch", 0.0f);
-		angIronsightAngOffset[YAW] = pSights->GetFloat("yaw", 0.0f);
-		angIronsightAngOffset[ROLL] = pSights->GetFloat("roll", 0.0f);
-
-		flIronsightFOVOffset = pSights->GetFloat("fov", 0.0f);
-	}
-	else
-	{
-		//note: you can set a bool here if you'd like to disable ironsights for weapons with no IronSight-key
-		vecIronsightPosOffset = vec3_origin;
-		angIronsightAngOffset.Init();
-		flIronsightFOVOffset = 0.0f;
-	}
-
 	// Use the console (X360) buckets if hud_fastswitch is set to 2.
 #ifdef CLIENT_DLL
 	if ( hud_fastswitch.GetInt() == 2 )
@@ -432,8 +499,9 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 	m_bBuiltRightHanded = ( pKeyValuesData->GetInt( "BuiltRightHanded", 1 ) != 0 ) ? true : false;
 	m_bAllowFlipping = ( pKeyValuesData->GetInt( "AllowFlipping", 1 ) != 0 ) ? true : false;
 	m_bMeleeWeapon = ( pKeyValuesData->GetInt( "MeleeWeapon", 0 ) != 0 ) ? true : false;
+	m_iPlayerDamage = pKeyValuesData->GetInt( "damage", 0 );
 
-#if defined(_DEBUG) && defined(HL2_CLIENT_DLL)
+#if defined(HL2_CLIENT_DLL)
 	// make sure two weapons aren't in the same slot & position
 	if ( iSlot >= MAX_WEAPON_SLOTS ||
 		iPosition >= MAX_WEAPON_POSITIONS )
@@ -466,7 +534,8 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 	else
 		Q_strncpy( szAmmo2, pAmmo, sizeof( szAmmo2 )  );
 	iAmmo2Type = GetAmmoDef()->Index( szAmmo2 );
-
+	m_flViewModelFOV = pKeyValuesData->GetFloat("ViewModelFOV", 54.0f);
+	
 	// Now read the weapon sounds
 	memset( aShootSounds, 0, sizeof( aShootSounds ) );
 	KeyValues *pSoundData = pKeyValuesData->FindKey( "SoundData" );
@@ -481,5 +550,118 @@ void FileWeaponInfo_t::Parse( KeyValues *pKeyValuesData, const char *szWeaponNam
 			}
 		}
 	}
+	KeyValues *pSights = pKeyValuesData->FindKey( "IronSight" );
+	if (pSights)
+	{
+		vecIronsightPosOffset.x		= pSights->GetFloat( "forward", 0.0f );
+		vecIronsightPosOffset.y		= pSights->GetFloat( "right", 0.0f );
+		vecIronsightPosOffset.z		= pSights->GetFloat( "up", 0.0f );
+ 
+		angIronsightAngOffset[PITCH]	= pSights->GetFloat( "pitch", 0.0f );
+		angIronsightAngOffset[YAW]		= pSights->GetFloat( "yaw", 0.0f );
+		angIronsightAngOffset[ROLL]		= pSights->GetFloat( "roll", 0.0f );
+ 
+		flIronsightFOVOffset		= pSights->GetFloat( "fov", 0.0f );
+	}
+	else
+	{
+		//note: you can set a bool here if you'd like to disable ironsights for weapons with no IronSight-key
+		vecIronsightPosOffset = vec3_origin;
+		angIronsightAngOffset.Init();
+		flIronsightFOVOffset = 0.0f;
+	}
+	KeyValues *pWeaponSpec = pKeyValuesData->FindKey( "WeaponSpec" );
+		if ( pWeaponSpec )
+		{
+			KeyValues *pPrimaryFire = pWeaponSpec->FindKey( "PrimaryFire" );
+			if ( pPrimaryFire )
+			{
+				m_sPrimaryFireRate = pPrimaryFire->GetFloat("FireRate", 1.0f);
+				KeyValues *pBullet1 = pPrimaryFire->FindKey( "Bullet" );
+				if ( pBullet1 )
+				{
+					m_sPrimaryBulletEnabled = true;
+					m_sPrimaryDamage = pBullet1->GetFloat( "Damage", 0 );
+					m_sPrimaryShotCount = pBullet1->GetInt( "ShotCount", 0 );
+					m_iPrimaryPenetrateCount = pBullet1->GetInt( "PenetrationMax", 0 );
+					m_flPrimaryPenetrateDepth = pBullet1->GetFloat( "PenetrationDepth", 0 );
+
+					KeyValues *pSpread1 = pBullet1->FindKey( "Spread" );
+					if(pSpread1)
+					{
+						m_vPrimarySpread.x = sin( (pSpread1->GetFloat("x", 0.0f) / 2.0f));
+						m_vPrimarySpread.y = sin( (pSpread1->GetFloat("y", 0.0f) / 2.0f));
+						m_vPrimarySpread.z = sin( (pSpread1->GetFloat("z", 0.0f) / 2.0f));
+					}
+					else
+					{
+						m_vPrimarySpread.x = 0.0f;
+						m_vPrimarySpread.y = 0.0f;
+						m_vPrimarySpread.z = 0.0f;
+					}
+				}
+				else
+				{
+					m_sPrimaryDamage = 0.0f;
+					m_sSecondaryShotCount = 0;
+					m_sPrimaryBulletEnabled = false;
+				}
+
+				KeyValues *pMissle1 = pPrimaryFire->FindKey( "Missle" );
+				if ( pMissle1 ) //No params yet, but setting this will enable missles
+				{
+					m_sPrimaryMissleEnabled = true;
+				}
+				else
+				{
+					m_sPrimaryMissleEnabled = false;
+				}
+			}
+			KeyValues *pSecondaryFire = pWeaponSpec->FindKey( "SecondaryFire" );
+			if ( pSecondaryFire )
+			{
+				m_sSecondaryFireRate = pSecondaryFire->GetFloat("FireRate", 1.0f);
+				m_sUsePrimaryAmmo =  ( pSecondaryFire->GetInt("UsePrimaryAmmo", 0) != 0 ) ? true : false;
+				KeyValues *pBullet2 = pSecondaryFire->FindKey( "Bullet" );
+				if ( pBullet2 )
+				{
+					m_sSecondaryBulletEnabled = true;
+					m_sSecondaryDamage = pBullet2->GetFloat( "Damage", 0 );
+					m_sSecondaryShotCount = pBullet2->GetInt( "ShotCount", 0 );
+					m_iSecondaryPenetrateCount = pBullet2->GetInt( "PenetrationMax", 0 );
+					m_flSecondaryPenetrateDepth = pBullet2->GetFloat( "PenetrationDepth", 0 );
+
+
+					KeyValues *pSpread2 = pBullet2->FindKey( "Spread" );
+					if(pSpread2)
+					{
+						m_vSecondarySpread.x = sin( pSpread2->GetFloat("x", 0.0f) / 2.0f);
+						m_vSecondarySpread.y = sin( pSpread2->GetFloat("y", 0.0f) / 2.0f);
+						m_vSecondarySpread.z = sin( pSpread2->GetFloat("z", 0.0f) / 2.0f);
+					}
+					else
+					{
+						m_vSecondarySpread.x = 0.0f;
+						m_vSecondarySpread.y = 0.0f;
+						m_vSecondarySpread.z = 0.0f;
+					}
+				}
+				else
+				{
+					m_sSecondaryDamage = 0.0f;
+					m_sSecondaryShotCount = 0;
+					m_sSecondaryBulletEnabled = false;
+				}
+				KeyValues *pMissle2 = pSecondaryFire->FindKey( "Missle" );
+				if ( pMissle2 ) //No params yet, but setting this will enable missles
+				{
+					m_sSecondaryMissleEnabled = true;
+				}
+				else
+				{
+					m_sSecondaryMissleEnabled = false;
+				}
+			}
+		}
 }
 

@@ -98,11 +98,7 @@ public:
 	int						iFlags;									// miscellaneous weapon flags
 	char					szAmmo1[MAX_WEAPON_AMMO_NAME];			// "primary" ammo type
 	char					szAmmo2[MAX_WEAPON_AMMO_NAME];			// "secondary" ammo type
-	float					m_flViewModelFOV;						// Dynamic Viewmodel FOV
-	Vector					vecIronsightPosOffset;
-	QAngle					angIronsightAngOffset;
-	float					flIronsightFOVOffset;
-
+	
 	// Sound blocks
 	char					aShootSounds[NUM_SHOOT_SOUND_TYPES][MAX_WEAPON_STRING];	
 
@@ -116,6 +112,36 @@ public:
 	bool					m_bAllowFlipping;	// False to disallow flipping the model, regardless of whether
 												// it is built left or right handed.
 
+	//Discharge
+	float					m_flViewModelFOV;						// Dynamic Viewmodel FOV
+	int m_iPlayerDamage;
+												
+	//SMMOD Custom Weapons!
+	bool	m_sPrimaryBulletEnabled;
+	bool	m_sPrimaryMissleEnabled;
+	char	m_sPrimaryAmmoType;
+	float	m_sPrimaryDamage;
+	int m_sPrimaryShotCount;
+	float m_sPrimaryFireRate;
+	Vector m_vPrimarySpread;
+	int m_iPrimaryPenetrateCount;
+	float m_flPrimaryPenetrateDepth;
+
+	bool	m_sSecondaryBulletEnabled;
+	bool	m_sSecondaryMissleEnabled;
+	bool	 m_sUsePrimaryAmmo;
+	char	m_sSecondaryAmmoType;
+	float	m_sSecondaryDamage;
+	int m_sSecondaryShotCount;
+	float m_sSecondaryFireRate;
+	Vector m_vSecondarySpread;
+	int m_iSecondaryPenetrateCount;
+	float m_flSecondaryPenetrateDepth;
+
+	//Ironsight
+	Vector					vecIronsightPosOffset;
+	QAngle					angIronsightAngOffset;
+	float					flIronsightFOVOffset;
 // CLIENT DLL
 	// Sprite data, read from the data file
 	int						iSpriteCount;

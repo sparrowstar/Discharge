@@ -48,6 +48,9 @@ $Project "Client (Discharge)"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.cpp"
 			$File	"$SRCDIR\game\shared\hl2mp\weapon_slam.h"
 			$File	"$SRCDIR\game\shared\discharge\weapon_pg.cpp"
+			$File	"SMMOD\c_weapon_custom.cpp"
+			$File	"SMMOD\c_weapon_custom.h"
+			$File	"$SRCDIR\game\shared\SMMOD\shdef_customweapons.cpp"
 		}
 		
 		$Folder "Shader Editor" [$WIN32]

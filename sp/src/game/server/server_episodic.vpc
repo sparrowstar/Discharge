@@ -82,6 +82,11 @@ $Project "Server (Discharge)"
 			$File	"discharge\npc_secobmodportal1.h"
 			$File	"discharge\npc_secobmodportal2.cpp"
 			$File	"discharge\npc_secobmodportal2.h"
+			$File	"SMMOD\mapadd.cpp"
+			$File	"SMMOD\mapadd.h"
+			$File	"SMMOD\weapon_custom.cpp"
+			$File	"SMMOD\weapon_custom.h"
+			$File	"$SRCDIR\game\shared\SMMOD\shdef_customweapons.cpp"
 		}
 		
 		$Folder	"HL1 DLL"

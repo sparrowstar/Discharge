@@ -902,15 +902,7 @@ void UTIL_ScreenShakeObject( CBaseEntity *pEnt, const Vector &center, float ampl
 				continue;
 			}
 
-			if ( radius > 0 )
-			{
-				localAmplitude = ComputeShakeAmplitude( center, pPlayer->WorldSpaceCenter(), amplitude, radius );
-			}
-			else
-			{
-				// If using a 0 radius, apply to everyone with no falloff
-				localAmplitude = amplitude;
-			}
+			localAmplitude = ComputeShakeAmplitude( center, pPlayer->WorldSpaceCenter(), amplitude, radius );
 
 			// This happens if the player is outside the radius, 
 			// in which case we should ignore all commands
@@ -1900,8 +1892,7 @@ int DispatchSpawn( CBaseEntity *pEntity )
 			// Don't allow the PVS check to skip animation setup during spawning
 			pAnimating->SetBoneCacheFlags( BCF_IS_IN_SPAWN );
 			pEntity->Spawn();
-			if ( pEntSafe != NULL )
-				pAnimating->ClearBoneCacheFlags( BCF_IS_IN_SPAWN );
+			pAnimating->ClearBoneCacheFlags( BCF_IS_IN_SPAWN );
 		}
 		mdlcache->SetAsyncLoad( MDLCACHE_ANIMBLOCK, bAsyncAnims );
 
