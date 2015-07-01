@@ -13,6 +13,7 @@
 #include "viewrender.h"
 #include "sourcevr/isourcevirtualreality.h"
 #include "client_virtualreality.h"
+#include "flashlighteffect.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -164,7 +165,7 @@ static void Nightvision_f(void)
 		if (bDisplayed)
 		{
 			view->SetScreenOverlayMaterial(NULL);
-;			CLocalPlayerFilter filter;
+			CLocalPlayerFilter filter;
 			C_BaseEntity::EmitSound(filter, 0, "Discharge.NightVisOff");
 		}
 		else
