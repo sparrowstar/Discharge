@@ -271,6 +271,10 @@ static const char *g_ppszRandomHeads[] =
 	"female_07.mdl",
 	"male_08.mdl",
 	"male_09.mdl",
+	"male_10.mdl",
+	"male_11.mdl",
+	"male_12.mdl",
+	"male_13.mdl",
 };
 
 static const char *g_ppszModelLocs[] =
@@ -604,6 +608,7 @@ void CNPC_Citizen::SelectModel()
 			{ "prison",			CT_DOWNTRODDEN	},
 			{ "c17",			CT_REBEL		},
 			{ "citadel",		CT_DOWNTRODDEN	},
+			{ "testlevel",		CT_REBEL		},
 		};
 
 		char szMapName[256];
