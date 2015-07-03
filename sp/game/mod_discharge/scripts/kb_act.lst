@@ -17,7 +17,7 @@
 "toggle_ironsight"		"#Discharge_KeyBind_TIronsight" 
 "+use"					"#Valve_Use_Items"
 "phys_swap"				"#Valve_Gravity_Gun"
-"impulse 100"			"#Valve_Flashlight"
+"r_nightvision"			"#Gearbox_Night_Vision_Goggles"
 "+zoom"					"#Valve_Suit_Zoom"
 "impulse 50"			"#Valve_Commander_Mode"
 "slot1"					"#Valve_Weapon_Category_1"
