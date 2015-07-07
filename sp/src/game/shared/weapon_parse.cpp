@@ -82,11 +82,11 @@ extern itemFlags_t g_ItemFlags[7];
 
 static CUtlDict< FileWeaponInfo_t*, unsigned short > m_WeaponInfoDatabase;
 
-#ifdef _DEBUG
+//#ifdef _DEBUG
 // used to track whether or not two weapons have been mistakenly assigned the wrong slot
 bool g_bUsedWeaponSlots[MAX_WEAPON_SLOTS][MAX_WEAPON_POSITIONS] = { 0 };
 
-#endif
+//#endif
 
 //-----------------------------------------------------------------------------
 // Purpose: 
@@ -160,9 +160,9 @@ void ResetFileWeaponInfoDatabase( void )
 	}
 	m_WeaponInfoDatabase.RemoveAll();
 
-#ifdef _DEBUG
+//#ifdef _DEBUG
 	memset(g_bUsedWeaponSlots, 0, sizeof(g_bUsedWeaponSlots));
-#endif
+//#endif
 }
 #endif
 

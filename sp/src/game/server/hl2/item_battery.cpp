@@ -35,8 +35,27 @@ public:
 	}
 	bool MyTouch( CBasePlayer *pPlayer )
 	{
+		int pct;
+		char szcharge[64];
+
 		CHL2_Player *pHL2Player = dynamic_cast<CHL2_Player *>( pPlayer );
+
+
+		// Suit reports new power level
+		// For some reason this wasn't working in release build -- round it.
+		pct = (int)((float)(pPlayer->ArmorValue() * 100.0) * (1.0 / MAX_NORMAL_BATTERY) + 0.5);
+		pct = (pct / 5);
+		if (pct > 0)
+			pct--;
+
+		Q_snprintf(szcharge, sizeof(szcharge), "!HEV_%1dP", pct);
+
+		//UTIL_EmitSoundSuit(edict(), szcharge);
+		pPlayer->SetSuitUpdate(szcharge, FALSE, SUIT_NEXT_IN_30SEC);
+
 		return ( pHL2Player && pHL2Player->ApplyBattery() );
+
+
 	}
 };
 
