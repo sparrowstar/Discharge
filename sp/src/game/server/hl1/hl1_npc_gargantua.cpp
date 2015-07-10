@@ -36,7 +36,7 @@
 #include	"particle_smokegrenade.h"
 #include	"gib.h"
 #include	"func_break.h"
-#include "hl1_shareddefs.h"
+#include	 "hl1/hl1_shareddefs.h"
 
 
 extern short	g_sModelIndexFireball;
@@ -1014,7 +1014,7 @@ void CNPC_Gargantua::Event_Killed( const CTakeDamageInfo &info )
 	EyeOff();
 	UTIL_Remove( m_pEyeGlow );
 	m_pEyeGlow = NULL;
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 	m_takedamage = DAMAGE_NO;
 }
 

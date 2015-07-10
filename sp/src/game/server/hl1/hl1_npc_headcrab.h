@@ -5,16 +5,16 @@
 // $NoKeywords: $
 //
 //=============================================================================//
-#ifndef NPC_HEADCRAB_H
-#define NPC_HEADCRAB_H
+#ifndef NPC_HeadcrabHL_H
+#define NPC_HeadcrabHL_H
 #pragma once
 
 
 #include "hl1_ai_basenpc.h"
 
-class CNPC_Headcrab : public CHL1BaseNPC
+class CNPC_HeadcrabHL : public CHL1BaseNPC
 {
-	DECLARE_CLASS( CNPC_Headcrab, CHL1BaseNPC );
+	DECLARE_CLASS( CNPC_HeadcrabHL, CHL1BaseNPC );
 public:
 
 	void Spawn( void );
@@ -54,4 +54,4 @@ protected:
 	Vector	m_vecJumpVel;
 };
 
-#endif //NPC_HEADCRAB_H
+#endif //NPC_HeadcrabHL_H

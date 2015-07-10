@@ -347,7 +347,7 @@ void CNPC_Controller::Event_Killed( const CTakeDamageInfo &info )
 		}
 	}
 
-	BaseClass::Event_Killed( info );
+	BaseClass::Event_Killed( info, NULL );
 }
 
 void CNPC_Controller::PainSound( const CTakeDamageInfo &info )

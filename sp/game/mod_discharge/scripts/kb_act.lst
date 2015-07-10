@@ -15,6 +15,7 @@
 "+attack2"				"#Valve_Secondary_Attack"
 "+reload"				"#Valve_Reload_Weapon"
 "toggle_ironsight"		"#Discharge_KeyBind_TIronsight" 
+"impulse 200"			"#Discharge_KeyBind_Holster"
 "+use"					"#Valve_Use_Items"
 "phys_swap"				"#Valve_Gravity_Gun"
 "r_nightvision"			"#Gearbox_Night_Vision_Goggles"

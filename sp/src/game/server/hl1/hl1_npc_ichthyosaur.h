@@ -5,8 +5,8 @@
 // $NoKeywords: $
 //
 //=============================================================================//
-#ifndef NPC_ICHTHYOSAUR_H
-#define NPC_ICHTHYOSAUR_H
+#ifndef NPC_IchthyosaurHL_H
+#define NPC_IchthyosaurHL_H
 
 
 #include "hl1_ai_basenpc.h"
@@ -23,12 +23,12 @@
 
 
 //
-// CNPC_Ichthyosaur
+// CNPC_IchthyosaurHL
 //
 
-class CNPC_Ichthyosaur : public CHL1BaseNPC
+class CNPC_IchthyosaurHL : public CHL1BaseNPC
 {
-	DECLARE_CLASS( CNPC_Ichthyosaur, CHL1BaseNPC );
+	DECLARE_CLASS( CNPC_IchthyosaurHL, CHL1BaseNPC );
 public:
 
 	void	Precache( void );
@@ -94,4 +94,4 @@ private:
 };
 
 
-#endif //NPC_ICHTHYOSAUR_H
+#endif //NPC_IchthyosaurHL_H

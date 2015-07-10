@@ -378,7 +378,7 @@ void CHL1NPCTalker::TraceAttack( const CTakeDamageInfo &info, const Vector &vecD
 		UTIL_BloodImpact( ptr->endpos, vecDir, BloodColor(), 4 );
 	}
 
-	BaseClass::TraceAttack( info, vecDir, ptr );
+	BaseClass::TraceAttack( info, vecDir, ptr, NULL );
 }
 
 void CHL1NPCTalker::FollowerUse( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value )
