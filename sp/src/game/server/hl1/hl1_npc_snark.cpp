@@ -25,7 +25,7 @@ ConVar sk_snark_dmg_bite	( "sk_snark_dmg_bite",				"0" );
 ConVar sk_snark_dmg_pop		( "sk_snark_dmg_pop",				"0" );
 
 
-LINK_ENTITY_TO_CLASS( npc_snark, CSnark);
+LINK_ENTITY_TO_CLASS( monster_snark, CSnark);
 
 
 //---------------------------------------------------------

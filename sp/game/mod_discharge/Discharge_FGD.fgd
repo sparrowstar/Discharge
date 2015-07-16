@@ -84,7 +84,7 @@
 //----------------------
 
 
-@NPCClass base(BaseNPC) studio("models/houndeye.mdl") = npc_houndeye : "Houndeye" 
+@NPCClass base(BaseNPC) studio("models/houndeye.mdl") = monster_houndeye : "Houndeye" 
 [
 	netname(string) : "Squad Name"
 	spawnflags(Flags) =
@@ -93,7 +93,28 @@
 	]
 ]
 
-@NPCClass base(BaseNPC) studio("models/bullsquid.mdl") = npc_bullchicken : "BullChicken" []
+@NPCClass base(BaseNPC) studio("models/icky.mdl") = monster_ichthyosaur : "Ichthyosaur"
+[
+]
+
+@NPCClass base(BaseNPC) studio("models/tentacle.mdl") = monster_tentacle : "Tentacle Arm"
+[
+	sweeparc(integer) : "Sweep Arc" : 130
+	sound(Choices) : "Tap Sound" : -1 =
+	[
+		-1 : "None"
+		0 : "Silo"
+		1 : "Dirt"
+		2 : "Water"
+	]
+]
+
+@NPCClass base(BaseNPC) studio("models/baby_headcrab.mdl") = monster_babycrab : "Baby Headcrab" []
+@NPCClass base(BaseNPC) studio("models/garg.mdl") = monster_gargantua : "Gargantua" []
+@NPCClass base(BaseNPC) studio("models/leech.mdl") = monster_leech : "Leech" []
+@NPCClass base(BaseNPC) studio("models/nihilanth.mdl") = monster_nihilanth : "Nihilanth"  []
+@NPCClass base(BaseNPC) studio("models/roach.mdl") = monster_cockroach : "Cockroach" []
+@NPCClass base(BaseNPC) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken" []
 
 @PointClass base(Weapon) studio("models/w_SQKNEST.mdl") = weapon_snark : "Squeak Grenade" []
 

@@ -57,7 +57,7 @@ enum
 };
 
 
-LINK_ENTITY_TO_CLASS( npc_ichthyosaur, CNPC_IchthyosaurHL );
+LINK_ENTITY_TO_CLASS( monster_ichthyosaur, CNPC_IchthyosaurHL );
 
 BEGIN_DATADESC( CNPC_IchthyosaurHL )
 
@@ -89,7 +89,7 @@ END_DATADESC()
 //=========================================================
 
 
-AI_BEGIN_CUSTOM_NPC( npc_ichthyosaur, CNPC_IchthyosaurHL )
+AI_BEGIN_CUSTOM_NPC( monster_ichthyosaur, CNPC_IchthyosaurHL )
 
 DECLARE_TASK ( TASK_ICHTHYOSAUR_SWIM )
 DECLARE_TASK ( TASK_ICHTHYOSAUR_CIRCLE_ENEMY )

@@ -59,7 +59,7 @@ BEGIN_DATADESC( CNPC_Houndeye )
 	DEFINE_FIELD( m_vecPackCenter, FIELD_POSITION_VECTOR ),
 END_DATADESC()
 
-LINK_ENTITY_TO_CLASS( npc_houndeye, CNPC_Houndeye );
+LINK_ENTITY_TO_CLASS( monster_houndeye, CNPC_Houndeye );
 
 //=========================================================
 // monster-specific tasks
@@ -420,7 +420,7 @@ void CNPC_Houndeye::SonicAttack ( void )
 	{
 		if ( pEntity->m_takedamage  != DAMAGE_NO )
 		{
-			if ( !FClassnameIs(pEntity, "npc_houndeye") )
+			if ( !FClassnameIs(pEntity, "monster_houndeye") )
 			{// houndeyes don't hurt other houndeyes with their attack
 
 				// houndeyes do FULL damage if the ent in question is visible. Half damage otherwise.
