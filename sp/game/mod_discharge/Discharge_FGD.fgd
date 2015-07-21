@@ -122,8 +122,8 @@
 //Discharge/Modded HL2 things
 //----------------------
 
-@PointClass base(Weapon) studio("models/weapons/w_csgo_m4a1.mdl") = weapon_m4a1 : "Kalashnikov" []
-@PointClass base(Weapon) studio("models/weapons/w_wrench.mdl") = weapon_wrench : "PIPE WRENCH" []
+@PointClass base(Weapon) studio("models/weapons/w_csgo_m4a1.mdl") = weapon_m4a1 : "M4A4" []
+@PointClass base(Weapon) studio("models/weapons/w_wrench.mdl") = weapon_wrench : "Pipe Wrench" []
 @PointClass base(Weapon) studio("models/weapons/w_csgo_awp.mdl") = weapon_awp : "AWP" []
 @PointClass base(Weapon) studio("models/weapons/w_mp5.mdl") = weapon_mp5 : "MP5" []
 @PointClass base(Weapon) studio("models/weapons/w_knife_t.mdl") = weapon_knife : "Knife" []
@@ -139,7 +139,7 @@
 		"weapon_crowbar"  : "Crowbar"
 		"weapon_knife"  : "Knife"
 		"weapon_stunstick"  : "Stun Stick"
-		"weapon_wrench"  : "PIPE WRENCH"
+		"weapon_wrench"  : "Pipe Wrench"
 		"0"  : "Nothing"
 	]
 
@@ -193,7 +193,7 @@
 		"weapon_shotgun" : "Shotgun"
 		"weapon_smg1" : "SMG1"
 		"weapon_mp5" : "MP5"
-		"weapon_m4a1" : "Kalashnikov"
+		"weapon_m4a1" : "M4A4"
 		"0" : "Nothing"
 	]
 
@@ -244,25 +244,26 @@
 	[
 		"weapon_smg1" : "SMG1"
 		"weapon_ar2" : "AR2"
+		"weapon_mp5" : "MP5"
 		"weapon_stunstick" : "Stunstick"
 		"weapon_crowbar" : "Crowbar"
-		"weapon_wrench" : "PIPE WRENCH"
-		"weapon_m4a1" : "Kalashnikov"
+		"weapon_wrench" : "Pipe Wrench"
+		"weapon_m4a1" : "M4A4"
 		"weapon_shotgun" : "Shotgun"
 		"weapon_rpg" : "RPG"
 		"0"  : "Nothing"
 	]
 
-	ammosupply(choices) : "Ammo to Resupply (if spawnflag set)" : "SMG1" =
+	ammosupply(choices) : "Ammo to Resupply (if spawnflag set)" : "Pistol" =
 	[
-		"Pistol" : "Pistol"
-		"SMG1" : "SMG1"
-		"SMG1_Grenade" : "SMG1 Grenade"
-		"AR2" : "AR2"
+		"Pistol" : "Glock/MP5"
+		"SMG1" : "UNUSED- SMG1"
+		"SMG1_Grenade" : "MP5 Grenade"
+		"AR2" : "M4A4"
 		"Buckshot" : "Shotgun"
 		"RPG_Round" : "RPG"
 		"Grenade" : "Grenade"
-		"Snark" : "Snarks - Not sure why civilians would have them, but whatever"
+		"Snark" : "Snarks"
 		"XBowBolt" : "Crossbow Bolt"
 	]
 	ammoamount(integer) : "Amount of ammo to give" : 1
@@ -297,6 +298,10 @@
 		"models/humans/group01/male_07.mdl" : "Male 7"
 		"models/humans/group01/male_08.mdl" : "Male 8"
 		"models/humans/group01/male_09.mdl" : "Male 9"
+		"models/humans/group01/male_10.mdl" : "Hostage 1"
+		"models/humans/group01/male_11.mdl" : "Hostage 2"
+		"models/humans/group01/male_12.mdl" : "Hostage 3"
+		"models/humans/group01/male_13.mdl" : "Hostage 4"
 		"models/humans/group01/female_01.mdl" : "Female 1"
 		"models/humans/group01/female_02.mdl" : "Female 2"
 		"models/humans/group01/female_03.mdl" : "Female 3"
@@ -304,7 +309,6 @@
 		"models/humans/group01/female_06.mdl" : "Female 5"
 		"models/humans/group01/female_07.mdl" : "Female 6"
 		"models/humans/male_cheaple.mdl" : "Cheaple Male 1"
-		"models/odessa.mdl" : "Odessa. DO NOT USE."
 	]
 
 	ExpressionOverride(string) : "Facial expression override"
